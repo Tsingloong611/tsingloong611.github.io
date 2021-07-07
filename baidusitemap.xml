@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tsingloong.xyz//a1/</loc>
+    <lastmod>2021-07-07</lastmod>
+  </url>
+  <url>
     <loc>https://tsingloong.xyz//zz/</loc>
     <lastmod>2021-06-25</lastmod>
   </url>
@@ -23,9 +27,5 @@
   <url>
     <loc>https://tsingloong.xyz//a2/</loc>
     <lastmod>2021-02-21</lastmod>
-  </url>
-  <url>
-    <loc>https://tsingloong.xyz//a1/</loc>
-    <lastmod>2021-02-15</lastmod>
   </url>
 </urlset> 
