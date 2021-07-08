@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>正式入驻Afdian</title>
-    <url>//a2/</url>
+    <url>/a2/</url>
     <content><![CDATA[<p>于<code>2021年2月20日 22:01:58（UTC+8）</code>正式入驻<a href="https://afdian.net/feed" title="Afdian">爱发电（Afdian)</a>，非常感谢爱发电平台！ <span id="more"></span>服务器将使用爱发电平台接收无偿赞助。爱发电入口设立在<a href="https://tsingloong.xyz/g1" title="Minecraft Server介绍">Minecraft Server介绍</a>及头像框下方（很抱歉在fontawesome上未能找到爱发电logo,只能以“电池”代替，若有人知道图标名称，还请下方留言，万分感谢！）。<br><a href="https://www.helloimg.com/image/BOdunt"><img src="https://www.helloimg.com/images/2021/02/21/BOdunt.png" alt="BOdunt.png"></a><br><a href="https://www.helloimg.com/image/BO9wdD"><img src="https://www.helloimg.com/images/2021/02/20/BO9wdD.png" alt="BO9wdD.png"></a></p>
 ]]></content>
       <categories>
@@ -14,7 +14,7 @@
   </entry>
   <entry>
     <title>Minecraft Server介绍</title>
-    <url>//g1/</url>
+    <url>/g1/</url>
     <content><![CDATA[<table>
 <thead>
 <tr>
@@ -183,7 +183,7 @@
   </entry>
   <entry>
     <title>Minecraft Server建设</title>
-    <url>//g4/</url>
+    <url>/g4/</url>
     <content><![CDATA[<p><em>优质的玩法，内容铸就一个优秀的服务器。</em><br> <span id="more"></span></p>
 <hr>
 <h1 id="玩法介绍"><a href="#玩法介绍" class="headerlink" title="玩法介绍"></a>玩法介绍</h1><p><em>以下将展示服务器内的种种玩法（活动），若您对某一玩法（活动）有改进意见或希望添加某一新玩法（活动），请于下方留言！</em></p>
@@ -372,7 +372,7 @@
   </entry>
   <entry>
     <title>Minecraft Server规则</title>
-    <url>//g2/</url>
+    <url>/g2/</url>
     <content><![CDATA[<blockquote>
 <p>法则可以避免错误，却决不会赋予美。——塞·约翰逊<br><br/>矩不正，不可为方；规不正，不可为圆。——淮南子</p>
 </blockquote>
@@ -412,7 +412,7 @@
   </entry>
   <entry>
     <title>Minecraft Server处罚</title>
-    <url>//g3/</url>
+    <url>/g3/</url>
     <content><![CDATA[<blockquote>
 <p>法则可以避免错误，却决不会赋予美。——塞·约翰逊<br><br/>矩不正，不可为方；规不正，不可为圆。——淮南子</p>
 </blockquote>
@@ -549,7 +549,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>//a1/</url>
+    <url>/a1/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
