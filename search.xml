@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>正式入驻Afdian</title>
-    <url>//a2/</url>
-    <content><![CDATA[<p>于<code>2021年2月20日 22:01:58（UTC+8）</code>正式入驻<a href="https://afdian.net/feed" title="Afdian">爱发电（Afdian)</a>，非常感谢爱发电平台！ <span id="more"></span>服务器将使用爱发电平台接收无偿赞助。爱发电入口设立在<a href="https://tsingloong.xyz/g1" title="Minecraft Server介绍">Minecraft Server介绍</a>及头像框下方（很抱歉在fontawesome上未能找到爱发电logo,只能以“电池”代替，若有人知道图标名称，还请下方留言，万分感谢！）。<br><a href="https://www.helloimg.com/image/BOdunt"><img src="https://www.helloimg.com/images/2021/02/21/BOdunt.png" alt="BOdunt.png"></a><br><a href="https://www.helloimg.com/image/BO9wdD"><img src="https://www.helloimg.com/images/2021/02/20/BO9wdD.png" alt="BO9wdD.png"></a></p>
-]]></content>
-      <categories>
-        <category>Afdian</category>
-      </categories>
-      <tags>
-        <tag>Afdian</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Minecraft Server介绍</title>
     <url>//g1/</url>
     <content><![CDATA[<div class="table-container">
@@ -165,6 +153,162 @@
 <p>创建时间：2021年2月20日 18:50:51</p>
 <p>最后更新时间：2021年5月15日 14:35:47</p>
 <p><em>本介绍随时更新，最终解释权归服务器管理组所有。</em></p>
+]]></content>
+      <categories>
+        <category>minecraft</category>
+      </categories>
+      <tags>
+        <tag>Minecraft</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Minecraft Server处罚</title>
+    <url>//g3/</url>
+    <content><![CDATA[<blockquote>
+<p>法则可以避免错误，却决不会赋予美。——塞·约翰逊<br><br/>矩不正，不可为方；规不正，不可为圆。——淮南子</p>
+</blockquote>
+<p>我们深知，规矩是必要的，但我们并不希望因一件事而全盘否定一个人…<br> <span id="more"></span></p>
+<h1 id="处罚相关"><a href="#处罚相关" class="headerlink" title="处罚相关"></a><strong>处罚相关</strong></h1><p><em>我们抛弃传统处罚，采用更优质的处罚方式。</em></p>
+<hr>
+<h3 id="处罚原则：软硬兼施，先软后硬"><a href="#处罚原则：软硬兼施，先软后硬" class="headerlink" title="处罚原则：软硬兼施，先软后硬"></a>处罚原则：软硬兼施，先软后硬</h3><h3 id="处罚流程-假设玩家test犯错）"><a href="#处罚流程-假设玩家test犯错）" class="headerlink" title="处罚流程 (假设玩家test犯错）"></a>处罚流程 (假设玩家test犯错）</h3><p>一、管理员接到举报，使用<code>mvtp small_black_room</code>前往监狱，站在监狱审讯大厅使用<code>spawnpoint test</code>设置犯错者重生点。</p>
+<p>二、管理员挑选牢房，记作牢房A，管理员在牢房内使用<code>setjail 牢房代号</code>设置监狱。</p>
+<p>三、管理员使用<code>lp user test promote banned</code>数次，直至系统提醒<br><code>权价banned已到达末端，无法升级test</code>。</p>
+<p>四、管理员使用<code>invsee test</code>取出犯错者tset的背包物品并放置在牢房内的容器内，管理员使用<code>invsee test 1</code>取出犯错者test的装备栏物品并放置在容器内。</p>
+<p>五、管理员使用<code>broadcast 开始逮捕玩家test</code>发布逮捕公告（公告内容随意），随后管理员连用数次<code>lightning test</code>直至犯错者test死亡。</p>
+<p>六、管理员在监狱审讯大厅对犯错者test做有关记录（记录内容：施害者、受害者、入狱时间、牢房代号、事件经过）并存档。</p>
+<p>七、管理员使用<code>togglejail test 牢房代号</code>将犯错者test置入监狱。</p>
+<p><em>玩家入狱后默认永久关押，关押期间玩家除登录、发表言论、使用书与笔外无任何操作权限，若要出狱，需要征得受害者同意或进行申述。</em></p>
+<hr>
+<h3 id="申述流程（假设玩家test申述）"><a href="#申述流程（假设玩家test申述）" class="headerlink" title="申述流程（假设玩家test申述）"></a>申述流程（假设玩家test申述）</h3><p>一、牢房内置讲台与书与笔，玩家按照以下格式填写后将书署名为<code>申述书-test</code>并放置在讲台上，通知管理员即可。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>页码</th>
+<th>内容</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>申述书介绍</td>
+<td>已由管理员填写</td>
+</tr>
+<tr>
+<td>2</td>
+<td>申述人id与申述类型（减刑/释放）</td>
+<td>如实填写</td>
+</tr>
+<tr>
+<td>3-4</td>
+<td>对受害者说的</td>
+<td></td>
+</tr>
+<tr>
+<td>5-6</td>
+<td>对管理员说的</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>二、管理员进行审核，流程如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>审核结果</th>
+<th>下一步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通过</td>
+<td>进入第三步</td>
+</tr>
+<tr>
+<td>未通过</td>
+<td>驳回申述</td>
+</tr>
+<tr>
+<td>被恶心到了</td>
+<td>参考强制措施（下文）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>三、受害者发表意见，流程如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>意见偏向</th>
+<th>下一步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原谅</td>
+<td>释放</td>
+</tr>
+<tr>
+<td>不原谅</td>
+<td>驳回申述</td>
+</tr>
+<tr>
+<td>被恶心到了</td>
+<td>驳回申述</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="强制措施（假设玩家test被严打）"><a href="#强制措施（假设玩家test被严打）" class="headerlink" title="强制措施（假设玩家test被严打）"></a>强制措施（假设玩家test被严打）</h3><p>一、管理员使用<code>nu vote 采取什么措施严打test 措施a 措施b</code>进行全民公投，决定如何严打test。<br>二、具体措施如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方式A</th>
+<th>方式B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>管理员使用<code>ban</code>和<code>banip</code>&lt;/br&gt;对test进行硬ban。</td>
+<td>管理员在<code>small_black_room</code>监狱<br/>审讯大厅放置命令方块，设置<br/>命令为<code>lightning test</code>并放置按<br/>钮，使玩家可以雷击test。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p><a href="https://tsingloong.xyz/g1/" title="传送门">Minecraft Server介绍（引索）传送门</a></p>
+<hr>
+<blockquote>
+<p>我这辈子说过最让人无从反驳的话就是：被子根本不用叠，本来就是摊开来睡的，但这句话第一个被人反驳掉，懂么，这是规矩，人类之所以悲哀，就是有太多规矩……——韩寒《三重门》</p>
+</blockquote>
+<hr>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>更新记录</th>
+<th>说明</th>
+<th>更新时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v1</td>
+<td>发布</td>
+<td>2021年2月15日 16:06:19</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<p>版本：v1</p>
+<p>更新时间：2021年2月15日 16:06:19</p>
+<p><em>本方案随时更新，最终解释权归服务器管理组所有。</em></p>
 ]]></content>
       <categories>
         <category>minecraft</category>
@@ -426,162 +570,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Minecraft Server处罚</title>
-    <url>//g3/</url>
-    <content><![CDATA[<blockquote>
-<p>法则可以避免错误，却决不会赋予美。——塞·约翰逊<br><br/>矩不正，不可为方；规不正，不可为圆。——淮南子</p>
-</blockquote>
-<p>我们深知，规矩是必要的，但我们并不希望因一件事而全盘否定一个人…<br> <span id="more"></span></p>
-<h1 id="处罚相关"><a href="#处罚相关" class="headerlink" title="处罚相关"></a><strong>处罚相关</strong></h1><p><em>我们抛弃传统处罚，采用更优质的处罚方式。</em></p>
-<hr>
-<h3 id="处罚原则：软硬兼施，先软后硬"><a href="#处罚原则：软硬兼施，先软后硬" class="headerlink" title="处罚原则：软硬兼施，先软后硬"></a>处罚原则：软硬兼施，先软后硬</h3><h3 id="处罚流程-假设玩家test犯错）"><a href="#处罚流程-假设玩家test犯错）" class="headerlink" title="处罚流程 (假设玩家test犯错）"></a>处罚流程 (假设玩家test犯错）</h3><p>一、管理员接到举报，使用<code>mvtp small_black_room</code>前往监狱，站在监狱审讯大厅使用<code>spawnpoint test</code>设置犯错者重生点。</p>
-<p>二、管理员挑选牢房，记作牢房A，管理员在牢房内使用<code>setjail 牢房代号</code>设置监狱。</p>
-<p>三、管理员使用<code>lp user test promote banned</code>数次，直至系统提醒<br><code>权价banned已到达末端，无法升级test</code>。</p>
-<p>四、管理员使用<code>invsee test</code>取出犯错者tset的背包物品并放置在牢房内的容器内，管理员使用<code>invsee test 1</code>取出犯错者test的装备栏物品并放置在容器内。</p>
-<p>五、管理员使用<code>broadcast 开始逮捕玩家test</code>发布逮捕公告（公告内容随意），随后管理员连用数次<code>lightning test</code>直至犯错者test死亡。</p>
-<p>六、管理员在监狱审讯大厅对犯错者test做有关记录（记录内容：施害者、受害者、入狱时间、牢房代号、事件经过）并存档。</p>
-<p>七、管理员使用<code>togglejail test 牢房代号</code>将犯错者test置入监狱。</p>
-<p><em>玩家入狱后默认永久关押，关押期间玩家除登录、发表言论、使用书与笔外无任何操作权限，若要出狱，需要征得受害者同意或进行申述。</em></p>
-<hr>
-<h3 id="申述流程（假设玩家test申述）"><a href="#申述流程（假设玩家test申述）" class="headerlink" title="申述流程（假设玩家test申述）"></a>申述流程（假设玩家test申述）</h3><p>一、牢房内置讲台与书与笔，玩家按照以下格式填写后将书署名为<code>申述书-test</code>并放置在讲台上，通知管理员即可。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>页码</th>
-<th>内容</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>申述书介绍</td>
-<td>已由管理员填写</td>
-</tr>
-<tr>
-<td>2</td>
-<td>申述人id与申述类型（减刑/释放）</td>
-<td>如实填写</td>
-</tr>
-<tr>
-<td>3-4</td>
-<td>对受害者说的</td>
-<td></td>
-</tr>
-<tr>
-<td>5-6</td>
-<td>对管理员说的</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>二、管理员进行审核，流程如下：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>审核结果</th>
-<th>下一步</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>通过</td>
-<td>进入第三步</td>
-</tr>
-<tr>
-<td>未通过</td>
-<td>驳回申述</td>
-</tr>
-<tr>
-<td>被恶心到了</td>
-<td>参考强制措施（下文）</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>三、受害者发表意见，流程如下：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>意见偏向</th>
-<th>下一步</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>原谅</td>
-<td>释放</td>
-</tr>
-<tr>
-<td>不原谅</td>
-<td>驳回申述</td>
-</tr>
-<tr>
-<td>被恶心到了</td>
-<td>驳回申述</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<h3 id="强制措施（假设玩家test被严打）"><a href="#强制措施（假设玩家test被严打）" class="headerlink" title="强制措施（假设玩家test被严打）"></a>强制措施（假设玩家test被严打）</h3><p>一、管理员使用<code>nu vote 采取什么措施严打test 措施a 措施b</code>进行全民公投，决定如何严打test。<br>二、具体措施如下：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>方式A</th>
-<th>方式B</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>管理员使用<code>ban</code>和<code>banip</code>&lt;/br&gt;对test进行硬ban。</td>
-<td>管理员在<code>small_black_room</code>监狱<br/>审讯大厅放置命令方块，设置<br/>命令为<code>lightning test</code>并放置按<br/>钮，使玩家可以雷击test。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<p><a href="https://tsingloong.xyz/g1/" title="传送门">Minecraft Server介绍（引索）传送门</a></p>
-<hr>
-<blockquote>
-<p>我这辈子说过最让人无从反驳的话就是：被子根本不用叠，本来就是摊开来睡的，但这句话第一个被人反驳掉，懂么，这是规矩，人类之所以悲哀，就是有太多规矩……——韩寒《三重门》</p>
-</blockquote>
-<hr>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>更新记录</th>
-<th>说明</th>
-<th>更新时间</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v1</td>
-<td>发布</td>
-<td>2021年2月15日 16:06:19</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<p>版本：v1</p>
-<p>更新时间：2021年2月15日 16:06:19</p>
-<p><em>本方案随时更新，最终解释权归服务器管理组所有。</em></p>
-]]></content>
-      <categories>
-        <category>minecraft</category>
-      </categories>
-      <tags>
-        <tag>Minecraft</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>//a1/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -594,5 +582,17 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>正式入驻Afdian</title>
+    <url>//a2/</url>
+    <content><![CDATA[<p>于<code>2021年2月20日 22:01:58（UTC+8）</code>正式入驻<a href="https://afdian.net/feed" title="Afdian">爱发电（Afdian)</a>，非常感谢爱发电平台！ <span id="more"></span>服务器将使用爱发电平台接收无偿赞助。爱发电入口设立在<a href="https://tsingloong.xyz/g1" title="Minecraft Server介绍">Minecraft Server介绍</a>及头像框下方（很抱歉在fontawesome上未能找到爱发电logo,只能以“电池”代替，若有人知道图标名称，还请下方留言，万分感谢！）。<br><a href="https://www.helloimg.com/image/BOdunt"><img src="https://www.helloimg.com/images/2021/02/21/BOdunt.png" alt="BOdunt.png"></a><br><a href="https://www.helloimg.com/image/BO9wdD"><img src="https://www.helloimg.com/images/2021/02/20/BO9wdD.png" alt="BO9wdD.png"></a></p>
+]]></content>
+      <categories>
+        <category>Afdian</category>
+      </categories>
+      <tags>
+        <tag>Afdian</tag>
+      </tags>
   </entry>
 </search>
