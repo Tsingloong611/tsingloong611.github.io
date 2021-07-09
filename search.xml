@@ -3,7 +3,9 @@
   <entry>
     <title>Minecraft Server介绍</title>
     <url>//g1/</url>
-    <content><![CDATA[<div class="table-container">
+    <content><![CDATA[<span class='p center logo large'>Minecraft</span>
+<span class='p center small'>一个小型Minecraft Server的介绍。</span>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -164,10 +166,11 @@
   <entry>
     <title>Minecraft Server处罚</title>
     <url>//g3/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<span class='p center logo large'>Minecraft</span>
+<span class='p center small'>我们深知，规矩是必要的，但我们并不希望因一件事而全盘否定一个人...</span>
+<blockquote>
 <p>法则可以避免错误，却决不会赋予美。——塞·约翰逊<br><br/>矩不正，不可为方；规不正，不可为圆。——淮南子</p>
 </blockquote>
-<p>我们深知，规矩是必要的，但我们并不希望因一件事而全盘否定一个人…<br> <span id="more"></span></p>
 <h1 id="处罚相关"><a href="#处罚相关" class="headerlink" title="处罚相关"></a><strong>处罚相关</strong></h1><p><em>我们抛弃传统处罚，采用更优质的处罚方式。</em></p>
 <hr>
 <h3 id="处罚原则：软硬兼施，先软后硬"><a href="#处罚原则：软硬兼施，先软后硬" class="headerlink" title="处罚原则：软硬兼施，先软后硬"></a>处罚原则：软硬兼施，先软后硬</h3><h3 id="处罚流程-假设玩家test犯错）"><a href="#处罚流程-假设玩家test犯错）" class="headerlink" title="处罚流程 (假设玩家test犯错）"></a>处罚流程 (假设玩家test犯错）</h3><p>一、管理员接到举报，使用<code>mvtp small_black_room</code>前往监狱，站在监狱审讯大厅使用<code>spawnpoint test</code>设置犯错者重生点。</p>
@@ -320,8 +323,9 @@
   <entry>
     <title>Minecraft Server建设</title>
     <url>//g4/</url>
-    <content><![CDATA[<p><em>优质的玩法，内容铸就一个优秀的服务器。</em></p>
-<h2 id=""><a href="#" class="headerlink" title=" "></a> <span id="more"></span></h2><h1 id="玩法介绍"><a href="#玩法介绍" class="headerlink" title="玩法介绍"></a>玩法介绍</h1><p><em>以下将展示服务器内的种种玩法（活动），若您对某一玩法（活动）有改进意见或希望添加某一新玩法（活动），请于下方留言！</em></p>
+    <content><![CDATA[<span class='p center logo large'>Minecraft</span>
+<span class='p center small'>优质的玩法，内容铸就一个优秀的服务器。</span>
+<h1 id="玩法介绍"><a href="#玩法介绍" class="headerlink" title="玩法介绍"></a>玩法介绍</h1><p><em>以下将展示服务器内的种种玩法（活动），若您对某一玩法（活动）有改进意见或希望添加某一新玩法（活动），请于下方留言！</em></p>
 <div class="table-container">
 <table>
 <thead>
@@ -528,10 +532,11 @@
   <entry>
     <title>Minecraft Server规则</title>
     <url>//g2/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<span class='p center logo large'>Minecraft</span>
+<span class='p center small'>我们深知，自由与规矩密不可分，我们会尽全力寻找自由与规矩的平衡点以提供给各位玩家更好的游戏体验！</span>
+<blockquote>
 <p>法则可以避免错误，却决不会赋予美。——塞·约翰逊<br><br/>矩不正，不可为方；规不正，不可为圆。——淮南子</p>
 </blockquote>
-<p>我们深知，自由与规矩密不可分，我们会尽全力寻找自由与规矩的平衡点以提供给各位玩家更好的游戏体验！<br> <span id="more"></span></p>
 <h1 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h1><p><em>违反将受到<a href="https://tsingloong.xyz/g3" title="处罚措施">处罚</a>！</em></p>
 <p>一、禁止无意义刷屏。</p>
 <p>二、禁止任何形式作弊。</p>
