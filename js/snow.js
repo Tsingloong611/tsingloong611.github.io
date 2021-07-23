@@ -36,8 +36,8 @@ function snowCanvas() {
     /* 添加Dom结点 */
     var snowcanvas = document.createElement("canvas");
     snowcanvas.id = "snowfall";
-    snowcanvas.width = document.body.scrollWidth;
-    snowcanvas.height = document.body.scrollHeight;
+    snowcanvas.width = window.innerWidth;
+    snowcanvas.height = window.innerHeight;
     snowcanvas.setAttribute("style", "position:absolute; top: 0; left: 0; z-index: 1; pointer-events: none;");
     document.getElementsByTagName("body")[0].appendChild(snowcanvas);
     this.canvas = snowcanvas;
