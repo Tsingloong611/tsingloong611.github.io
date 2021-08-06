@@ -176,6 +176,90 @@
       </tags>
   </entry>
   <entry>
+    <title>Robot</title>
+    <url>//bot/</url>
+    <content><![CDATA[<span class='p center logo large'>Project_2</span>
+<span class='p center small'>机器人开发计划</span>
+<div class="progress"><div class="progress-bar-animated progress-bar progress-bar-striped bg-cyan"  style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><p>完成度</p></div></div>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><div class="tabs" id="前言"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#前言-1">为什么要写Robot?</button></li><li class="tab"><button type="button" data-href="#前言-2">鸣谢</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="前言-1"><p style="text-indent:2em">其实几年前就有这个想法，但由于水平不够+懒+仅仅出于兴趣就没搞，今年年初了解到酷Q项目的停止，就觉得可惜，深感自己再不行动可能就会让玩机器人的梦永远只是个梦，也算是实现一个几年前的梦想吧...</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="前言-2"><p><p class='p center small'>感谢以下项目，让我得以实现一个小梦想</p></p>
+<div class="site-card-group"><a class="site-card" href="https://github.com/mamoe/mirai"><div class="img"><img src="https://www.helloimg.com/images/2021/08/06/CtBl7A.png"/></div><div class="info"><img src="https://www.helloimg.com/images/2021/08/06/CtBtvg.png"/><span class="title">Mirai</span><span class="desc">Mirai官方</span></div></a>
+<a class="site-card" href="https://www.python.org/"><div class="img"><img src="https://www.helloimg.com/images/2021/08/06/CtB2C5.png"/></div><div class="info"><img src="https://www.helloimg.com/images/2021/08/06/CtBWwm.png"/><span class="title">Python</span><span class="desc">Python官网</span></div></a>
+<a class="site-card" href="https://github.com/project-mirai/mirai-api-http"><div class="img"><img src="https://www.helloimg.com/images/2021/08/06/CtBl7A.png"/></div><div class="info"><img src="https://www.helloimg.com/images/2021/08/06/CtBtvg.png"/><span class="title">mirai-api-http</span><span class="desc">Mirai官方团队开发的插件</span></div></a>
+<a class="site-card" href="https://github.com/GraiaProject/Application"><div class="img"><img src="https://www.helloimg.com/images/2021/08/06/CtBTt0.png"/></div><div class="info"><span class="title">Graia Framework</span><span class="desc">GreyElaina 的作品之一</span></div></a></div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><div class="tabs" id="准备工作"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#准备工作-1">准备一个QQ号</button></li><li class="tab"><button type="button" data-href="#准备工作-2">运行Mirai</button></li><li class="tab"><button type="button" data-href="#准备工作-3">调试</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="准备工作-1"><p style="text-indent:2em">需要强调的是腾讯的风控策略，新注册的小号应在即将运行的服务器上挂载一个月左右时间，否则容易被封禁。<span class='p red'>不建议使用大号！！！</span></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="准备工作-2"><div class="tag link"><a class="link-card" title="Mirai官方教程贴" href="https://docs.mirai.mamoe.net/"><div class="left"><img src="https://www.helloimg.com/images/2021/08/06/CtBtvg.png"/></div><div class="right"><p class="text">Mirai官方教程贴</p><p class="url">https://docs.mirai.mamoe.net/</p></div></a></div>
+
+
+<p><span class='p center cyan'>请参考以上教程贴完成Mirai的运行（启动控制台）</span></p>
+<div class="note success simple"><p>如果你遵循以上教程安装了最新的MCL,那么Java及mirai-api-http均已自动附加。</p>
+</div>
+<div class="note info simple"><p>若你没有Java或mirai-api-http请手动附加，对此存疑请百度。</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="准备工作-3"><p style="text-indent:2em">在上一步操作中，我们启动了Mirai控制台，现在我们需要进行一些调试。</p><p style="text-indent:2em"> 请在控制台输入"/login qq账号 qq密码",完成滑块验证，完成登录。</p>
+
+
+<div class="note success simple"><p>如果你已经完成了这三步操作，那么恭喜你，你离成功很近了！</p>
+</div>
+
+
+<div class="note info simple"><p>若无法登录，下面的步骤便失去意义。请在所登录设备上安装官方QQ并登录挂机，约一个月后再次尝试。</p>
+</div><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><div class="note info simple"><p>现在你有两个选择，使用现成插件或自行构建插件，这里只介绍后者。</p>
+</div>
+<div class="tabs" id="使用方法"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#使用方法-1">安装Python并进行配置</button></li><li class="tab"><button type="button" data-href="#使用方法-2">Hello World</button></li><li class="tab"><button type="button" data-href="#使用方法-3">进阶</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="使用方法-1"><p style="text-indent:2em">Python的安装略过，如有疑问请百度。</p>
+<p style="text-indent:2em">这里我们使用“Graia Framework”开发应用，请先阅读其开发文档。</p>
+<div class="tag link"><a class="link-card" title="Graia Framework官方文档" href="https://graia-document.vercel.app/docs/intro"><div class="left"><img src="https://www.helloimg.com/images/2021/08/06/CtB74o.png"/></div><div class="right"><p class="text">Graia Framework官方文档</p><p class="url">https://graia-document.vercel.app/docs/intro</p></div></a></div>
+
+
+<p style="text-indent:2em">首先确定mirai-api-http版本为1.x,若不是，请替换为1.x。运行MCL,修改mirai-api-http配置文件中的authKey，其值任意取，记住该值。</p>
+<p style="text-indent:2em">在命令行（cmd）中使用</p>
+
+
+<pre><code>pip install graia-application-mirai==0.18.3
+pip install graia-broadcast==0.8.11
+</code></pre><p style="text-indent:2em">安装必要依赖。</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="使用方法-2"><p style="text-indent:2em">新建bot.py,对内容进行编辑。</p>
+
+
+<pre><code>from graia.broadcast import Broadcast
+from graia.application import GraiaMiraiApplication, Session
+from graia.application.message.chain import MessageChain
+import asyncio
+
+from graia.application.message.elements.internal import Plain
+from graia.application.friend import Friend
+
+loop = asyncio.get_event_loop()
+
+bcc = Broadcast(loop=loop)
+app = GraiaMiraiApplication(
+    broadcast=bcc,
+    connect_info=Session(
+        host=&quot;http://localhost:8080&quot;, # 填入 httpapi 服务运行的地址
+        authKey=&quot;graia-mirai-api-http-authkey&quot;, # 填入 authKey(上一步中让你改的）
+        account=5234120587, # 你的机器人的 qq 号
+        websocket=True # Graia 已经可以根据所配置的消息接收的方式来保证消息接收部分的正常运作.
+    )
+)
+
+@bcc.receiver(&quot;FriendMessage&quot;)
+async def friend_message_listener(app: GraiaMiraiApplication, friend: Friend):
+    await app.sendFriendMessage(friend, MessageChain.create([
+        Plain(&quot;Hello, World!&quot;)
+    ]))
+
+app.launch_blocking()
+</code></pre><p style="text-indent:2em">该程序效果为：当接收到好友消息时，向当前好友发送"Hello,World!"</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="使用方法-3"><p>待完善</p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h1 id="相关日志"><a href="#相关日志" class="headerlink" title="相关日志"></a>相关日志</h1><div class="timeline">
+<div class="timenode"><div class="meta"><p><p>2021/8/6 21:09:09 [1.0]</p>
+</p></div><div class="body"><ol><li>发布。</li></ol></div></div>
+</div>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Minecraft Server建设</title>
     <url>//g4/</url>
     <content><![CDATA[<span class='p center logo large'>Minecraft</span>
