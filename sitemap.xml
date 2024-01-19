@@ -2,18 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tsingloong.xyz/zz/</loc>
+    <loc>https://tsingloong.xyz/about/index.html</loc>
     
-    <lastmod>2023-10-01</lastmod>
+    <lastmod>2024-01-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://tsingloong.xyz/about/index.html</loc>
+    <loc>https://tsingloong.xyz/zz/</loc>
     
-    <lastmod>2023-09-26</lastmod>
+    <lastmod>2023-10-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -38,36 +38,9 @@
   </url>
   
   <url>
-    <loc>https://tsingloong.xyz/dog/</loc>
-    
-    <lastmod>2022-11-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tsingloong.xyz/Gemini/</loc>
-    
-    <lastmod>2022-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tsingloong.xyz/index/</loc>
     
     <lastmod>2022-10-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tsingloong.xyz/init/</loc>
-    
-    <lastmod>2022-10-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -202,7 +175,7 @@
 
   <url>
     <loc>https://tsingloong.xyz/</loc>
-    <lastmod>2023-10-02</lastmod>
+    <lastmod>2024-01-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -210,21 +183,21 @@
   
   <url>
     <loc>https://tsingloong.xyz/tags/Minecraft/</loc>
-    <lastmod>2023-10-02</lastmod>
+    <lastmod>2024-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tsingloong.xyz/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2023-10-02</lastmod>
+    <lastmod>2024-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tsingloong.xyz/tags/Afdian/</loc>
-    <lastmod>2023-10-02</lastmod>
+    <lastmod>2024-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -233,21 +206,21 @@
   
   <url>
     <loc>https://tsingloong.xyz/categories/minecraft/</loc>
-    <lastmod>2023-10-02</lastmod>
+    <lastmod>2024-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tsingloong.xyz/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2023-10-02</lastmod>
+    <lastmod>2024-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tsingloong.xyz/categories/Afdian/</loc>
-    <lastmod>2023-10-02</lastmod>
+    <lastmod>2024-01-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
