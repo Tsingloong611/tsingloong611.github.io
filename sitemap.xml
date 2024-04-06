@@ -4,7 +4,25 @@
   <url>
     <loc>https://tsingloong.xyz/about/index.html</loc>
     
-    <lastmod>2024-01-19</lastmod>
+    <lastmod>2024-04-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tsingloong.xyz/link/index.html</loc>
+    
+    <lastmod>2024-04-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tsingloong.xyz/cluo2g115001jcsukhx3qag14/</loc>
+    
+    <lastmod>2024-01-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -137,15 +155,6 @@
   </url>
   
   <url>
-    <loc>https://tsingloong.xyz/link/index.html</loc>
-    
-    <lastmod>2021-07-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tsingloong.xyz/categories/index.html</loc>
     
     <lastmod>2021-07-07</lastmod>
@@ -175,7 +184,7 @@
 
   <url>
     <loc>https://tsingloong.xyz/</loc>
-    <lastmod>2024-01-19</lastmod>
+    <lastmod>2024-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -183,21 +192,21 @@
   
   <url>
     <loc>https://tsingloong.xyz/tags/Minecraft/</loc>
-    <lastmod>2024-01-19</lastmod>
+    <lastmod>2024-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tsingloong.xyz/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2024-01-19</lastmod>
+    <lastmod>2024-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tsingloong.xyz/tags/Afdian/</loc>
-    <lastmod>2024-01-19</lastmod>
+    <lastmod>2024-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -206,21 +215,21 @@
   
   <url>
     <loc>https://tsingloong.xyz/categories/minecraft/</loc>
-    <lastmod>2024-01-19</lastmod>
+    <lastmod>2024-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tsingloong.xyz/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2024-01-19</lastmod>
+    <lastmod>2024-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://tsingloong.xyz/categories/Afdian/</loc>
-    <lastmod>2024-01-19</lastmod>
+    <lastmod>2024-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
