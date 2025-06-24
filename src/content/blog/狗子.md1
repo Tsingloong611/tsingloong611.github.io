@@ -1,0 +1,30 @@
+---
+title: 狗子，我的一生挚爱
+date: 2022/11/24 21:14:09
+id: dog
+tags: 生活
+type: "生活"
+categories: 生活
+description: 谁不爱可可爱爱的狗狗呢？
+---
+{% span center small, 我想给我亲爱的狗子做传！ %}
+# 前言 #
+*疫情封控，家中只有我和狗子的生活已有些时日。*
+昨日英语考试，作文题为:“My pet”,不禁忆起陈年往事，一时兴起，有了这篇文章。
+# 大门无端敞开，闹鬼？ #
+作文内容，真实事件。（满分15得了14分，还不错嘻嘻）
+[![Zjd9UA.md.jpg](https://www.helloimg.com/images/2022/11/24/Zjd9UA.md.jpg)](https://www.helloimg.com/image/Zjd9UA)
+# 狗子美照 #
+[![Zjdlv6.md.jpg](https://www.helloimg.com/images/2022/11/24/Zjdlv6.md.jpg)](https://www.helloimg.com/image/Zjdlv6)
+[![ZjdMfn.md.jpg](https://www.helloimg.com/images/2022/11/24/ZjdMfn.md.jpg)](https://www.helloimg.com/image/ZjdMfn)
+# 相关日志 #
+{% timeline %}
+
+<!-- timeline 2022/11/24 21:14:09  [1.0]  -->
+
+1. 初版
+
+
+<!-- endtimeline -->
+
+{% endtimeline %}
