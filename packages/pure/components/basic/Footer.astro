@@ -1,13 +1,11 @@
 ---
 import config from 'virtual:config'
-
 import { Icon } from 'astro-pure/user'
 
 const year = new Date().getFullYear()
 const footerConf = config.footer
 let social = footerConf.social || {}
 
-// If the list does not contain rss, add it
 social.rss = {
   label: 'RSS',
   url: '/rss.xml'
@@ -15,6 +13,7 @@ social.rss = {
 
 const footerLink1 = footerConf.links?.filter(({ pos }) => pos === 1) || []
 ---
+
 
 <footer class='mx-auto mb-5 mt-16'>
   <div class='border-t pt-5'>

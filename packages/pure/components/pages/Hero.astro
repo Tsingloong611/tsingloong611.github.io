@@ -59,7 +59,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
     {/* Article date */}
     <div class='flex items-center gap-1'>
       <Icon name='calendar' class='size-5' />
-      <FormattedDate class='font-sans' date={publishDate} dateTimeOptions={dateTimeOptions} />
+      <FormattedDate class='font-sans' date={publishDate ?? new Date()} dateTimeOptions={dateTimeOptions} />
       {
         updatedDate && (
           <div class='flex items-center gap-1'>

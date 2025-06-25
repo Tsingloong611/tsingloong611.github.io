@@ -59,7 +59,7 @@ if (!images[imagePath])
     
     {tags && tags.length > 0 && (
       <div class="mt-4 flex flex-wrap gap-2">
-        {tags.map(tag => (
+        {tags.map((tag: string) => (
           <span class="rounded-full bg-white/15 px-2.5 py-0.5 text-xs font-medium">
             {tag}
           </span>

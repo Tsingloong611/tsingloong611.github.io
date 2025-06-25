@@ -47,7 +47,7 @@ export function sortMDByDate(collections: Collections): Collections {
 
 /** Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so. */
 export function getAllTags(collections: Collections) {
-  return collections.flatMap((collection) => [...collection.data.tags])
+  return collections.flatMap((collection) => [...(collection.data.tags ?? [])])
 }
 
 /** Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so. */

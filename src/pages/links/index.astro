@@ -78,7 +78,6 @@ const linksConf = config.integ.links
               </div>
               <iframe
                 frameborder="no"
-                border="0"
                 marginwidth="0"
                 marginheight="0"
                 width="100%"
@@ -113,7 +112,7 @@ const linksConf = config.integ.links
           <span class="text-green-500 dark:text-cyan-400 text-xl">></span>
           <h2 class="text-2xl font-bold text-slate-900 dark:text-green-100">./friends</h2>
           <div class="flex-1 h-px bg-slate-300 dark:bg-green-500/30"></div>
-          <span class="text-slate-500 dark:text-green-600 text-sm">{friends[0].length} entries</span>
+          <span class="text-slate-500 dark:text-green-600 text-sm">{friends[0].link_list.length} entries</span>
         </div>
         
         <!-- Description -->
@@ -135,7 +134,7 @@ const linksConf = config.integ.links
           <span class="text-yellow-500 dark:text-cyan-400 text-xl">></span>
           <h2 class="text-2xl font-bold text-slate-900 dark:text-green-100">./special</h2>
           <div class="flex-1 h-px bg-slate-300 dark:bg-green-500/30"></div>
-          <span class="text-slate-500 dark:text-green-600 text-sm">{friends[2].length} entries</span>
+          <span class="text-slate-500 dark:text-green-600 text-sm">{friends[2].link_list.length} entries</span>
         </div>
         
         <!-- Description -->
@@ -191,7 +190,7 @@ const linksConf = config.integ.links
                           class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-white dark:text-green-500 dark:hover:text-green-300 transition-all"
                           title="Copy"
                         >
-                          <Icon name="copy" class="w-3 h-3" />
+                          <Icon name="link" class="w-3 h-3" />
                         </button>
                       </div>
                     </div>
