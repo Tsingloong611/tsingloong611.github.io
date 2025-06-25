@@ -11,10 +11,11 @@ import Section from '@/components/home/Section.astro'
 import SkillLayout from '@/components/home/SkillLayout.astro'
 import avatar from '@/assets/avatar.png'
 import config from '@/site-config'
-
-const languages = ['Html', 'JavaScript', 'CSS', 'Shell']
-const frontend = ['TypeScript', 'Vite', 'Webpack', 'Astro']
-const backend = ['Vercel', 'Waline']
+import { Timeline } from 'astro-pure/user'
+import GraduationCap from '@/assets/icons/graduation-cap.svg'
+const languages = ['Python', 'JavaScript', 'Java','Cpp', 'HTML', 'CSS', 'Markdown']
+const frontend = ['Astro', 'Hexo']
+const tools = ['Git', 'GitHub', 'VS Code', 'Pycharm', 'IDEA', 'Node.js', 'npm']
 
 const MAX_POSTS = 10
 const allPosts = await getBlogCollection()
@@ -38,151 +39,181 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS)
             <Icon name='location' class='size-5' slot='icon' />
           </Label>
           <Label
-            title='Source code'
+            title='GitHub Profile'
             as='a'
-            href='https://github.com/cworld1/astro-theme-pure'
+            href='https://github.com/Tsingloong611'
             target='_blank'
           >
             <Icon name='github' class='size-5' slot='icon' />
           </Label>
+          <Label title='Shanghai University'>
+            <GraduationCap class='size-5' slot='icon' />
+          </Label>
         </div>
       </div>
 
-      {/* Get template */}
       <a
-        href='https://github.com/cworld1/astro-theme-pure'
+        href='https://tsingloong.xyz'
         target='_blank'
         class='flex flex-row items-center gap-x-3 rounded-full border bg-background px-4 py-2 text-sm shadow-sm transition-shadow hover:shadow-md'
       >
         <span class='relative flex items-center justify-center'>
-          <span
-            class='absolute size-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75'
-          ></span>
-          <span class='size-2 rounded-full bg-green-400'></span>
+          <span class='absolute size-2 animate-ping rounded-full border border-blue-400 bg-blue-400 opacity-75'></span>
+          <span class='size-2 rounded-full bg-blue-400'></span>
         </span>
-        <p class='font-medium text-muted-foreground'>Get Template</p>
+        <p class='font-medium text-muted-foreground'>Visit My Blog</p>
       </a>
     </section>
 
     <div id='content' class='animate flex flex-col gap-y-10 md:w-4/5 lg:w-5/6'>
       <Section title='About'>
-        <p class='text-muted-foreground'>Developer / Designer</p>
+        <p class='text-muted-foreground'>MIS Student @ Shanghai University</p>
         <p class='text-muted-foreground'>
-          Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione
-          indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel,
-          at eum oratio possit voluptatum.
+          Hi, I'm a 2023 undergraduate majoring in Information Management and Information Systems at Shanghai University. 
+          I graduated from Shuocheng No.1 High School, among the second-to-last cohorts to take the traditional Science comprehensive exam before China's educational reform to the 3+1+2 system.
+        </p>
+        <p class='text-muted-foreground'>
+          Currently exploring machine learning, data analysis, and modern information systems. 
+          Passionate about learning new technologies and sharing knowledge through my blog.
         </p>
         <Button title='More about me' class='w-fit self-end' href='/about' style='ahead' />
       </Section>
-      {
-        allPostsByDate.length > 0 && (
-          <Section title='Posts'>
-            <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
-              {allPostsByDate.map((p) => (
-                <li class='flex flex-col gap-x-2 sm:flex-row'>
-                  <PostPreview post={p} />
-                </li>
-              ))}
-            </ul>
-            <Button title='More posts' class='w-fit self-end' href='/blog' style='ahead' />
-          </Section>
-        )
-      }
 
-      {
-        /* <Section title='Experience'>
-      <Card
-        heading='Lorem Ipsum'
-        subheading='Sit amet consectetur'
-        date='Dec 2022 - Nov 2023'
-        imagePath='/src/assets/about-astro.png'
-        altText='Lorem, ipsum dolor sit'
-        imageClass='h-12 w-auto md:-start-16'
-      >
-        <ul class='ms-4 list-disc text-muted-foreground'>
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
-            molestiae laboriosam pariatur!
+      {allPostsByDate.length > 0 && (
+        <Section title='Posts'>
+          <ul class='flex flex-col gap-y-1.5 sm:gap-y-2'>
+            {allPostsByDate.map((p) => (
+              <li class='flex flex-col gap-x-2 sm:flex-row'>
+                <PostPreview post={p} />
+              </li>
+            ))}
+          </ul>
+          <Button title='View all posts' class='w-fit self-end' href='/blog' style='ahead' />
+        </Section>
+      )}
 
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-          </li>
-        </ul>
-      </Card>
-      <Card
-        heading='Lorem Ipsum'
-        subheading='Sit amet consectetur'
-        date='Dec 2022 - Nov 2023'
-        imagePath='/src/assets/about-astro.png'
-        altText='Lorem, ipsum dolor sit'
-        imageClass='h-12 w-auto md:-start-16'
-      />
-    </Section> */
-      }
       <Section title='Education'>
         <Card
           as='a'
-          heading='Lorem ipsum'
-          subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.'
-          date='August 2021 - July 2025'
-          href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+          heading='Shanghai University'
+          subheading='Information Management and Information Systems'
+          date='Sept 2023 - Present'
+          href='https://www.shu.edu.cn/'
         >
-          {
-            /* <ul class='ms-4 list-disc text-muted-foreground'>
-          <li>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
-            molestiae laboriosam pariatur!
-          </li>
-          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
-        </ul> */
-          }
+          <img
+            class='absolute right-4 bottom-4 z-0 h-16 w-16 object-contain opacity-30'
+            src='/src/assets/shu-logo.png'
+            alt='Shanghai University Logo'
+          />
         </Card>
-      </Section>
 
-      <Section title='Website List'>
+        <Card
+          as='a'
+          heading='Shuocheng No.1 High School'
+          subheading='Science Track — Second-to-Last Science Comprehensive Cohort'
+          date='Sept 2020 - July 2023'
+          href='https://zh.wikipedia.org/wiki/%E6%9C%94%E5%B7%9E%E5%B8%82%E6%9C%94%E5%9F%8E%E5%8C%BA%E7%AC%AC%E4%B8%80%E4%B8%AD%E5%AD%A6%E6%A0%A1'
+        >
+          <img
+            class='absolute right-4 bottom-4 z-0 h-16 w-16 object-contain opacity-30'
+            src='/src/assets/shuocheng-logo.png'
+            alt='Shuocheng No.1 High School Logo'
+          />
+        </Card>
+
+      </Section>
+      <Section title='Projects'>
         <div class='grid grid-cols-1 gap-3 sm:grid-cols-2'>
           <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='dolor sit amet, oratio ornatus explicari pro ex'
-            imagePath='/src/assets/projects/alex-tyson-2BAXJ7ha74s-unsplash.jpg'
+            href='https://tsingloong.xyz'
+            heading='Personal Blog'
+            subheading='Built with Astro + Pure Theme'
+            imagePath='/src/assets/projects/blog-preview.jpg'
+            tags={['Blog', 'Astro', 'Knowledge Sharing']}
           />
           <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='dolor sit amet, oratio ornatus explicari pro ex'
-            imagePath='/src/assets/projects/angelica-teran-Bk9hpaXHK4o-unsplash.jpg'
-          />
-          <ProjectCard
-            href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-            heading='Lorem ipsum'
-            subheading='dolor sit amet, oratio ornatus explicari pro ex'
-            imagePath='/src/assets/projects/kseniia-zapiatkina-yATU3rg8tNI-unsplash.jpg'
+            href='https://github.com/Tsingloong611'
+            heading='GitHub Profile'
+            subheading='Code repositories and projects'
+            imagePath='/src/assets/projects/github-preview.jpg'
+            tags={['Code', 'Projects', 'Open Source', 'Git']}
           />
           <ProjectCard
             href='/projects'
-            heading='More projects'
-            subheading='Check out more projects'
-            imagePath='/src/assets/projects/wen-qiao-g_w8I64FiO0-unsplash.jpg'
+            heading='Project Showcase'
+            subheading='Learning journey and achievements'
+            imagePath='/src/assets/projects/projects-preview.jpg'
+            tags={['Portfolio', 'Showcase', 'Web Dev']}
+          />
+          <ProjectCard
+            href='/links'
+            heading='Friend Links'
+            subheading='Connect with fellow bloggers'
+            imagePath='/src/assets/projects/friends-preview.jpg'
+            tags={['Friends', 'Community', 'Bloggers']}
           />
         </div>
       </Section>
 
       <Section title='Certifications'>
-        <Card
-          as='a'
-          heading='Lorem ipsum'
-          subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio possit voluptatum. Dicat ceteros cu vim. Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.'
-          date='July 2024'
-          href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-        />
+        <div class="flex flex-col gap-y-3">
+          <!-- <Card as='a' href='https://ncre.neea.edu.cn/' target='_blank' class="block p-4 transition duration-300 ease-in-out hover:bg-muted/50 hover:shadow-sm">
+            <div class="flex items-start gap-x-4">
+              <div class="mt-1 flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400">
+                <Icon name="document" class="size-5" />
+              </div>
+              <div class="flex-1">
+                <h4 class="font-semibold text-foreground">National Computer Rank Exam (NCRE) Level II Python</h4>
+                <p class="mt-1 text-sm text-muted-foreground">Certification in Python Programming - Ministry of Education, China</p>
+                <p class="mt-2 text-xs text-muted-foreground">July 2024</p>
+              </div>
+            </div>
+          </Card>
+
+          <Card class="block p-4">
+            <div class="flex items-start gap-x-4">
+              <div class="mt-1 flex size-8 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/50 dark:text-green-400">
+                <Icon name="package" class="size-5" />
+              </div>
+              <div class="flex-1">
+                <h4 class="font-semibold text-foreground">Blog Migration Project</h4>
+                <p class="mt-1 text-sm text-muted-foreground">Successfully migrating from Hexo to Astro - Learning modern static site generators</p>
+                <p class="mt-2 text-xs text-muted-foreground">2024 - ongoing</p>
+              </div>
+            </div>
+          </Card> -->
+        </div>
       </Section>
 
       <Section title='Skills'>
-        <SkillLayout title='Languages' skills={languages} />
-        <SkillLayout title='Frontend' skills={frontend} />
-        <SkillLayout title='Backend' skills={backend} />
+        <SkillLayout title='Programming Languages' skills={languages} />
+        <SkillLayout title='Frontend Technologies' skills={frontend} />
+        <SkillLayout title='Development Tools' skills={tools} />
+      </Section>
+
+      <Section title='Focus'>
+        <div class='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          <div class='rounded-lg border p-4'>
+            <h4 class='font-semibold text-foreground mb-2'>Machine Learning</h4>
+            <p class='text-sm text-muted-foreground'>Some useful machine learning algorithms</p>
+          </div>
+          <div class='rounded-lg border p-4'>
+            <h4 class='font-semibold text-foreground mb-2'>Data Analysis</h4>
+            <p class='text-sm text-muted-foreground'>Python data science libraries, statistical analysis, and visualization</p>
+          </div>
+          <div class='rounded-lg border p-4'>
+            <h4 class='font-semibold text-foreground mb-2'>Information Systems</h4>
+            <p class='text-sm text-muted-foreground'>Database management, system design, and business intelligence</p>
+          </div>
+        </div>
       </Section>
     </div>
-    <Quote class='mt-12' />
+    
+    <Quote class='mt-12'>
+      <blockquote>
+        <p>"We were the second-to-last generation of comprehensive science students — now we build for a new era."</p>
+        <footer>— Tsing Loong, Class of 2023</footer>
+      </blockquote>
+    </Quote>
   </main>
 </PageLayout>

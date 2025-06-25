@@ -1,8 +1,9 @@
 ---
 title: 免会员的一种方法
-date: 2022-1-22 12:11:36
+date: 2022-01-22
+publishDate: 2022-01-22
 id: vip
-tags: 生活
+tags: [生活]
 type: "生活"
 categories: 生活
 description: 基于油猴的免会员方法。
@@ -61,5 +62,4 @@ Thanks for using Tampermonkey. :)
 <!-- endtimeline -->
 
 {% endtimeline %}
-
 

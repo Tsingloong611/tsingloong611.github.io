@@ -1,8 +1,9 @@
 ---
 title: Minecraft Server介绍
-date: 2021-02-18 21:32:52
+date: 2021-02-18
+publishDate: 2021-02-18
 id: g1
-tags: Minecraft
+tags: [Minecraft]
 type: "Minecraft"
 categories: minecraft
 description: 一个小型Minecraft Server的介绍。

@@ -6,94 +6,144 @@ import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
-  { depth: 2, slug: 'hobbies', text: 'Hobbies' },
-  { depth: 2, slug: 'tools', text: 'Tools' },
-  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
-  { depth: 2, slug: 'gossips', text: 'Gossips' },
-  { depth: 2, slug: 'about-blog', text: 'About Blog' }
+  { depth: 2, slug: 'about-me', text: '我是谁？' },
+  { depth: 2, slug: 'daily-life', text: '我平时做什么？' },
+  { depth: 2, slug: 'personality', text: '我是一个什么样的人？' },
+  { depth: 2, slug: 'why-blog', text: '为什么写博客' },
+  { depth: 2, slug: 'contact', text: '联系我' },
+  { depth: 2, slug: 'tools', text: '工具' },
+  { depth: 2, slug: 'social-networks', text: '社交网络' },
+  { depth: 2, slug: 'website-history', text: '网站历史' }
 ]
 ---
 
-<PageLayout title='About' {headings} info='/about'>
-  <p>Developer / Designer</p>
+<PageLayout title='关于' {headings} info='/about'>
+  <!-- 简介 -->
+  <p>学生 / 游戏爱好者 / 音乐聆听者</p>
   <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
+    Tsing_loong，某<span class="line-through text-gray-500">省重点高中在读生</span> 现在是鼠鼠了。
   </p>
-  <p>My motto: Stay hungry, Stay foolish. <Spoiler>这里可以夹私货</Spoiler></p>
-  <Button title='Sponsor Me' class='w-fit' href='/projects#sponsorship' style='ahead' />
+  <Button title='联系我' class='w-fit' href='#contact' style='ahead' />
 
-  {/* general-talk */}
-  <h2 id='hobbies'>Hobbies</h2>
+  {/* 我是谁？ */}
+  <h2 id='about-me'>我是谁？</h2>
+  <p>
+    Tsing_loong 某<span class="line-through text-gray-500">省重点高中在读生</span> 现在是鼠鼠了
+  </p>
+
+  {/* 我平时做什么？ */}
+  <h2 id='daily-life'>我平时做什么？</h2>
   <ul>
-    <li>Lorem ipsum dolor sit amet, vidit suscipit at mei.</li>
-    <li>
-      Quem denique mea id. Usu ei regione indoctum dissentiunt, cu meliore fuisset mei, vel quod
-      voluptua ne.
+    <li>发呆</li>
+    <li>（无奈地）处理学业</li>
+    <li>听音乐，主要是纯音乐</li>
+    <li>打游戏，包括但不限于：
+      <ul class="ml-4 mt-2">
+        <li>Minecraft</li>
+        <li>Cytus II</li>
+      </ul>
     </li>
-    <li>Ex dicat impedit mel, at eum oratio possit voluptatum.</li>
-    <li>Impetus fuisset ullamcorper pri cu, his posse iisque ad, aliquam honestatis usu id.</li>
   </ul>
 
-  {/* tools */}
-  <h2 id='tools'>Tools</h2>
-  <p>Current support tools as follow:</p>
+  {/* 我是一个什么样的人？ */}
+  <h2 id='personality'>我是一个什么样的人？</h2>
+  <ul class="space-y-3">
+    <li>
+      <strong>Overall：</strong>No exactly defination. It's up to the object who is observing me
+    </li>
+    <li>
+      寻不到花的折翼枯叶蝶 永远也看不见凋谢 
+      <span class="text-sm text-gray-600">（许嵩，《断桥残雪》，2007）</span>
+    </li>
+    <li>
+      人间的满也是这人间的空 你可想过你为何匆匆
+      <span class="text-sm text-gray-600">（陈鸿宇，《无用清净梦》，2021）</span>
+    </li>
+    <li>
+      兰草枯荡 星辰璀璨
+      <span class="text-sm text-gray-600">（灵感来自 K-ICM/APJ，《Mr. Lonely - Ai Mang Cô Đơn Đi》，2021）</span>
+    </li>
+    <li>
+      You can be just the one you want be
+      <span class="text-sm text-gray-600">（Darin Zanyar，《Be What You Wanna Be》，2004）</span>
+    </li>
+    <li>
+      生命中最善良的时光 就像是水一样明亮 
+      <span class="text-sm text-gray-600">（丢火车乐队，《茶底世界》，2008）</span>
+    </li>
+    <li>
+      千里长篷曲终人散尽，留下那红楼一曲唱不休
+      <span class="text-sm text-gray-600">（庞龙，《红楼梦》，2011）</span>
+    </li>
+    <li>
+      每个人都害怕被 看出内心的脆弱
+      <span class="text-sm text-gray-600">（许嵩，《全球变冷》，2012）</span>
+    </li>
+    <li>
+      下坠的石头以为自由落体运动是遵循自己的意志，奋力向上爬的人们以为自己是命运的主宰 
+      <span class="text-sm text-gray-600">
+        （叶远泊：人生短暂，尽兴而活 - 每日知讯的文章 - 
+        <a href="https://zhuanlan.zhihu.com/p/314304106" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+          知乎
+        </a>）
+      </span>
+    </li>
+  </ul>
+
+  {/* 为什么写博客 */}
+  <h2 id='why-blog'>为什么写博客</h2>
+  <p>记录过去的自己，在未来感受慰籍。</p>
+
+  {/* 联系我 */}
+  <h2 id='contact'>联系我</h2>
+  <p>
+    QQ: 
+    <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2014912641" 
+       class="text-blue-600 hover:underline">
+      2014912641
+    </a>
+  </p>
+
+  {/* 工具 */}
+  <h2 id='tools'>工具</h2>
+  <p>我常用的工具和软件：</p>
   <ToolSection
     class='mb-5'
-    title='Design'
+    title='游戏'
     tools={[
       {
-        name: 'Photoshop',
-        description: 'Picture Editing',
-        href: 'https://www.adobe.com/products/photoshop',
-        icon: import('@/assets/tools/photoshop.svg?raw')
+        name: 'Minecraft',
+        description: '沙盒建造游戏',
+        href: 'https://www.minecraft.net/',
+        icon: import('@/assets/tools/minecraft.svg?raw')
       },
       {
-        name: 'Illustrator',
-        description: 'Vector Drawing',
-        href: 'https://www.adobe.com/products/illustrator',
-        icon: import('@/assets/tools/illustrator.svg?raw')
-      },
-      {
-        name: 'After Effects',
-        description: 'Motion Graphics',
-        href: 'https://www.adobe.com/products/aftereffects',
-        icon: import('@/assets/tools/aftereffects.svg?raw')
-      },
-      {
-        name: 'Premiere Pro',
-        description: 'Video Editing',
-        href: 'https://www.adobe.com/products/premiere',
-        icon: import('@/assets/tools/premiere.svg?raw')
+        name: 'Cytus II',
+        description: '音乐节奏游戏',
+        href: 'https://www.rayark.com/g/cytus2/',
+        icon: import('@/assets/tools/cytus.svg?raw')
       }
     ]}
   />
   <ToolSection
     class='mb-5'
-    title='Productivity'
+    title='学习工具'
     tools={[
       {
+        name: 'VS Code',
+        description: '代码编辑器',
+        href: 'https://code.visualstudio.com/',
+        icon: import('@/assets/tools/vscode.svg?raw')
+      },
+      {
         name: 'Chrome',
-        description: 'Browser',
+        description: '浏览器',
         href: 'https://www.google.com/chrome/',
         icon: import('@/assets/tools/chrome.svg?raw')
       },
       {
-        name: 'Firefox',
-        description: 'Browser',
-        href: 'https://www.mozilla.org/en-US/firefox',
-        icon: import('@/assets/tools/firefox.svg?raw')
-      },
-      {
-        name: 'Notion',
-        description: 'Note Taking',
-        href: 'https://www.notion.so/',
-        icon: import('@/assets/tools/notion.svg?raw')
-      },
-      {
         name: 'Typora',
-        description: 'Markdown Editor',
+        description: 'Markdown 编辑器',
         href: 'https://typora.io/',
         icon: import('@/assets/tools/typora.svg?raw')
       }
@@ -101,159 +151,131 @@ const headings = [
   />
   <ToolSection
     class='mb-5'
-    title='Development'
+    title='音乐'
     tools={[
       {
-        name: 'VS Code',
-        description: 'IDE',
-        href: 'https://code.visualstudio.com/',
-        icon: import('@/assets/tools/vscode.svg?raw')
+        name: '网易云音乐',
+        description: '音乐播放器',
+        href: 'https://music.163.com/',
+        icon: import('@/assets/tools/netease-music.svg?raw')
       },
       {
-        name: 'Neovim',
-        description: 'IDE',
-        href: 'https://neovim.io/',
-        icon: import('@/assets/tools/neovim.svg?raw')
-      },
-      {
-        name: 'Sublime Text',
-        description: 'IDE',
-        href: 'https://www.sublimetext.com/',
-        icon: import('@/assets/tools/sublime.svg?raw')
-      }
-    ]}
-  />
-  <ToolSection
-    class='mb-5'
-    title='Environment'
-    tools={[
-      {
-        name: 'Arch Linux',
-        description: 'Linux Distribution',
-        href: 'https://archlinux.org/',
-        icon: import('@/assets/tools/archlinux.svg?raw')
-      },
-      {
-        name: 'Ubuntu 24.04 LTS',
-        description: 'Linux Distribution',
-        href: 'https://ubuntu.com/',
-        icon: import('@/assets/tools/ubuntu.svg?raw')
-      },
-      {
-        name: 'MacOS Sonoma',
-        description: 'MacBook Air',
-        href: 'https://www.apple.com/macos/',
-        icon: import('@/assets/tools/apple.svg?raw')
-      },
-      {
-        name: 'Windows 11',
-        description: 'Rog Strix G15',
-        href: 'https://news.microsoft.com/windows11-general-availability/',
-        icon: import('@/assets/tools/windows11.svg?raw')
+        name: 'QQ音乐',
+        description: '音乐播放器',
+        href: 'https://y.qq.com/',
+        icon: import('@/assets/tools/qq-music.svg?raw')
       }
     ]}
   />
 
-  {/* social-networks */}
-  <h2 id='social-networks'>Social Networks</h2>
+  {/* 社交网络 */}
+  <h2 id='social-networks'>社交网络</h2>
   <p>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne.
+    在这些平台上可以找到我的足迹，欢迎交流。
   </p>
   <Substats
     stats={[
       {
+        platform: 'QQ',
+        icon: 'rss',
+        color: '#12b7f5',
+        link: 'tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2014912641',
+        text: 'QQ',
+        api: 'qq/2014912641'
+      },
+      {
         platform: 'GitHub',
         icon: 'github',
-        link: 'https://github.com/cworld1',
+        link: 'https://github.com/tsingloong611',
         text: 'followers',
-        api: 'github/cworld1'
-      },
-      {
-        platform: 'Telegram',
-        icon: 'telegram',
-        color: '#2ca5e0',
-        link: 'https://t.me/cworld0_cn',
-        text: 'subscribers',
-        api: 'telegram/cworld0_cn'
-      },
-      {
-        platform: 'Weibo',
-        icon: 'weibo',
-        color: '#e71f19',
-        link: 'https://weibo.com/cworld0',
-        text: 'followers',
-        api: 'weibo/5501674056'
+        api: 'github/tsingloong611'
       },
       {
         platform: 'Steam',
         icon: 'steam',
         color: '#50769d',
-        link: 'https://steamcommunity.com/id/cworld',
+        link: 'https://steamcommunity.com/profiles/76561199084372866/',
         text: 'games',
-        api: 'steamgames/76561199021278120'
+        api: 'steamgames/76561199084372866'
       }
     ]}
   />
 
-  {/* gossips */}
-  <h2 id='gossips'>Gossips</h2>
-  <Collapse title='Lorem ipsum'>
-    Lorem ipsum dolor sit amet, vidit suscipit at mei. Quem denique mea id. Usu ei regione indoctum
-    dissentiunt, cu meliore fuisset mei, vel quod voluptua ne. Ex dicat impedit mel, at eum oratio
-    possit voluptatum.
-  </Collapse>
 
-  {/* about-blog */}
-  <h2 id='about-blog'>About Blog</h2>
-  <p>Website history:</p>
+  {/* 网站历史 */}
+  <h2 id='website-history'>网站历史</h2>
+  <p>这个博客的发展历程：</p>
   <Timeline
     events={[
       {
-        date: '2024-04-29',
-        content:
-          'Website refactored using <a href="https://astro.build/" target="_blank">Astro</a> and <a href="https://github.com/srleom/astro-theme-resume" target="_blank">Astro Theme Resume</a>'
+        date: '2021-02-10',
+        content: '开始使用 Hexo 搭建个人博客，记录生活点滴'
       },
       {
-        date: '2024-07-26',
-        content:
-          'Website abstracted as a theme and published on <a href="https://github.com/cworld1/astro-theme-pure"target="_blank">Github</a>'
+        date: '2021-04-03',
+        content: '添加了各种语录页面，开始收集一些有意思的句子'
       },
       {
-        date: '2024-07-27',
-        content: 'Began writing website docs'
+        date: '2024-12-25',
+        content: '开始从 Hexo 迁移到 <a href="https://astro.build/" target="_blank">Astro</a>，使用现代化的技术栈'
+      },
+      {
+        date: '2024-12-25',
+        content: '开发了 remark-hexo-tags 插件，让 Astro 支持 Hexo 标签语法'
       }
     ]}
   />
+  
   <p>
-    The smooth operation and personalized customization of website also rely on the resources and
-    technical support provided by the following excellent projects/service providers:
+    网站的顺利运行和个性化定制也离不开以下优秀项目/服务商提供的资源和技术支持：
   </p>
   <ul>
-    <li>Domain: <a href='#' target='_blank'>Vercel</a></li>
     <li>
-      Framework & Theme: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
+      框架 & 主题: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
         href='https://github.com/cworld1/astro-theme-pure'
         target='_blank'>Astro Theme Pure</a
       >
     </li>
     <li>
-      Site hosting: <a href='https://vercel.com/' target='_blank'>Vercel</a>
+      网站托管: <a href='https://github.com/Tsingloong611/tsingloong611.github.io' target='_blank'>Github Pages</a>
     </li>
     <li>
-      CI/CD: <a href='https://vercel.com/workflow' target='_blank'>Vercel Workflow</a>
+      Hexo 标签支持: <a href='https://github.com/Tsingloong611/remark-hexo-tags' target='_blank'>remark-hexo-tags</a>
     </li>
-    <!-- <li>Resources speedup: <a href='https://cdn.cbd.int/' target='_blank'>CBD CDN</a></li> -->
-    <li>Comment system: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
+    <li>评论系统: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
     <li>
-      Visits: <a href='https://supabase.com/' target='_blank'>Supabase</a> +
-      <a href='https://waline.js.org/' target='_blank'>Waline</a>
-    </li>
-    <li>
-      Other statistics: <a href='https://github.com/spencerwooo/substats' target='_blank'
+      访问统计: <a href='https://github.com/spencerwooo/substats' target='_blank'
         >Substats</a
       >
     </li>
   </ul>
+  
+  <!-- 隐藏的开发者注释 -->
+  <!-- 话说github搭博客免费是挺好，但卡顿也是挺烦的，不过我知足了。 -->
+  <!-- 2021.4.3 20.05 2022年1月30日 22:33:14 -->
+  
   <Comment slot='bottom' />
 </PageLayout>
+
+<style>
+  /* 删除线样式 */
+  .line-through {
+    text-decoration: line-through;
+    text-decoration-color: #ef4444;
+  }
+  
+  /* 歌词引用样式 */
+  .text-sm {
+    font-style: italic;
+    opacity: 0.8;
+  }
+  
+  /* 列表样式 */
+  ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .space-y-3 > li {
+    margin-bottom: 0.75rem;
+  }
+</style>

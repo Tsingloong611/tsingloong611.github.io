@@ -2,42 +2,43 @@
   "friends": [
     {
       "id_name": "cf-links",
-      "desc": "Common links included in circle friends",
+      "desc": "大佬们的网站",
       "link_list": [
         {
-          "name": "Arthals' ink",
-          "intro": "所见高山远木，阔云流风；所幸岁月盈余，了无拘束",
-          "link": "https://arthals.ink/",
-          "avatar": "https://cdn.arthals.ink/Arthals.png"
-        },
-        {
-          "name": "CWorld Site",
-          "intro": "求知若愚，虚怀若谷",
-          "link": "https://cworld0.com/",
-          "avatar": "https://cravatar.cn/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200"
+          "name": "PerseverantMind",
+          "intro": "雄关漫道真如铁，而今迈步从头越",
+          "link": "https://flag64zhang.github.io/",
+          "avatar": "https://flag64zhang.github.io/img/avatar.jpg"
         }
       ]
     },
     {
       "id_name": "inactive-links",
       "desc": "Inactive or rule-breaking friends",
-      "link_list": []
+      "link_list": [
+        {
+          "name": "NpusionD",
+          "intro": "2021/7/7",
+          "link": "https://npusiond.github.io/",
+          "avatar": "https://www.helloimg.com/images/2021/07/08/C1YKvg.png"
+        }
+      ]
     },
     {
       "id_name": "special-links",
       "desc": "Other special links",
       "link_list": [
         {
-          "name": "虫洞",
-          "intro": "随机前往十年之约的成员博客",
-          "link": "https://www.foreverblog.cn/go.html",
-          "avatar": "/images/wormhole.png"
+          "name": "Paddy",
+          "intro": "2021/7/8",
+          "link": "https://www.paddylin.top/",
+          "avatar": "https://www.helloimg.com/images/2021/07/08/C1YKvg.png"
         },
         {
-          "name": "开往",
-          "intro": "随机前往开往的成员博客",
-          "link": "https://www.travellings.cn/go.html",
-          "avatar": "https://www.travellings.cn/assets/travelling.png"
+          "name": "Akilar", 
+          "intro": "2021/7/8",
+          "link": "https://blog.akilar.top/",
+          "avatar": "https://www.helloimg.com/images/2021/07/08/C1YUfM.png"
         }
       ]
     }

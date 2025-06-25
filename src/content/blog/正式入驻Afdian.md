@@ -1,8 +1,9 @@
 ---
 title: 正式入驻Afdian
-date: 2021-02-20 21:59:17
+date: 2021-02-20
+publishDate: 2021-02-20
 id: a2
-tags: Afdian
+tags: ["Afdian"]
 type: "Afdian"
 categories: Afdian
 description: 于2021年2月20日 22:01:58（UTC+8）正式入驻爱发电（Afdian)，非常感谢爱发电平台！

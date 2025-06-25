@@ -1,8 +1,9 @@
 ---
 title: Robot
-date: 2021/8/6 19:05:20 
+date: 2021-8-6
+publishDate: 2021-08-06
 id: bot
-tags: 生活
+tags: [生活]
 type: "生活"
 categories: 生活
 description: 基于Mirai及Python编写机器人。

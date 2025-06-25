@@ -1,8 +1,9 @@
 ---
 title: Minecraft Server处罚
-date: 2021-02-15 14:31:45
+date: 2021-02-15
+publishDate: 2021-02-15
 id: g3
-tags: Minecraft
+tags: [Minecraft]
 type: "Minecraft"
 categories: minecraft
 description: 我们深知，规矩是必要的，但我们并不希望因一件事而全盘否定一个人...

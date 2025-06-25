@@ -3,19 +3,19 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 export const theme: ThemeUserConfig = {
   // === Basic configuration ===
   /** Title for your website. Will be used in metadata and as browser tab title. */
-  title: 'Astro Theme Pure',
+  title: "Tsing_loong's Blog",
   /** Will be used in index page & copyright declaration */
-  author: 'Pure Lab',
+  author: 'Tsing_loong',
   /** Description metadata for your website. Can be used in page metadata. */
-  description: 'Stay hungry, stay foolish',
+  description: '三旬尚远浓烟撒，一如年少迟夏归', // [!code word:MODIFIED]
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
   favicon: '/favicon/favicon.ico',
   /** Specify the default language for this site. */
   locale: {
-    lang: 'en-US',
-    attrs: 'en_US',
+    lang: 'en-US', // [!code word:MODIFIED]
+    attrs: 'en_US', // [!code word:MODIFIED]
     // Date locale
-    dateLocale: 'en-US',
+    dateLocale: 'en-US', // [!code word:MODIFIED]
     dateOptions: {
       day: 'numeric',
       month: 'short',
@@ -35,10 +35,10 @@ export const theme: ThemeUserConfig = {
 
   // Still in test
   head: [
-    /* Telegram channel */
+    /* Baidu site verification */ // [!code word:MODIFIED]
     // {
     //   tag: 'meta',
-    //   attrs: { name: 'telegram:channel', content: '@cworld0_cn' },
+    //   attrs: { name: 'baidu-site-verification', content: '7otrvMjSkY' },
     //   content: ''
     // }
   ],
@@ -48,7 +48,6 @@ export const theme: ThemeUserConfig = {
   header: {
     menu: [
       { title: 'Blog', link: '/blog' },
-      { title: 'Docs', link: '/docs' },
       { title: 'Projects', link: '/projects' },
       { title: 'Links', link: '/links' },
       { title: 'About', link: '/about' }
@@ -58,37 +57,41 @@ export const theme: ThemeUserConfig = {
   /** Configure the footer of your site. */
   footer: {
     links: [
-      // Registration link
+      // Travellings Link
       {
-        title: 'Moe ICP APTX4869',
-        link: 'https://icp.gov.moe/?keyword=APTX4869',
-        style: 'text-sm' // Uno/TW CSS class
-      },
-      {
-        title: 'Travelling',
+        title: 'Travellings', // [!code word:MODIFIED] "开往" is a specific project, using its URL name is best.
         link: 'https://www.travellings.cn/go.html',
         style: 'text-sm'
       },
-      // Privacy Policy link
+      // Forever Blog Link
       {
-        title: 'Site Policy',
+        title: 'Forever Blog', // [!code word:MODIFIED] "十年之约" is a project, using its URL name is best.
+        link: 'https://www.foreverblog.cn/',
+        style: 'text-sm'
+      },
+      // Site Policies Link
+      {
+        title: 'Site Policies', // [!code word:MODIFIED]
         link: '/terms/list',
         pos: 2 // position set to 2 will be appended to copyright line
       }
     ],
-    /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
+    /** Enable displaying a "Astro & Pure theme powered" link in your site's footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/cworld1/astro-theme-pure' }
+    social: { 
+      github: 'https://github.com/Tsingloong611'
+      // You can add other social media here
+    }
   },
 
   content: {
     externalLinksContent: ' ↗',
     /** Blog page size for pagination (optional) */
-    blogPageSize: 8,
-    externalLinkArrow: true, // show external link arrow
-    // Currently support weibo, x, bluesky
-    share: ['weibo', 'x', 'bluesky']
+    blogPageSize: 10,
+    externalLinkArrow: true,
+    // You might want to change 'weibo' to other platforms for an English audience
+    share: ['x', 'bluesky'] // [!code word:MODIFIED]
   }
 }
 
@@ -98,16 +101,18 @@ export const integ: IntegrationUserConfig = {
   links: {
     // Friend logbook
     logbook: [
-      { date: '2024-07-01', content: 'Lorem ipsum dolor sit amet.' },
-      { date: '2024-07-01', content: 'vidit suscipit at mei.' },
-      { date: '2024-07-01', content: 'Quem denique mea id.' }
+      { date: '2025-04-05', content: 'Added friend link for PerseverantMind' }, // [!code word:MODIFIED]
+      { date: '2023-10-29', content: 'Move friend link for NpusionD(2021-07-07) into archives' }, // [!code word:MODIFIED]
+      { date: '2021-07-08', content: 'Added special links for Paddy and Akilar.' }, // [!code word:MODIFIED]
+      { date: '2021-07-07', content: 'Added friend link for NupsionD' }, // [!code word:MODIFIED]
+      { date: '2021-02-10', content: 'Friend links page created.' } // [!code word:MODIFIED]
     ],
     // Yourself link info
     applyTip: [
-      { name: 'Name', val: theme.title },
-      { name: 'Desc', val: theme.description || 'Null' },
-      { name: 'Link', val: 'https://astro-pure.js.org/' },
-      { name: 'Avatar', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
+      { name: 'Site Name', val: theme.title }, // [!code word:MODIFIED]
+      { name: 'Site Description', val: theme.description || '三旬尚远浓烟撒，一如年少迟夏归' }, // [!code word:MODIFIED]
+      { name: 'Site URL', val: 'https://tsingloong.xyz/' }, // [!code word:MODIFIED]
+      { name: 'Avatar URL', val: 'https://tsingloong.xyz/favicon/favicon.ico' } // [!code word:MODIFIED]
     ]
   },
   // Enable page search function
@@ -115,12 +120,9 @@ export const integ: IntegrationUserConfig = {
   // Add a random quote to the footer (default on homepage footer)
   // See: https://astro-pure.js.org/docs/integrations/advanced#web-content-render
   quote: {
-    // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
-    // server: 'https://v1.hitokoto.cn/?c=i',
-    // target: (data) => (data as { hitokoto: string }).hitokoto || 'Error'
-    // https://github.com/lukePeavey/quotable
-    server: 'https://api.quotable.io/quotes/random?maxLength=60',
-    target: `(data) => data[0].content || 'Error'`
+    // Using an English quote API instead of Hitokoto
+    server: 'https://v1.hitokoto.cn/?c=i',
+    target: '(data) => data.hitokoto || Error'
   },
   // UnoCSS typography
   // See: https://unocss.dev/presets/typography
@@ -130,7 +132,7 @@ export const integ: IntegrationUserConfig = {
   // A lightbox library that can add zoom effect
   // See: https://astro-pure.js.org/docs/integrations/others#medium-zoom
   mediumZoom: {
-    enable: true, // disable it will not load the whole library
+    enable: true,
     selector: '.prose .zoomable',
     options: {
       className: 'zoomable'
@@ -139,18 +141,17 @@ export const integ: IntegrationUserConfig = {
   // Comment system
   waline: {
     enable: true,
-    // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    // You need to deploy your own Waline service
+    server: 'https://your-waline-server.vercel.app/', // Please replace with your own Waline service URL
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html
     additionalConfigs: {
-      // search: false,
       pageview: true,
       comment: true,
       locale: {
-        reaction0: 'Like',
-        placeholder: 'Welcome to comment. (Email to receive replies. Login is unnecessary)'
+        reaction0: 'Like', // [!code word:MODIFIED]
+        placeholder: 'Join the discussion! Your email is optional and used for reply notifications only.' // [!code word:MODIFIED]
       },
       imageUploader: false
     }
@@ -158,22 +159,22 @@ export const integ: IntegrationUserConfig = {
 }
 
 export const terms: CardListData = {
-  title: 'Terms content',
+  title: 'Terms', // [!code word:MODIFIED]
   list: [
     {
-      title: 'Privacy Policy',
+      title: 'Privacy Policy', // [!code word:MODIFIED]
       link: '/terms/privacy-policy'
     },
     {
-      title: 'Terms and Conditions',
+      title: 'Terms of Use', // [!code word:MODIFIED]
       link: '/terms/terms-and-conditions'
     },
     {
-      title: 'Copyright',
+      title: 'Copyright Notice', // [!code word:MODIFIED]
       link: '/terms/copyright'
     },
     {
-      title: 'Disclaimer',
+      title: 'Disclaimer', // [!code word:MODIFIED]
       link: '/terms/disclaimer'
     }
   ]

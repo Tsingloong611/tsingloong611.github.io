@@ -1,5 +1,6 @@
 ---
 import { Footer, Header, ThemeProvider } from 'astro-pure/components/basic'
+import MyFooter from '@/components/MyFooter.astro'; // [!code ++] 导入你自己的新 Footer
 import type { SiteMeta } from 'astro-pure/types'
 import BaseHead from '@/components/BaseHead.astro'
 import config from '@/site-config'
@@ -38,7 +39,7 @@ const {
     <div class='w-full max-w-[70rem] px-4 sm:px-7 lg:px-10'>
       <Header />
       <slot />
-      <Footer />
+      <MyFooter /> {/* [!code focus] 使用你自己的新 Footer */}
     </div>
 
     {/* Set highlight color */}

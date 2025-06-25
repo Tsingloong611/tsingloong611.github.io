@@ -23,11 +23,12 @@ import {
   updateStyle
 } from './src/plugins/shiki-transformers.ts'
 import config from './src/site.config.ts'
+import remarkHexoTags from 'remark-hexo-tags';
 
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://astro-pure.js.org',
+  site: 'https://tsingloong.xyz',
   // base: '/docs',
   trailingSlash: 'never',
 
@@ -72,7 +73,7 @@ export default defineConfig({
   },
   // Markdown Options
   markdown: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkHexoTags, remarkMath],
     rehypePlugins: [
       [rehypeKatex, {}],
       rehypeHeadingIds,

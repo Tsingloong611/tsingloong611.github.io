@@ -1,8 +1,9 @@
 ---
 title: Minecraft Server建设
-date: 2021-02-20 17:37:11
+date: 2021-02-20
+publishDate: 2021-02-20
 id: g4
-tags: Minecraft
+tags: [Minecraft]
 type: "Minecraft"
 categories: minecraft
 description: 优质的玩法，内容铸就一个优秀的服务器。

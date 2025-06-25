@@ -1,8 +1,9 @@
 ---
 title: Minecraft Server规则
-date: 2021-02-20 17:36:51
+date: 2021-02-20
+publishDate: 2021-02-20
 id: g2
-tags: Minecraft
+tags: [Minecraft]
 type: "Minecraft"
 categories: minecraft
 description: 我们深知，自由与规矩密不可分，我们会尽全力寻找自由与规矩的平衡点以提供给各位玩家更好的游戏体验！
