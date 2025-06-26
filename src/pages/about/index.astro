@@ -6,38 +6,38 @@ import Substats from '@/components/about/Substats.astro'
 import ToolSection from '@/components/about/ToolSection.astro'
 
 const headings = [
-  { depth: 2, slug: 'about-me', text: '我是谁？' },
-  { depth: 2, slug: 'daily-life', text: '我平时做什么？' },
-  { depth: 2, slug: 'personality', text: '我是一个什么样的人？' },
-  { depth: 2, slug: 'why-blog', text: '为什么写博客' },
-  { depth: 2, slug: 'contact', text: '联系我' },
-  { depth: 2, slug: 'tools', text: '工具' },
-  { depth: 2, slug: 'social-networks', text: '社交网络' },
-  { depth: 2, slug: 'website-history', text: '网站历史' }
+  { depth: 2, slug: 'about-me', text: 'Who am I?' },
+  { depth: 2, slug: 'daily-life', text: 'What do I do daily?' },
+  { depth: 2, slug: 'personality', text: 'What kind of person am I?' },
+  { depth: 2, slug: 'why-blog', text: 'Why I blog' },
+  { depth: 2, slug: 'contact', text: 'Contact me' },
+  { depth: 2, slug: 'tools', text: 'Tools' },
+  { depth: 2, slug: 'social-networks', text: 'Social Networks' },
+  { depth: 2, slug: 'website-history', text: 'Website History' }
 ]
 ---
 
-<PageLayout title='关于' {headings} info='/about'>
-  <!-- 简介 -->
-  <p>学生 / 游戏爱好者 / 音乐聆听者</p>
+<PageLayout title='About' {headings} info='/about'>
+  <!-- Introduction -->
+  <p>Student / Gaming Enthusiast / Music Listener</p>
   <p>
-    Tsing_loong，某<span class="line-through text-gray-500">省重点高中在读生</span> 现在是鼠鼠了。
+    Tsing_loong, a <span class="line-through text-gray-500">key high school student</span> now I'm just a rat.
   </p>
-  <Button title='联系我' class='w-fit' href='#contact' style='ahead' />
+  <Button title='Contact Me' class='w-fit' href='#contact' style='ahead' />
 
-  {/* 我是谁？ */}
-  <h2 id='about-me'>我是谁？</h2>
+  {/* Who am I? */}
+  <h2 id='about-me'>Who am I?</h2>
   <p>
-    Tsing_loong 某<span class="line-through text-gray-500">省重点高中在读生</span> 现在是鼠鼠了
+    Tsing_loong, a <span class="line-through text-gray-500">key high school student</span> now I'm just a rat
   </p>
 
-  {/* 我平时做什么？ */}
-  <h2 id='daily-life'>我平时做什么？</h2>
+  {/* What do I do daily? */}
+  <h2 id='daily-life'>What do I do daily?</h2>
   <ul>
-    <li>发呆</li>
-    <li>（无奈地）处理学业</li>
-    <li>听音乐，主要是纯音乐</li>
-    <li>打游戏，包括但不限于：
+    <li>Daydreaming</li>
+    <li>(Reluctantly) dealing with schoolwork</li>
+    <li>Listening to music, mainly instrumental music</li>
+    <li>Playing games, including but not limited to:
       <ul class="ml-4 mt-2">
         <li>Minecraft</li>
         <li>Cytus II</li>
@@ -45,12 +45,15 @@ const headings = [
     </li>
   </ul>
 
-  {/* 我是一个什么样的人？ */}
-  <h2 id='personality'>我是一个什么样的人？</h2>
+  {/* What kind of person am I? */}
+  <h2 id='personality'>What kind of person am I?</h2>
   <ul class="space-y-3">
     <li>
-      <strong>Overall：</strong>No exactly defination. It's up to the object who is observing me
+      <strong>Overall:</strong> No exact definition. It's up to the object who is observing me
     </li>
+  </ul>
+  <h2 id="quotes">Some Lyrics and Sentences</h2>
+  <ul class="space-y-3">
     <li>
       寻不到花的折翼枯叶蝶 永远也看不见凋谢 
       <span class="text-sm text-gray-600">（许嵩，《断桥残雪》，2007）</span>
@@ -90,12 +93,12 @@ const headings = [
     </li>
   </ul>
 
-  {/* 为什么写博客 */}
-  <h2 id='why-blog'>为什么写博客</h2>
-  <p>记录过去的自己，在未来感受慰籍。</p>
+  {/* Why I blog */}
+  <h2 id='why-blog'>Why I blog</h2>
+  <p>To record my past self and find comfort in the future.</p>
 
-  {/* 联系我 */}
-  <h2 id='contact'>联系我</h2>
+  {/* Contact me */}
+  <h2 id='contact'>Contact me</h2>
   <p>
     QQ: 
     <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=2014912641" 
@@ -104,22 +107,22 @@ const headings = [
     </a>
   </p>
 
-  {/* 工具 */}
-  <h2 id='tools'>工具</h2>
-  <p>我常用的工具和软件：</p>
+  {/* Tools */}
+  <h2 id='tools'>Tools</h2>
+  <p>Tools and software I commonly use:</p>
   <ToolSection
     class='mb-5'
-    title='游戏'
+    title='Games'
     tools={[
       {
         name: 'Minecraft',
-        description: '沙盒建造游戏',
+        description: 'Sandbox building game',
         href: 'https://www.minecraft.net/',
         icon: import('@/assets/tools/minecraft.svg?raw')
       },
       {
         name: 'Cytus II',
-        description: '音乐节奏游戏',
+        description: 'Music rhythm game',
         href: 'https://www.rayark.com/g/cytus2/',
         icon: import('@/assets/tools/cytus.svg?raw')
       }
@@ -127,23 +130,23 @@ const headings = [
   />
   <ToolSection
     class='mb-5'
-    title='学习工具'
+    title='Learning Tools'
     tools={[
       {
         name: 'VS Code',
-        description: '代码编辑器',
+        description: 'Code editor',
         href: 'https://code.visualstudio.com/',
         icon: import('@/assets/tools/vscode.svg?raw')
       },
       {
         name: 'Chrome',
-        description: '浏览器',
+        description: 'Web browser',
         href: 'https://www.google.com/chrome/',
         icon: import('@/assets/tools/chrome.svg?raw')
       },
       {
         name: 'Typora',
-        description: 'Markdown 编辑器',
+        description: 'Markdown editor',
         href: 'https://typora.io/',
         icon: import('@/assets/tools/typora.svg?raw')
       }
@@ -151,27 +154,27 @@ const headings = [
   />
   <ToolSection
     class='mb-5'
-    title='音乐'
+    title='Music'
     tools={[
       {
-        name: '网易云音乐',
-        description: '音乐播放器',
+        name: 'NetEase Cloud Music',
+        description: 'Music player',
         href: 'https://music.163.com/',
         icon: import('@/assets/tools/netease-music.svg?raw')
       },
       {
-        name: 'QQ音乐',
-        description: '音乐播放器',
+        name: 'QQ Music',
+        description: 'Music player',
         href: 'https://y.qq.com/',
         icon: import('@/assets/tools/qq-music.svg?raw')
       }
     ]}
   />
 
-  {/* 社交网络 */}
-  <h2 id='social-networks'>社交网络</h2>
+  {/* Social Networks */}
+  <h2 id='social-networks'>Social Networks</h2>
   <p>
-    在这些平台上可以找到我的足迹，欢迎交流。
+    You can find my presence on these platforms, feel free to connect.
   </p>
   <Substats
     stats={[
@@ -201,76 +204,83 @@ const headings = [
     ]}
   />
 
-
-  {/* 网站历史 */}
-  <h2 id='website-history'>网站历史</h2>
-  <p>这个博客的发展历程：</p>
+  {/* Website History */}
+  <h2 id='website-history'>Website History</h2>
+  <p>The development journey of this blog:</p>
   <Timeline
     events={[
       {
         date: '2021-02-10',
-        content: '开始使用 Hexo 搭建个人博客，记录生活点滴'
+        content: 'Started building personal blog with Hexo, using next theme'
       },
       {
-        date: '2021-04-03',
-        content: '添加了各种语录页面，开始收集一些有意思的句子'
+        date: '2021-04',
+        content: 'Switched to Butterfly theme'
       },
       {
-        date: '2024-12-25',
-        content: '开始从 Hexo 迁移到 <a href="https://astro.build/" target="_blank">Astro</a>，使用现代化的技术栈'
+        date: '2023-10',
+        content: 'Site went offline'
       },
       {
-        date: '2024-12-25',
-        content: '开发了 remark-hexo-tags 插件，让 Astro 支持 Hexo 标签语法'
+        date: '2024-09-28',
+        content: 'Reactivated the site'
+      },
+      {
+        date: '2025-06-24',
+        content: 'Started migrating from Hexo to <a href="https://astro.build/" target="_blank">Astro</a>, using modern tech stack'
+      },
+      {
+        date: '2025-06-24',
+        content: 'Developed remark-hexo-tags plugin to make Astro support Hexo tag syntax'
       }
     ]}
   />
   
   <p>
-    网站的顺利运行和个性化定制也离不开以下优秀项目/服务商提供的资源和技术支持：
+    The smooth operation and personalized customization of this website also relies on the resources and technical support provided by the following excellent projects/service providers:
   </p>
   <ul>
     <li>
-      框架 & 主题: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
+      Framework & Theme: <a href='https://astro.build/' target='_blank'>Astro</a> + <a
         href='https://github.com/cworld1/astro-theme-pure'
         target='_blank'>Astro Theme Pure</a
       >
     </li>
     <li>
-      网站托管: <a href='https://github.com/Tsingloong611/tsingloong611.github.io' target='_blank'>Github Pages</a>
+      Website Hosting: <a href='https://github.com/Tsingloong611/tsingloong611.github.io' target='_blank'>Github Pages</a>
     </li>
     <li>
-      Hexo 标签支持: <a href='https://github.com/Tsingloong611/remark-hexo-tags' target='_blank'>remark-hexo-tags</a>
+      Hexo Tag Support: <a href='https://github.com/Tsingloong611/remark-hexo-tags' target='_blank'>remark-hexo-tags</a>
     </li>
-    <li>评论系统: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
+    <li>Comment System: <a href='https://waline.js.org' target='_blank'>Waline</a></li>
     <li>
-      访问统计: <a href='https://github.com/spencerwooo/substats' target='_blank'
+      Visit Statistics: <a href='https://github.com/spencerwooo/substats' target='_blank'
         >Substats</a
       >
     </li>
   </ul>
   
-  <!-- 隐藏的开发者注释 -->
-  <!-- 话说github搭博客免费是挺好，但卡顿也是挺烦的，不过我知足了。 -->
+  <!-- Hidden developer comments -->
+  <!-- Building a blog on GitHub for free is nice, but the lag is quite annoying, though I'm content with it. -->
   <!-- 2021.4.3 20.05 2022年1月30日 22:33:14 -->
   
   <Comment slot='bottom' />
 </PageLayout>
 
 <style>
-  /* 删除线样式 */
+  /* Strikethrough style */
   .line-through {
     text-decoration: line-through;
     text-decoration-color: #ef4444;
   }
   
-  /* 歌词引用样式 */
+  /* Lyrics quote style */
   .text-sm {
     font-style: italic;
     opacity: 0.8;
   }
   
-  /* 列表样式 */
+  /* List style */
   ul li {
     margin-bottom: 0.5rem;
   }

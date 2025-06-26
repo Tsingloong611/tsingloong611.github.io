@@ -173,21 +173,20 @@ const linksConf = config.integ.links
             <div class="space-y-2">
               {
                 linksConf.applyTip.map(({ name, val }) => {
-                  const script = `navigator.clipboard.writeText('${val}');document.dispatchEvent(new CustomEvent('toast',{detail:{message:'Copied "${val}" to clipboard!'}}))`
                   return (
                     <div class="group flex items-center justify-between hover:bg-slate-800/50 dark:hover:bg-green-950/10 px-2 py-1 rounded">
                       <span class="text-blue-400 dark:text-cyan-300">"{name.toLowerCase()}":</span>
                       <div class="flex items-center gap-2">
                         <samp 
-                          class="text-green-400 dark:text-green-300 cursor-pointer hover:text-green-300 dark:hover:text-green-200 transition-colors max-w-64 truncate" 
-                          onclick={script}
+                          class="text-green-400 dark:text-green-300 cursor-pointer hover:text-green-300 dark:hover:text-green-200 transition-colors max-w-64 truncate copy-text" 
+                          data-copy-text={val}
                           title={`"${val}"`}
                         >
                           "{val}"
                         </samp>
                         <button 
-                          onclick={script}
-                          class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-white dark:text-green-500 dark:hover:text-green-300 transition-all"
+                          class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-white dark:text-green-500 dark:hover:text-green-300 transition-all copy-text"
+                          data-copy-text={val}
                           title="Copy"
                         >
                           <Icon name="link" class="w-3 h-3" />
@@ -319,3 +318,31 @@ const linksConf = config.integ.links
     color: rgb(165, 243, 252);
   }
 </style>
+
+<script>
+  document.addEventListener('click', function(e) {
+    // 类型检查和断言
+    if (!e.target) return;
+    
+    const target = e.target as HTMLElement;
+    
+    // 检查是否为复制元素
+    const copyElement = target.classList?.contains('copy-text') 
+      ? target 
+      : target.closest?.('.copy-text') as HTMLElement;
+    
+    if (copyElement) {
+      const textToCopy = copyElement.getAttribute('data-copy-text');
+      
+      if (textToCopy) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          document.dispatchEvent(new CustomEvent('toast', {
+            detail: { message: `Copied "${textToCopy}" to clipboard!` }
+          }));
+        }).catch(err => {
+          console.error('Failed to copy text: ', err);
+        });
+      }
+    }
+  });
+</script>
