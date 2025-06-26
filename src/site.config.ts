@@ -112,7 +112,7 @@ export const integ: IntegrationUserConfig = {
       { name: 'Site Name', val: theme.title }, // [!code word:MODIFIED]
       { name: 'Site Description', val: theme.description || '三旬尚远浓烟撒，一如年少迟夏归' }, // [!code word:MODIFIED]
       { name: 'Site URL', val: 'https://tsingloong.xyz/' }, // [!code word:MODIFIED]
-      { name: 'Avatar URL', val: 'https://tsingloong.xyz/favicon/favicon.ico' } // [!code word:MODIFIED]
+      { name: 'Avatar URL', val: 'https://tsingloong.xyz/favicon/avatar.png' } // [!code word:MODIFIED]
     ]
   },
   // Enable page search function
@@ -142,18 +142,24 @@ export const integ: IntegrationUserConfig = {
   waline: {
     enable: true,
     // You need to deploy your own Waline service
-    server: 'https://your-waline-server.vercel.app/', // Please replace with your own Waline service URL
+    server: 'https://my-waline-service-tsingloong611s-projects.vercel.app/', // Please replace with your own Waline service URL
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html
     additionalConfigs: {
       pageview: true,
       comment: true,
+      placeholder: '你是我一生仅会遇见一次的惊喜',
+      avatar: 'monsterid',
+      lang: 'zh-CN',
+      meta: ['nick', 'mail', 'link'],
+      requiredMeta: ['nick'],
+      wordLimit: [0, 1000],
       locale: {
         reaction0: 'Like', // [!code word:MODIFIED]
         placeholder: 'Join the discussion! Your email is optional and used for reply notifications only.' // [!code word:MODIFIED]
       },
-      imageUploader: false
+      imageUploader: true,
     }
   }
 }
