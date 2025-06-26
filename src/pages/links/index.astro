@@ -6,6 +6,7 @@ import { Comment } from 'astro-pure/advanced'
 import { Collapse, Icon, Timeline } from 'astro-pure/user'
 import PageLayout from '@/layouts/CommonPage.astro'
 import FriendList from '@/components/links/FriendList.astro'
+import Cytus from '@/assets/tools/cytus.svg'
 
 const headings = [
   { depth: 2, slug: 'friends', text: 'Friends' },
@@ -65,7 +66,7 @@ const linksConf = config.integ.links
               <div class="flex items-center gap-4 mb-3">
                 <div class="w-16 h-16 bg-slate-700 dark:bg-green-900/20 rounded border border-slate-600 dark:border-green-500/30 overflow-hidden">
                   <img 
-                    src="./src/assets/tools/cytus.svg" 
+                    src={Cytus.src} 
                     alt="Album Art" 
                     class="w-full h-full object-cover opacity-80"
                   />
