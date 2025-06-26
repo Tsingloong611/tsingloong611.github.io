@@ -28,7 +28,7 @@ import remarkHexoTags from 'remark-hexo-tags';
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: 'https://tsingloong611.github.io',
+  site: 'https://tsingloong.xyz',
   // base: '/docs',
   trailingSlash: 'never',
 
