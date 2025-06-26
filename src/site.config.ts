@@ -58,17 +58,17 @@ export const theme: ThemeUserConfig = {
   footer: {
     links: [
       // Travellings Link
-      {
-        title: 'Travellings', // [!code word:MODIFIED] "开往" is a specific project, using its URL name is best.
-        link: 'https://www.travellings.cn/go.html',
-        style: 'text-sm'
-      },
-      // Forever Blog Link
-      {
-        title: 'Forever Blog', // [!code word:MODIFIED] "十年之约" is a project, using its URL name is best.
-        link: 'https://www.foreverblog.cn/',
-        style: 'text-sm'
-      },
+      // {
+      //   title: 'Travellings', // [!code word:MODIFIED] "开往" is a specific project, using its URL name is best.
+      //   link: 'https://www.travellings.cn/go.html',
+      //   style: 'text-sm'
+      // },
+      // // Forever Blog Link
+      // {
+      //   title: 'Forever Blog', // [!code word:MODIFIED] "十年之约" is a project, using its URL name is best.
+      //   link: 'https://www.foreverblog.cn/',
+      //   style: 'text-sm'
+      // },
       // Site Policies Link
       {
         title: 'Site Policies', // [!code word:MODIFIED]
@@ -156,7 +156,7 @@ export const integ: IntegrationUserConfig = {
       wordLimit: [0, 1000],
       locale: {
         reaction0: 'Like', // [!code word:MODIFIED]
-        placeholder: '你是我一生仅会遇见一次的惊喜'
+        placeholder: '你是我一生仅会遇见一次的惊喜',
       },
       imageUploader: true,
     }

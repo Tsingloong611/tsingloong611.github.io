@@ -48,9 +48,13 @@ const linksConf = config.integ.links
           <div class="mb-4 text-sm space-y-1">
             <div class="flex items-center gap-4">
               <span class="text-slate-500 dark:text-green-600">[INFO]</span>
-              <span class="text-slate-400 dark:text-green-400">XXX views</span>
+              <span class="text-slate-400 dark:text-green-400">
+                <span id="page-views">0</span> views
+              </span>
               <span class="text-slate-600 dark:text-green-600">|</span>
-              <span class="text-slate-400 dark:text-green-400">XXX comments</span>
+              <span class="text-slate-400 dark:text-green-400">
+                <span id="page-comments">0</span> comments
+              </span>
               <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse ml-2"></span>
             </div>
             <div class="flex items-center gap-2">
@@ -289,6 +293,83 @@ const linksConf = config.integ.links
     </section>
 
   </div>
+<script>
+  // 获取当前页面的 Waline 统计数据
+  async function loadTerminalStats() {
+    // 从配置中获取 Waline 服务地址
+    const walineServer = 'https://my-waline-service-tsingloong611s-projects.vercel.app/';
+    const currentPath = '/links'; // links 页面的路径
+    
+    try {
+      console.log('🔄 正在获取终端统计数据...');
+      
+      // 获取页面浏览量
+      const pageviewResponse = await fetch(`${walineServer}api/article?path=${encodeURIComponent(currentPath)}`);
+      if (pageviewResponse.ok) {
+        const pageviewData = await pageviewResponse.json();
+        const pageviews = pageviewData.data?.[0]?.time || 0;
+        
+        const viewsElement = document.getElementById('terminal-views');
+        if (viewsElement) {
+          // 添加数字增长动画效果
+          animateNumber(viewsElement, 0, Number(pageviews));
+          console.log('📊 页面浏览量:', pageviews);
+        }
+      }
+
+      // 获取评论数
+      const commentResponse = await fetch(`${walineServer}api/comment?path=${encodeURIComponent(currentPath)}&type=count`);
+      if (commentResponse.ok) {
+        const commentData = await commentResponse.json();
+        const commentCount = commentData.data || 0;
+        
+        const commentsElement = document.getElementById('terminal-comments');
+        if (commentsElement) {
+          // 添加数字增长动画效果
+          animateNumber(commentsElement, 0, Number(commentCount));
+          console.log('💬 评论数:', commentCount);
+        }
+      }
+
+      console.log('✅ 终端统计数据加载完成');
+
+    } catch (error) {
+      console.error('❌ 获取统计数据失败:', error);
+      // 失败时显示 "---" 表示加载失败
+      const viewsElement = document.getElementById('terminal-views');
+      const commentsElement = document.getElementById('terminal-comments');
+      if (viewsElement) viewsElement.textContent = '---';
+      if (commentsElement) commentsElement.textContent = '---';
+    }
+  }
+
+  // 数字增长动画函数 - 修复类型错误
+  function animateNumber(element: HTMLElement, start: number, end: number): void {
+    const duration = 1000; // 1秒动画
+    const steps = 30;
+    const stepValue = (end - start) / steps;
+    let current = start;
+    
+    const timer = setInterval(() => {
+      current += stepValue;
+      if (current >= end) {
+        current = end;
+        clearInterval(timer);
+      }
+      element.textContent = Math.floor(current).toString();
+    }, duration / steps);
+  }
+
+  // 页面加载完成后获取统计数据
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadTerminalStats);
+  } else {
+    loadTerminalStats();
+  }
+
+  // 延迟执行，确保页面完全渲染
+  setTimeout(loadTerminalStats, 1500);
+</script>
 </PageLayout>
 
 <style>
