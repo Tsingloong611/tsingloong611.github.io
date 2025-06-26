@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+on:
+  # 每次推送到 master 分支时触发
+  push:
+    branches: [ master ]
+  # 允许从 Actions 选项卡手动运行此工作流
+  workflow_dispatch:
+
+# 设置 GITHUB_TOKEN 的权限以允许部署到 GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+        
+      - name: Install, build, and upload your site output
+        uses: withastro/action@v4
+        with:
+          # path: . # 项目在仓库中的根位置（可选）
+          # node-version: 20 # 构建站点时使用的 Node 版本（可选）
+          # package-manager: pnpm@latest # 用于安装依赖和构建站点的包管理器（可选）
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
