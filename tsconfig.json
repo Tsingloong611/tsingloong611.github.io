@@ -11,6 +11,8 @@
     // Others
     "baseUrl": ".",
     "strictNullChecks": true,
+    // 添加这一行来支持自定义类型声明
+    "typeRoots": ["./node_modules/@types", "./src/types"],
     // Paths
     "paths": {
       "@/assets/*": ["src/assets/*"],
@@ -21,6 +23,7 @@
       "@/plugins/*": ["src/plugins/*"],
       "@/pages/*": ["src/pages/*"],
       "@/types": ["src/types/index.ts"],
+      "@/types/*": ["src/types/*"],
       "@/site-config": ["src/site.config.ts"]
     }
   },
