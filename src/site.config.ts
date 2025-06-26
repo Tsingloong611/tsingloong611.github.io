@@ -151,13 +151,12 @@ export const integ: IntegrationUserConfig = {
       comment: true,
       placeholder: '你是我一生仅会遇见一次的惊喜',
       avatar: 'monsterid',
-      lang: 'zh-CN',
+      lang: 'en-US',
       meta: ['nick', 'mail', 'link'],
       requiredMeta: ['nick'],
       wordLimit: [0, 1000],
       locale: {
         reaction0: 'Like', // [!code word:MODIFIED]
-        placeholder: 'Join the discussion! Your email is optional and used for reply notifications only.' // [!code word:MODIFIED]
       },
       imageUploader: true,
     }
