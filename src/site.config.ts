@@ -149,7 +149,6 @@ export const integ: IntegrationUserConfig = {
     additionalConfigs: {
       pageview: true,
       comment: true,
-      placeholder: '你是我一生仅会遇见一次的惊喜',
       avatar: 'monsterid',
       lang: 'en-US',
       meta: ['nick', 'mail', 'link'],
@@ -157,6 +156,7 @@ export const integ: IntegrationUserConfig = {
       wordLimit: [0, 1000],
       locale: {
         reaction0: 'Like', // [!code word:MODIFIED]
+        placeholder: '你是我一生仅会遇见一次的惊喜'
       },
       imageUploader: true,
     }
