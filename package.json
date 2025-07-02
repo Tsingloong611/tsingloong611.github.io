@@ -30,7 +30,7 @@
     "astro-pure": "1.2.7",
     "katex": "^0.16.22",
     "rehype-katex": "^7.0.1",
-    "remark-hexo-tags": "github:Tsingloong611/remark-hexo-tags",
+    "remark-hexo-tags": "file:../custom_plugins/remark-hexo-tags",
     "remark-math": "^6.0.0",
     "sharp": "^0.34.2",
     "typescript": "^5.8.3"
@@ -44,7 +44,6 @@
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "rollup-plugin-visualizer": "^6.0.1",
-    "typescript-eslint": "^8.33.0",
-    "patch-package": "^8.0.0"
+    "typescript-eslint": "^8.33.0"
   }
 }
