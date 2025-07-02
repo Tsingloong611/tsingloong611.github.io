@@ -30,9 +30,10 @@
     "astro-pure": "1.2.7",
     "katex": "^0.16.22",
     "rehype-katex": "^7.0.1",
-    "remark-hexo-tags": "file:../custom_plugins/remark-hexo-tags",
+    "remark-hexo-tags": "github:Tsingloong611/remark-hexo-tags",
     "remark-math": "^6.0.0",
     "sharp": "^0.34.2",
+    "patch-package": "^8.0.0",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
