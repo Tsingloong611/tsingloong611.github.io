@@ -35,7 +35,7 @@ The unique identifier for the blocked extension is required for whitelisting. As
 *   **Extension Name:** Pan Linker Download Assistant 6.2.7
 *   **Blocked ID:** `kigpaofgibailejenmmebodcpdgbmdgf`
 
-![image-20251002104657888](C:\Users\Tsing_loong\AppData\Roaming\Typora\typora-user-images\image-20251002104657888.png)
+![image-20251002104657888](/images/unlockedge/Step1.png)
 
 ### Step 2: Navigate to Edge Policy Settings in GPEDIT
 
@@ -47,7 +47,7 @@ Open the Local Group Policy Editor (`gpedit.msc`). The relevant configuration pa
 > ↳ **Microsoft Edge**
 > ↳ **Extensions**
 
-![image-20251002104816601](C:\Users\Tsing_loong\AppData\Roaming\Typora\typora-user-images\image-20251002104816601.png)
+![image-20251002104816601](/images/unlockedge/Step2.png)
 
 ### Step 3: Configure the Allow List Policy
 
@@ -61,7 +61,7 @@ We will utilize the **"Allow specific extensions to be installed"** policy. This
 4.  In the "Extension IDs to exempt from the block list" dialog, enter the ID of the download assistant:
     *   **Value:** `kigpaofgibailejenmmebodcpdgbmdgf`
 
-![image-20251002105024725](C:\Users\Tsing_loong\AppData\Roaming\Typora\typora-user-images\image-20251002105024725.png)
+![image-20251002105024725](/images/unlockedge/Step3.png)
 
 5.  Confirm the changes by clicking **OK** on both policy windows.
 
