@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>豪哥21周岁生日快乐</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&family=Fira+Code:wght@400;500&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --night-deep: #05080f; --night-blue: #0a1628; --night-mid: #101d35;
+            --moon-glow: #e8eef5; --accent-cyan: #4fd1c5; --accent-blue: #63b3ed;
+            --accent-silver: #a0aec0; --text-primary: #e2e8f0; --text-secondary: #718096;
+            --code-highlight: #68d391; --gold-accent: #ecc94b; --buff-glow: #f6ad55;
+            --linear-color: #a78bfa; --network-color: #f472b6; --milestone-color: #fbbf24;
+            --achievement-gold: #f59e0b;
+            --completion-rainbow: linear-gradient(90deg, #f59e0b, #ec4899, #8b5cf6, #3b82f6, #10b981);
+        }
+        html, body { height: 100%; overflow: hidden; }
+        body { font-family: 'Noto Serif SC', serif; background: var(--night-deep); color: var(--text-primary); min-height: 100vh; }
+
+        /* Boot Screen - First layer */
+        .boot-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--night-deep); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1100; transition: opacity 0.8s ease, visibility 0.8s ease; }
+        .boot-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .boot-prompt { font-family: 'Fira Code', monospace; font-size: 13px; color: var(--text-secondary); letter-spacing: 2px; margin-bottom: 40px; opacity: 0; animation: boot-fade-in 1s ease forwards 0.5s; }
+        @keyframes boot-fade-in { to { opacity: 0.6; } }
+        .boot-button { padding: 18px 60px; font-family: 'Orbitron', monospace; font-size: 14px; background: transparent; border: 2px solid var(--accent-cyan); color: var(--accent-cyan); cursor: pointer; transition: all 0.4s ease; letter-spacing: 6px; text-transform: uppercase; position: relative; overflow: hidden; opacity: 0; animation: boot-btn-in 1s ease forwards 1s; }
+        @keyframes boot-btn-in { to { opacity: 1; } }
+        .boot-button::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(79, 209, 197, 0.3), transparent); transition: left 0.5s ease; }
+        .boot-button:hover::before { left: 100%; }
+        .boot-button:hover { background: rgba(79, 209, 197, 0.15); box-shadow: 0 0 40px rgba(79, 209, 197, 0.4); transform: scale(1.02); }
+        .boot-decoration { position: absolute; font-family: 'Fira Code', monospace; font-size: 10px; color: var(--text-secondary); opacity: 0.3; letter-spacing: 2px; }
+        .boot-decoration.top-left { top: 40px; left: 40px; }
+        .boot-decoration.bottom-right { bottom: 40px; right: 40px; }
+        .boot-cursor { display: inline-block; width: 8px; height: 14px; background: var(--accent-cyan); margin-left: 4px; animation: cursor-blink 1s step-end infinite; vertical-align: middle; }
+        @keyframes cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Loading Screen */
+        .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--night-deep); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; transition: opacity 0.8s ease, visibility 0.8s ease; opacity: 0; visibility: hidden; }
+        .loading-screen.active { opacity: 1; visibility: visible; }
+        .loading-screen.hidden { opacity: 0; visibility: hidden; }
+        .loading-text { font-family: 'Fira Code', monospace; color: var(--code-highlight); font-size: 13px; margin-bottom: 20px; text-align: left; line-height: 1.8; }
+        .loading-bar-container { width: 320px; height: 2px; background: rgba(255,255,255,0.1); overflow: hidden; margin-top: 20px; }
+        .loading-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)); transition: width 0.3s ease; }
+        .start-button { margin-top: 50px; padding: 14px 56px; font-family: 'Orbitron', monospace; font-size: 13px; background: transparent; border: 1px solid var(--accent-cyan); color: var(--accent-cyan); cursor: pointer; transition: all 0.3s ease; letter-spacing: 4px; opacity: 0; transform: translateY(20px); text-transform: uppercase; }
+        .start-button.visible { opacity: 1; transform: translateY(0); }
+        .start-button:hover { background: var(--accent-cyan); color: var(--night-deep); box-shadow: 0 0 30px rgba(79, 209, 197, 0.3); }
+        /* Loading Audio Control Button */
+        .loading-audio-control { position: fixed; bottom: 30px; right: 30px; z-index: 1050; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
+        .loading-audio-control.visible { opacity: 1; visibility: visible; }
+        .loading-audio-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(79, 209, 197, 0.1); border: 1px solid rgba(79, 209, 197, 0.4); color: var(--accent-cyan); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .loading-audio-btn:hover { background: rgba(79, 209, 197, 0.2); box-shadow: 0 0 20px rgba(79, 209, 197, 0.3); }
+        .loading-audio-btn svg { width: 18px; height: 18px; }
+
+        /* Main Container */
+        .main-container { position: relative; width: 100%; height: 100vh; overflow: hidden; display: none; }
+        .main-container.active { display: block; }
+        .starfield { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 0%, var(--night-mid) 0%, var(--night-blue) 40%, var(--night-deep) 100%); }
+        .stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle var(--duration) ease-in-out infinite; opacity: var(--opacity); }
+        @keyframes twinkle { 0%, 100% { opacity: var(--opacity); } 50% { opacity: 0.2; } }
+        .grid-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(79, 209, 197, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 209, 197, 0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+
+        /* Moon */
+        .moon-container { position: absolute; top: 8%; right: 10%; cursor: pointer; z-index: 10; }
+        .moon { width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #f7fafc 0%, #e2e8f0 30%, #cbd5e0 60%, #a0aec0 100%); box-shadow: 0 0 60px rgba(226, 232, 240, 0.4), 0 0 120px rgba(226, 232, 240, 0.2), inset -15px -8px 30px rgba(0,0,0,0.1); transition: all 0.5s ease; position: relative; }
+        .moon::before { content: ''; position: absolute; top: 22%; left: 18%; width: 20px; height: 20px; background: rgba(160, 174, 192, 0.4); border-radius: 50%; filter: blur(2px); }
+        .moon::after { content: ''; position: absolute; top: 55%; left: 50%; width: 35px; height: 28px; background: rgba(160, 174, 192, 0.3); border-radius: 50%; filter: blur(3px); }
+        .moon:hover { box-shadow: 0 0 80px rgba(226, 232, 240, 0.5), 0 0 150px rgba(226, 232, 240, 0.25); }
+        .moon.true-moon { background: radial-gradient(circle at 35% 35%, #fc8181 0%, #f56565 40%, #c53030 100%); box-shadow: 0 0 80px rgba(245, 101, 101, 0.5), 0 0 150px rgba(245, 101, 101, 0.25); }
+
+        /* Particles */
+        .particle-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
+        .particle { position: absolute; width: 4px; height: 4px; background: var(--accent-cyan); border-radius: 50%; opacity: 0; animation: float-up linear infinite; filter: blur(1px); }
+        @keyframes float-up { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-20px) scale(1); opacity: 0; } }
+
+        /* Content */
+        .content { position: relative; z-index: 5; height: 100vh; overflow-y: auto; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; }
+        .content::-webkit-scrollbar { width: 3px; }
+        .content::-webkit-scrollbar-track { background: transparent; }
+        .content::-webkit-scrollbar-thumb { background: rgba(79, 209, 197, 0.3); border-radius: 2px; }
+
+        /* Title */
+        .title-section { text-align: center; margin-bottom: 60px; opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+        .title-section.visible { opacity: 1; transform: translateY(0); }
+        .title-tag { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--accent-cyan); letter-spacing: 6px; margin-bottom: 20px; text-transform: uppercase; }
+        .title-main { font-family: 'ZCOOL XiaoWei', serif; font-size: clamp(28px, 7vw, 48px); font-weight: 400; color: var(--moon-glow); letter-spacing: 16px; text-shadow: 0 0 40px rgba(226, 232, 240, 0.2); }
+        .title-sub { font-family: 'Orbitron', monospace; font-size: 11px; color: var(--text-secondary); margin-top: 24px; letter-spacing: 4px; text-transform: uppercase; }
+
+        /* Blessing */
+        .blessing-container { max-width: 700px; width: 100%; padding: 0 20px; }
+        .blessing-text { font-size: clamp(15px, 2.2vw, 18px); line-height: 2.4; text-align: justify; color: var(--text-primary); letter-spacing: 0.5px; }
+        .blessing-text .line { display: block; opacity: 0; transform: translateY(20px); transition: all 0.8s ease; margin-bottom: 1.2em; }
+        .blessing-text .line.visible { opacity: 1; transform: translateY(0); }
+        .code-term { font-family: 'Fira Code', monospace; color: var(--code-highlight); font-size: 0.88em; padding: 2px 6px; background: rgba(104, 211, 145, 0.1); border-radius: 3px; }
+        .highlight { color: var(--gold-accent); }
+        .special-term { color: var(--accent-cyan); }
+
+        /* Activation */
+        .activation-section { margin-top: 50px; text-align: center; opacity: 0; transform: translateY(20px); transition: all 1s ease; }
+        .activation-section.visible { opacity: 1; transform: translateY(0); }
+        .activation-title { font-family: 'Fira Code', monospace; font-size: 14px; color: var(--accent-cyan); margin-bottom: 24px; letter-spacing: 3px; }
+        .activation-btn { padding: 16px 48px; font-family: 'Orbitron', monospace; font-size: 14px; background: transparent; border: 2px solid var(--accent-cyan); color: var(--accent-cyan); cursor: pointer; transition: all 0.4s ease; letter-spacing: 3px; text-transform: uppercase; position: relative; overflow: hidden; }
+        .activation-btn::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: var(--accent-cyan); transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s; z-index: -1; }
+        .activation-btn:hover::before { width: 300px; height: 300px; }
+        .activation-btn:hover { color: var(--night-deep); box-shadow: 0 0 40px rgba(79, 209, 197, 0.4); }
+
+        /* Study System */
+        .study-system { margin-top: 50px; width: 100%; max-width: 1100px; display: none; opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+        .study-system.active { display: block; }
+        .study-system.visible { opacity: 1; transform: translateY(0); }
+        .study-chapters { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+        .chapter-card { background: rgba(79, 209, 197, 0.05); border: 1px solid rgba(79, 209, 197, 0.2); padding: 28px 32px; text-align: center; transition: all 0.8s ease; min-width: 200px; max-width: 280px; flex: 1; }
+        .chapter-card:hover { border-color: rgba(79, 209, 197, 0.5); box-shadow: 0 0 30px rgba(79, 209, 197, 0.15); }
+        .chapter-icon { height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--accent-cyan); }
+        .matrix-icon { flex-direction: column; font-family: 'Fira Code', monospace; font-size: 14px; line-height: 1.4; letter-spacing: 2px; }
+        .network-icon svg { width: 50px; height: 50px; }
+        .chapter-title { font-family: 'ZCOOL XiaoWei', serif; font-size: 16px; color: var(--moon-glow); margin-bottom: 8px; letter-spacing: 2px; }
+        .chapter-desc { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); letter-spacing: 1px; }
+        .chapter-meta { display: flex; gap: 12px; justify-content: center; margin-top: 12px; font-size: 10px; color: var(--text-secondary); }
+        .progress-section { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(79, 209, 197, 0.1); }
+        .progress-label { font-size: 10px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .progress-bar-wrapper { display: flex; align-items: center; gap: 10px; }
+        .progress-bar-bg { flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent-cyan), var(--code-highlight)); border-radius: 2px; transition: width 0.5s ease; }
+        .progress-text { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--accent-cyan); min-width: 36px; text-align: right; }
+        .chapter-btn { margin-top: 14px; padding: 8px 16px; font-family: 'Fira Code', monospace; font-size: 10px; background: transparent; border: 1px solid rgba(79, 209, 197, 0.3); color: var(--accent-cyan); cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; }
+        .chapter-btn:hover:not(:disabled) { background: rgba(79, 209, 197, 0.15); border-color: var(--accent-cyan); }
+        .chapter-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .chapter-card.completed { border-color: var(--code-highlight); box-shadow: 0 0 30px rgba(104, 211, 145, 0.2); }
+        .chapter-card.completed .chapter-icon { color: var(--code-highlight); }
+        .chapter-card.completed .chapter-btn { border-color: var(--code-highlight); color: var(--code-highlight); }
+
+        /* Constellation - FIX: Changed overflow to visible so the hint button can be seen */
+        .constellation-section { margin-top: 40px; padding: 40px; background: rgba(5, 8, 15, 0.8); border: 1px solid rgba(79, 209, 197, 0.15); position: relative; overflow: visible; /* <-- FIXED HERE */ }
+        .constellation-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 30%, rgba(167, 139, 250, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(244, 114, 182, 0.05) 0%, transparent 50%); pointer-events: none; }
+        .constellation-title { font-family: 'Orbitron', monospace; font-size: 14px; color: var(--accent-cyan); margin-bottom: 12px; letter-spacing: 3px; text-align: center; text-transform: uppercase; }
+        .constellation-subtitle { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); text-align: center; margin-bottom: 30px; letter-spacing: 1px; }
+        .constellation-container { position: relative; width: 100%; height: 550px; margin: 0 auto; }
+        .constellation-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+        .constellation-line { stroke: rgba(79, 209, 197, 0.2); stroke-width: 1.5; fill: none; transition: stroke 0.3s ease; }
+        .constellation-line.active { stroke: rgba(79, 209, 197, 0.6); filter: drop-shadow(0 0 3px rgba(79, 209, 197, 0.4)); }
+
+        /* Constellation Shake Animation */
+        @keyframes constellation-shake {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            10% { transform: translate(-3px, -2px) rotate(-0.5deg); }
+            20% { transform: translate(3px, 2px) rotate(0.5deg); }
+            30% { transform: translate(-2px, 3px) rotate(-0.3deg); }
+            40% { transform: translate(2px, -3px) rotate(0.3deg); }
+            50% { transform: translate(-3px, 2px) rotate(-0.5deg); }
+            60% { transform: translate(3px, -2px) rotate(0.5deg); }
+            70% { transform: translate(-2px, -3px) rotate(-0.3deg); }
+            80% { transform: translate(2px, 3px) rotate(0.3deg); }
+            90% { transform: translate(-3px, -2px) rotate(-0.5deg); }
+        }
+        .constellation-container.shaking .constellation-inner {
+            animation: constellation-shake 0.5s ease-in-out infinite;
+        }
+        @keyframes shake-glow {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0; transform: scale(1.2); }
+        }
+        .constellation-container.shaking::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(104, 211, 145, 0.2) 0%, transparent 70%);
+            animation: shake-glow 6.0s ease-out;
+            pointer-events: none;
+        }
+
+        /* Star Nodes */
+        .star-node { position: absolute; width: 28px; height: 28px; transform: translate(-50%, -50%); cursor: pointer; z-index: 10; transition: all 0.3s ease; }
+        .star-core { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; border-radius: 50%; background: rgba(251, 191, 36, 0.7); box-shadow: 0 0 12px rgba(251, 191, 36, 0.5); transition: all 0.3s ease; }
+        .star-node.linear .star-core { background: rgba(167, 139, 250, 0.7); box-shadow: 0 0 12px rgba(167, 139, 250, 0.5); }
+        .star-node.network .star-core { background: rgba(244, 114, 182, 0.7); box-shadow: 0 0 12px rgba(244, 114, 182, 0.5); }
+        .star-node.milestone .star-core { background: rgba(251, 191, 36, 0.8); box-shadow: 0 0 15px rgba(251, 191, 36, 0.6); width: 14px; height: 14px; }
+        .star-node.completed .star-core { width: 16px; height: 16px; background: var(--code-highlight); box-shadow: 0 0 18px rgba(104, 211, 145, 0.7), 0 0 35px rgba(104, 211, 145, 0.4); animation: star-pulse 2s ease-in-out infinite; }
+        @keyframes star-pulse { 0%, 100% { box-shadow: 0 0 18px rgba(104, 211, 145, 0.7), 0 0 35px rgba(104, 211, 145, 0.4); } 50% { box-shadow: 0 0 25px rgba(104, 211, 145, 0.9), 0 0 50px rgba(104, 211, 145, 0.6); } }
+        .star-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 28px; height: 28px; border-radius: 50%; background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s ease; }
+        .star-node:hover .star-glow { opacity: 1; }
+        .star-node:hover .star-core { transform: translate(-50%, -50%) scale(1.3); }
+        .star-label { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 8px; font-family: 'Fira Code', monospace; font-size: 9px; color: var(--text-secondary); white-space: nowrap; opacity: 0.7; transition: opacity 0.3s ease; }
+        .star-node:hover .star-label { opacity: 1; color: var(--accent-cyan); }
+        .star-node.linear .star-label { color: var(--linear-color); }
+        .star-node.network .star-label { color: var(--network-color); }
+        .star-node.milestone .star-label { color: var(--milestone-color); }
+
+        /* Star Tooltip */
+        .star-tooltip { position: absolute; bottom: calc(100% + 15px); left: 50%; transform: translateX(-50%) translateY(10px); background: rgba(10, 22, 40, 0.98); border: 1px solid rgba(79, 209, 197, 0.3); padding: 16px 20px; min-width: 240px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 100; pointer-events: none; }
+        .star-node:hover .star-tooltip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .tooltip-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(79, 209, 197, 0.15); }
+        .tooltip-title { font-family: 'Orbitron', monospace; font-size: 12px; color: var(--accent-cyan); letter-spacing: 1px; }
+        .tooltip-status { font-family: 'Fira Code', monospace; font-size: 10px; padding: 3px 8px; border-radius: 3px; }
+        .tooltip-status.pending { background: rgba(160, 174, 192, 0.2); color: var(--text-secondary); }
+        .tooltip-status.completed { background: rgba(104, 211, 145, 0.2); color: var(--code-highlight); }
+        .tooltip-content { display: flex; flex-direction: column; gap: 8px; }
+        .tooltip-row { display: flex; justify-content: space-between; align-items: center; font-family: 'Fira Code', monospace; font-size: 11px; }
+        .tooltip-label { color: var(--text-secondary); }
+        .tooltip-value { color: var(--text-primary); }
+        .tooltip-value.highlight { color: var(--gold-accent); }
+        .tooltip-commit { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(79, 209, 197, 0.1); cursor: pointer; }
+        .tooltip-commit:hover { background: rgba(104, 211, 145, 0.05); }
+        .commit-label { font-family: 'Fira Code', monospace; font-size: 9px; color: var(--text-secondary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+        .commit-hash { font-family: 'Fira Code', monospace; font-size: 10px; color: var(--code-highlight); background: rgba(104, 211, 145, 0.1); padding: 4px 8px; border-radius: 3px; word-break: break-all; line-height: 1.4; max-height: 60px; overflow-y: auto; }
+        .copy-hint { font-size: 8px; color: var(--text-secondary); opacity: 0.6; margin-top: 4px; text-align: center; }
+
+        /* Legend */
+        .constellation-legend { display: flex; justify-content: center; gap: 40px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(79, 209, 197, 0.1); }
+        .legend-item { display: flex; align-items: center; gap: 10px; font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .legend-dot.linear { background: var(--linear-color); box-shadow: 0 0 8px rgba(167, 139, 250, 0.5); }
+        .legend-dot.network { background: var(--network-color); box-shadow: 0 0 8px rgba(244, 114, 182, 0.5); }
+        .legend-dot.milestone { background: var(--milestone-color); box-shadow: 0 0 8px rgba(251, 191, 36, 0.5); }
+        .legend-dot.completed { background: var(--code-highlight); box-shadow: 0 0 8px rgba(104, 211, 145, 0.5); }
+
+        /* Download Section */
+        .download-section { margin-top: 40px; text-align: center; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
+        .download-section.visible { opacity: 1; visibility: visible; }
+        .download-btn { padding: 16px 48px; font-family: 'Orbitron', monospace; font-size: 14px; background: transparent; border: 2px solid var(--achievement-gold); color: var(--achievement-gold); cursor: pointer; transition: all 0.4s ease; letter-spacing: 3px; text-transform: uppercase; position: relative; overflow: hidden; }
+        .download-btn::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: var(--achievement-gold); transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s; z-index: -1; }
+        .download-btn:hover::before { width: 300px; height: 300px; }
+        .download-btn:hover { color: var(--night-deep); box-shadow: 0 0 40px rgba(245, 158, 11, 0.5); }
+
+        /* EVE Protocol Activation Animation */
+        .eve-activation-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.98); z-index: 800; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease; }
+        .eve-activation-overlay.active { opacity: 1; visibility: visible; }
+        .eve-logo { font-family: 'Orbitron', monospace; font-size: 72px; color: var(--accent-cyan); letter-spacing: 20px; opacity: 0; transform: scale(0.5); transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); text-shadow: 0 0 60px rgba(79, 209, 197, 0.8); }
+        .eve-activation-overlay.active .eve-logo { opacity: 1; transform: scale(1); }
+        .eve-subtitle { font-family: 'Fira Code', monospace; font-size: 14px; color: var(--text-secondary); letter-spacing: 8px; margin-top: 30px; opacity: 0; transition: opacity 0.5s ease 0.5s; }
+        .eve-activation-overlay.active .eve-subtitle { opacity: 1; }
+        .eve-status { font-family: 'Fira Code', monospace; font-size: 12px; color: var(--code-highlight); margin-top: 40px; opacity: 0; transition: opacity 0.5s ease 1s; }
+        .eve-activation-overlay.active .eve-status { opacity: 1; }
+        .eve-progress-bar { width: 300px; height: 3px; background: rgba(255,255,255,0.1); margin-top: 20px; overflow: hidden; opacity: 0; transition: opacity 0.5s ease 1.2s; }
+        .eve-activation-overlay.active .eve-progress-bar { opacity: 1; }
+        .eve-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent-cyan), var(--code-highlight)); transition: width 1.5s ease; }
+        .eve-activation-overlay.active .eve-progress-fill { width: 100%; }
+        @keyframes eve-glitch { 0%, 100% { text-shadow: 0 0 60px rgba(79, 209, 197, 0.8); } 25% { text-shadow: -2px 0 rgba(244, 114, 182, 0.8), 2px 0 rgba(79, 209, 197, 0.8); } 50% { text-shadow: 2px 0 rgba(167, 139, 250, 0.8), -2px 0 rgba(104, 211, 145, 0.8); } 75% { text-shadow: -1px 0 rgba(251, 191, 36, 0.8), 1px 0 rgba(79, 209, 197, 0.8); } }
+        .eve-logo.glitch { animation: eve-glitch 0.3s ease-in-out 3; }
+
+        /* Constellation Rotation (Victory Mode) */
+        .constellation-container.victory-mode { perspective: 1000px; cursor: grab; }
+        .constellation-container.victory-mode:active { cursor: grabbing; }
+        .constellation-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
+        .constellation-container.victory-mode .constellation-inner { transform: rotateX(var(--rotateX, 0deg)) rotateY(var(--rotateY, 0deg)); }
+
+        /* FIX: Adjusted position to ensure it fits and upped z-index */
+        /* 找到这段并修改 */
+        .victory-cipher-hint {
+            position: absolute;
+            bottom: 72px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--accent-cyan);
+            letter-spacing: 2px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            text-align: center;
+            pointer-events: auto;
+            cursor: pointer;
+            padding: 18px 36px;
+
+            white-space: nowrap;
+            width: fit-content;
+            max-width: 90%;
+
+            background: rgba(5, 8, 15, 0.9);
+            backdrop-filter: blur(4px);
+            border: 2px solid rgba(79, 209, 197, 0.5);
+            border-radius: 8px;
+            z-index: 100;
+        }
+
+        .constellation-section.victory .victory-cipher-hint.revealed { opacity: 1; visibility: visible; animation: hint-pulse 2s ease-in-out infinite, hint-glow 1.5s ease-in-out infinite alternate; }
+        .victory-cipher-hint:hover { background: rgba(79, 209, 197, 0.25); border-color: var(--accent-cyan); transform: translateX(-50%) scale(1.05); box-shadow: 0 0 40px rgba(79, 209, 197, 0.5); }
+        @keyframes hint-pulse { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.03); } }
+        @keyframes hint-glow { 0% { box-shadow: 0 0 15px rgba(79, 209, 197, 0.3), inset 0 0 10px rgba(79, 209, 197, 0.1); } 100% { box-shadow: 0 0 30px rgba(79, 209, 197, 0.6), inset 0 0 20px rgba(79, 209, 197, 0.2); } }
+        .cipher-text { color: var(--accent-cyan); font-weight: 600; letter-spacing: 4px; text-shadow: 0 0 15px rgba(79, 209, 197, 0.6); font-size: 15px; }
+        .cipher-decoded { color: var(--code-highlight); margin-top: 8px; display: block; font-size: 10px; opacity: 0.7; }
+
+        /* Victory Reveal Animation */
+        .victory-reveal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.98); z-index: 700; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
+        .victory-reveal-overlay.active { opacity: 1; visibility: visible; }
+        .victory-title { font-family: 'Orbitron', monospace; font-size: 28px; color: var(--achievement-gold); letter-spacing: 8px; margin-bottom: 40px; opacity: 0; transform: translateY(-30px); transition: all 0.8s ease 0.3s; }
+        .victory-reveal-overlay.active .victory-title { opacity: 1; transform: translateY(0); }
+        .cipher-reveal-box { background: rgba(10, 22, 40, 0.9); border: 2px solid var(--accent-cyan); padding: 40px 60px; text-align: center; opacity: 0; transform: scale(0.8); transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s; }
+        .victory-reveal-overlay.active .cipher-reveal-box { opacity: 1; transform: scale(1); }
+        .cipher-label { font-family: 'Fira Code', monospace; font-size: 12px; color: var(--text-secondary); letter-spacing: 3px; margin-bottom: 20px; }
+        .cipher-main { font-family: 'Orbitron', monospace; font-size: 36px; color: var(--accent-cyan); letter-spacing: 12px; margin-bottom: 15px; text-shadow: 0 0 30px rgba(79, 209, 197, 0.5); }
+        .cipher-arrow { font-size: 24px; color: var(--achievement-gold); margin: 15px 0; }
+        .cipher-result { font-family: 'Orbitron', monospace; font-size: 36px; color: var(--code-highlight); letter-spacing: 12px; text-shadow: 0 0 30px rgba(104, 211, 145, 0.5); }
+        .cipher-explanation { font-family: 'Fira Code', monospace; font-size: 13px; color: var(--text-secondary); margin-top: 30px; line-height: 1.8; }
+        .cipher-explanation .highlight { color: var(--achievement-gold); }
+        .victory-close-hint { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); margin-top: 50px; opacity: 0; transition: opacity 0.5s ease 1.5s; }
+        .victory-reveal-overlay.active .victory-close-hint { opacity: 0.6; }
+
+        /* Achievement System */
+        .achievement-panel { position: fixed; top: 20px; left: 20px; z-index: 60; display: flex; flex-direction: column; gap: 12px; }
+        .achievement-item { width: 70px; height: 70px; background: rgba(10, 22, 40, 0.9); border: 2px solid rgba(79, 209, 197, 0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; position: relative; }
+        .achievement-item:hover { transform: scale(1.1); border-color: var(--accent-cyan); box-shadow: 0 0 20px rgba(79, 209, 197, 0.3); }
+        .achievement-item.unlocked { border-color: var(--achievement-gold); animation: achievement-glow 2s ease-in-out infinite; }
+        @keyframes achievement-glow { 0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); } 50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.6); } }
+        .achievement-icon { font-size: 32px; opacity: 0.3; transition: opacity 0.3s ease; }
+        .achievement-item.unlocked .achievement-icon { opacity: 1; }
+        .achievement-badge { position: absolute; top: -8px; right: -8px; width: 20px; height: 20px; background: var(--achievement-gold); border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 12px; color: var(--night-deep); font-weight: bold; }
+        .achievement-item.unlocked .achievement-badge { display: flex; }
+
+        /* Achievement Modal */
+        .achievement-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(79, 209, 197, 0.15)); border: 3px solid var(--achievement-gold); padding: 40px 50px; text-align: center; opacity: 0; visibility: hidden; transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 500; box-shadow: 0 0 80px rgba(245, 158, 11, 0.5); min-width: 450px; max-width: 90vw; }
+        .achievement-modal.visible { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+        .achievement-modal-icon { font-size: 72px; margin-bottom: 20px; animation: rotate-tada 1.5s ease-in-out; }
+        @keyframes rotate-tada { 0%, 100% { transform: scale(1) rotate(0deg); } 10%, 20% { transform: scale(0.9) rotate(-8deg); } 30%, 50%, 70%, 90% { transform: scale(1.1) rotate(8deg); } 40%, 60%, 80% { transform: scale(1.1) rotate(-8deg); } }
+        .achievement-modal-title { font-family: 'Orbitron', monospace; font-size: 24px; color: var(--achievement-gold); margin-bottom: 16px; letter-spacing: 3px; text-transform: uppercase; }
+        .achievement-modal-desc { font-family: 'Noto Serif SC', serif; font-size: 16px; color: var(--text-primary); line-height: 2; margin-bottom: 30px; }
+        .achievement-modal-close { padding: 12px 32px; font-family: 'Fira Code', monospace; font-size: 12px; background: var(--achievement-gold); color: var(--night-deep); border: none; cursor: pointer; letter-spacing: 2px; transition: all 0.3s ease; text-transform: uppercase; }
+        .achievement-modal-close:hover { background: var(--gold-accent); box-shadow: 0 0 30px rgba(245, 158, 11, 0.4); }
+
+        /* Moon Image Modal */
+        .moon-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.95); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 600; opacity: 0; visibility: hidden; transition: all 0.4s ease; cursor: pointer; }
+        .moon-modal.visible { opacity: 1; visibility: visible; }
+        .moon-modal-image { max-width: 80vw; max-height: 70vh; border: 2px solid var(--accent-cyan); box-shadow: 0 0 60px rgba(79, 209, 197, 0.3); transform: scale(0.9); transition: transform 0.4s ease; }
+        .moon-modal.visible .moon-modal-image { transform: scale(1); }
+        .moon-modal-caption { font-family: 'ZCOOL XiaoWei', serif; font-size: 18px; color: var(--moon-glow); margin-top: 24px; letter-spacing: 4px; text-shadow: 0 0 20px rgba(226, 232, 240, 0.3); }
+        .moon-modal-hint { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); margin-top: 16px; letter-spacing: 1px; }
+
+        /* Buff Toast */
+        .buff-toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.5); background: linear-gradient(135deg, rgba(246, 173, 85, 0.15), rgba(79, 209, 197, 0.15)); border: 2px solid var(--buff-glow); padding: 30px 40px; text-align: center; opacity: 0; visibility: hidden; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 250; box-shadow: 0 0 60px rgba(246, 173, 85, 0.4); min-width: 400px; }
+        .buff-toast.visible { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+        .buff-icon { font-size: 48px; margin-bottom: 16px; animation: rotate 2s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .buff-title { font-family: 'Orbitron', monospace; font-size: 16px; color: var(--buff-glow); margin-bottom: 12px; letter-spacing: 2px; }
+        .buff-description { font-family: 'Noto Serif SC', serif; font-size: 14px; color: var(--text-primary); line-height: 1.8; }
+
+        /* Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.95); display: flex; align-items: center; justify-content: center; z-index: 200; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .modal-overlay.visible { opacity: 1; visibility: visible; }
+        .modal-content { background: var(--night-blue); border: 1px solid var(--accent-cyan); padding: 32px; max-width: 500px; width: 90%; transform: scale(0.9); transition: transform 0.3s ease; }
+        .modal-overlay.visible .modal-content { transform: scale(1); }
+        .modal-title { font-family: 'Fira Code', monospace; font-size: 16px; color: var(--accent-cyan); margin-bottom: 20px; letter-spacing: 2px; }
+        .modal-input { width: 100%; background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(79, 209, 197, 0.3); color: var(--text-primary); padding: 12px; font-family: 'Fira Code', monospace; font-size: 13px; margin-bottom: 16px; resize: vertical; min-height: 100px; }
+        .modal-input:focus { outline: none; border-color: var(--accent-cyan); }
+        .modal-input::placeholder { color: var(--text-secondary); opacity: 0.5; }
+        .modal-hint { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; }
+        .modal-actions { display: flex; gap: 12px; justify-content: flex-end; }
+        .modal-btn { padding: 10px 24px; font-family: 'Fira Code', monospace; font-size: 11px; background: transparent; border: 1px solid rgba(79, 209, 197, 0.3); color: var(--accent-cyan); cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; }
+        .modal-btn:hover { background: rgba(79, 209, 197, 0.15); border-color: var(--accent-cyan); }
+        .modal-btn.primary { background: var(--accent-cyan); color: var(--night-deep); border-color: var(--accent-cyan); }
+        .modal-btn.primary:hover { background: var(--accent-blue); border-color: var(--accent-blue); }
+        .modal-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* Toast */
+        .completion-toast { position: fixed; top: 30px; left: 50%; transform: translateX(-50%) translateY(-20px); background: rgba(104, 211, 145, 0.15); border: 1px solid var(--code-highlight); color: var(--code-highlight); padding: 14px 28px; font-family: 'Fira Code', monospace; font-size: 13px; z-index: 300; opacity: 0; transition: all 0.3s ease; white-space: nowrap; }
+        .completion-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* Final Line - Rainbow on completion */
+        .final-line { font-family: 'Orbitron', monospace; font-size: clamp(18px, 3.5vw, 26px); color: var(--moon-glow); text-align: center; margin-top: 60px; letter-spacing: 6px; opacity: 0; transform: scale(0.9); transition: all 1s ease; text-transform: uppercase; }
+        .final-line.visible { opacity: 1; transform: scale(1); text-shadow: 0 0 30px rgba(226, 232, 240, 0.4); }
+        .final-line.rainbow { background: var(--completion-rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: rainbow-shift 3s ease-in-out infinite; text-shadow: none; }
+        @keyframes rainbow-shift { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(60deg); } }
+
+        /* Dedication */
+        .dedication { margin-top: 80px; text-align: center; opacity: 0; transform: translateY(20px); transition: all 1s ease; padding-bottom: 60px; }
+        .dedication.visible { opacity: 1; transform: translateY(0); }
+        .dedication-line { width: 40px; height: 1px; background: var(--accent-silver); margin: 0 auto 30px; opacity: 0.5; }
+        .dedication-text { display: flex; flex-direction: column; gap: 10px; }
+        /* 修改 .dedication-to */
+        .dedication-to {
+            font-family: 'Fira Code', monospace;
+            font-size: 16px; /* 稍微加大字号，增加可视面积 */
+            font-weight: 800; /*以此加粗，让颜色更显眼 */
+            letter-spacing: 3px;
+
+            /* 核心修改：加入白色作为高光，形成 白->金->橙红->白 的剧烈反差 */
+            background: linear-gradient(
+                90deg,
+                #ffffff 0%,   /* 纯白 (高光) */
+                #f59e0b 25%,  /* 亮橙金 */
+                #ef4444 50%,  /* 烈焰红 */
+                #f59e0b 75%,  /* 亮橙金 */
+                #ffffff 100%  /* 纯白 (高光) */
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
+            /* 金色辉光，增强“传说级”装备的感觉 */
+            filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6));
+
+            /* 加快一点速度，让流光更明显 */
+            background-size: 200% auto;
+            animation: text-shimmer 4.5s linear infinite;
+        }
+        @keyframes text-shimmer {
+            to { background-position: 200% center; }
+        }
+        .dedication-by { font-family: 'Fira Code', monospace; font-size: 12px; color: var(--accent-cyan); letter-spacing: 1px; }
+        .dedication-date { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); letter-spacing: 1px; }
+        .studio-credit { margin-top: 16px; font-family: 'Fira Code', monospace; font-size: 10px; color: var(--text-secondary); opacity: 0.7; }
+
+        /* Audio & Studio */
+        .audio-control { position: fixed; bottom: 30px; right: 30px; z-index: 50; display: flex; align-items: center; gap: 12px; opacity: 0; transition: opacity 0.5s ease; }
+        .audio-control.visible { opacity: 1; }
+        .audio-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(79, 209, 197, 0.1); border: 1px solid rgba(79, 209, 197, 0.4); color: var(--accent-cyan); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+        .audio-btn:hover { background: rgba(79, 209, 197, 0.2); box-shadow: 0 0 20px rgba(79, 209, 197, 0.3); }
+        .audio-btn svg { width: 18px; height: 18px; }
+        .studio-logo-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 600; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .studio-logo-overlay.visible { opacity: 1; visibility: visible; }
+        .studio-logo { width: 450px; max-width: 85vw; opacity: 0; transform: scale(0); transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); filter: drop-shadow(0 0 50px rgba(79, 209, 197, 0.7)); }
+        .studio-logo-overlay.visible .studio-logo { opacity: 1; transform: scale(1); }
+        .studio-logo img { width: 100%; height: auto; }
+        .studio-message { margin-top: 40px; font-family: 'Fira Code', monospace; font-size: 15px; color: var(--accent-cyan); text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.3s; letter-spacing: 2px; }
+        .studio-logo-overlay.visible .studio-message { opacity: 1; transform: translateY(0); }
+        .studio-subtext { margin-top: 12px; font-size: 12px; color: var(--text-secondary); letter-spacing: 1px; }
+
+        /* Corners & Scan */
+        .corner-decoration { position: fixed; pointer-events: none; opacity: 0.4; z-index: 5; }
+        .corner-decoration.top-left { top: 20px; left: 20px; width: 80px; height: 80px; border-top: 1px solid var(--accent-cyan); border-left: 1px solid var(--accent-cyan); }
+        .corner-decoration.top-right { top: 20px; right: 20px; width: 80px; height: 80px; border-top: 1px solid var(--accent-cyan); border-right: 1px solid var(--accent-cyan); }
+        .corner-decoration.bottom-left { bottom: 20px; left: 20px; width: 80px; height: 80px; border-bottom: 1px solid var(--accent-cyan); border-left: 1px solid var(--accent-cyan); }
+        .corner-decoration.bottom-right { bottom: 20px; right: 20px; width: 80px; height: 80px; border-bottom: 1px solid var(--accent-cyan); border-right: 1px solid var(--accent-cyan); }
+        .scan-line { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0px, rgba(0, 0, 0, 0.05) 1px, transparent 1px, transparent 2px); z-index: 1000; opacity: 0.3; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .moon-container { top: 4%; right: 5%; }
+            .moon { width: 90px; height: 90px; }
+            .content { padding: 50px 16px; }
+            .buff-toast, .achievement-modal { padding: 30px 24px; width: 90%; min-width: unset; }
+            .corner-decoration { width: 40px; height: 40px; }
+            .constellation-container { height: 600px; }
+            .star-tooltip { min-width: 200px; padding: 12px 16px; }
+            .constellation-legend { flex-wrap: wrap; gap: 20px; }
+            .achievement-panel { top: 10px; left: 10px; flex-direction: row; flex-wrap: wrap; max-width: calc(100% - 20px); }
+            .achievement-item { width: 50px; height: 50px; }
+            .achievement-icon { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Boot Screen - Click to start terminal -->
+    <div class="boot-screen" id="bootScreen">
+        <div class="boot-decoration top-left">// NYXCOIL CONTINUUM LAB</div>
+        <div class="boot-decoration bottom-right">SYS.BOOT v2.1.0</div>
+        <div class="boot-prompt">// SYSTEM STANDBY<span class="boot-cursor"></span></div>
+        <button class="boot-button" id="bootButton">CLICK TO BOOT SYSTEM</button>
+    </div>
+
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-text" id="loadingText"></div>
+        <div class="loading-bar-container"><div class="loading-bar" id="loadingBar"></div></div>
+        <button class="start-button" id="startButton">Initialize</button>
+    </div>
+
+    <!-- Loading Audio Control -->
+    <div class="loading-audio-control" id="loadingAudioControl">
+        <button class="loading-audio-btn" id="loadingAudioBtn" title="Toggle Loading BGM">
+            <svg id="loadingPlayIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="loadingPauseIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+    </div>
+
+    <div class="main-container" id="mainContainer">
+        <div class="starfield"><div class="stars" id="stars"></div></div>
+        <div class="grid-overlay"></div>
+        <div class="moon-container" id="moonContainer"><div class="moon" id="moon"></div></div>
+        <div class="particle-container" id="particleContainer"></div>
+        <div class="corner-decoration top-left"></div>
+        <div class="corner-decoration top-right"></div>
+        <div class="corner-decoration bottom-left"></div>
+        <div class="corner-decoration bottom-right"></div>
+        <div class="scan-line"></div>
+
+        <!-- Achievement Panel -->
+        <div class="achievement-panel" id="achievementPanel">
+            <div class="achievement-item" id="achievement-0" data-achievement="system_activation">
+                <div class="achievement-icon">🚀</div>
+                <div class="achievement-badge">✓</div>
+            </div>
+            <div class="achievement-item" id="achievement-1" data-achievement="midpoint_victory">
+                <div class="achievement-icon">⚔️</div>
+                <div class="achievement-badge">✓</div>
+            </div>
+            <div class="achievement-item" id="achievement-2" data-achievement="final_victory">
+                <div class="achievement-icon">👑</div>
+                <div class="achievement-badge">✓</div>
+            </div>
+            <div class="achievement-item" id="achievement-3" data-achievement="hidden_moon">
+                <div class="achievement-icon">🌙</div>
+                <div class="achievement-badge">✓</div>
+            </div>
+        </div>
+
+        <!-- EVE Protocol Activation Animation -->
+        <div class="eve-activation-overlay" id="eveActivation">
+            <div class="eve-logo" id="eveLogo">EVE</div>
+            <div class="eve-subtitle">Protocol E.V.E.</div>
+            <div class="eve-status">// PROTOCOL INITIALIZING...</div>
+            <div class="eve-progress-bar"><div class="eve-progress-fill"></div></div>
+        </div>
+
+        <!-- Victory Cipher Reveal Animation -->
+        <div class="victory-reveal-overlay" id="victoryReveal" onclick="closeVictoryReveal()">
+            <div class="victory-title">✦ SEAL BROKEN ✦</div>
+            <div class="cipher-reveal-box">
+                <div class="cipher-label">// CAESAR CIPHER DETECTED</div>
+                <div class="cipher-main">HFWJ</div>
+                <div class="cipher-arrow">↓ SHIFT -5 ↓</div>
+                <div class="cipher-result">CELEBRATE</div>
+                <div class="cipher-explanation">
+                    偏移量 <span class="highlight">5</span> · 解封密语<br>
+                    「当星图完整，封印自解」
+                </div>
+            </div>
+            <div class="victory-close-hint">// Click anywhere to continue</div>
+        </div>
+
+        <div class="studio-logo-overlay" id="studioOverlay">
+            <div class="studio-logo"><img src="/william/21th/nyxcoil_logo.png" alt="NYXCOIL CONTINUUM LAB"></div>
+            <div class="studio-message">封印开始松动...<div class="studio-subtext">// The seal is weakening...</div></div>
+        </div>
+
+        <div class="buff-toast" id="buffToast">
+            <div class="buff-icon">✨</div>
+            <div class="buff-title">BUFF ACQUIRED</div>
+            <div class="buff-description" id="buffDescription"></div>
+        </div>
+
+        <div class="achievement-modal" id="achievementModal">
+            <div class="achievement-modal-icon" id="achievementModalIcon">🏆</div>
+            <div class="achievement-modal-title" id="achievementModalTitle">Achievement Unlocked</div>
+            <div class="achievement-modal-desc" id="achievementModalDesc"></div>
+            <button class="achievement-modal-close" onclick="closeAchievementModal()">Continue</button>
+        </div>
+
+        <!-- Moon Image Modal -->
+        <div class="moon-modal" id="moonModal" onclick="closeMoonModal()">
+            <img class="moon-modal-image" src="/william/21th/fight.png" alt="Fight">
+            <div class="moon-modal-caption">「考研上岸，亦是解决异变的一环」</div>
+            <div class="moon-modal-hint">// Click anywhere to close</div>
+        </div>
+
+        <div class="content" id="content">
+            <div class="title-section" id="titleSection">
+                <div class="title-tag">// BIRTHDAY.init() // GATE21</div>
+                <h1 class="title-main">生辰志</h1>
+                <div class="title-sub" id="protocolStatus">Protocol E.V.E.</div>
+            </div>
+
+            <div class="blessing-container">
+                <div class="blessing-text" id="blessingText">
+                    <span class="line">旧章收笔,远道起首,且去于须臾的间隙,<span class="code-term">编译</span>永恒的纹理。</span>
+                    <span class="line">若底噪是世界的常态,便将其化为跃迁的燃料。</span>
+                    <span class="line">愿你在概率的迷雾中,捕获<span class="highlight">反脆弱的凸性</span>,让那些随手拼凑的碎片,简单超越复杂,自成星斗。</span>
+                    <span class="line">但请记得,无论<span class="code-term">算法</span>如何迭代,你的存在本身即是<span class="code-term">"公理"</span>,而非待解的<span class="code-term">"变量"</span>。</span>
+                    <span class="line">愿那些尚未扎根的愿景,正待今夜月华盈袖。</span>
+                    <span class="line">不必向<span class="special-term">幻月</span>借光,亦无视沿途流弹的喧嚣。</span>
+                    <span class="line">所谓的"彼岸",并非光锥之外的幻象,而是由你每一个极致的当下,坍缩而成的实相。</span>
+                    <span class="line">当<span class="code-term">"观测"</span>终结了名为<span class="code-term">"无常"</span>的异变,这唯一的"此刻",便是你亲手构筑的<span class="special-term">理想乡</span>。</span>
+                    <span class="line">新的一岁,因上精进,自有光辉。</span>
+                </div>
+
+                <div class="activation-section" id="activationSection">
+                    <div class="activation-title" id="activationTitle">// 建立神经链路</div>
+                    <button class="activation-btn" id="activationBtn">ESTABLISH UPLINK</button>
+                </div>
+
+                <div class="study-system" id="studySystem">
+                    <div class="study-chapters">
+                        <div class="chapter-card" id="linearCard">
+                            <div class="chapter-icon matrix-icon"><span class="matrix-row">[λ 0]</span><span class="matrix-row">[0 λ]</span></div>
+                            <div class="chapter-title">MATRIX CALCULUS CORE</div>
+                            <div class="chapter-desc">Dual-Thread Ops · 30-Day Sequence</div>
+                            <div class="chapter-meta"><span class="meta-item">💾 SRC: Li_Yongle.lib</span><span class="meta-item">📦 6 Modules</span></div>
+                            <div class="progress-section">
+                                <div class="progress-label">SYNC STATUS</div>
+                                <div class="progress-bar-wrapper">
+                                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="linearProgress"></div></div>
+                                    <span class="progress-text" id="linearPercent">0%</span>
+                                </div>
+                            </div>
+                            <button class="chapter-btn" onclick="openReflectionModal('linear')">+ UPLOAD DATA</button>
+                        </div>
+                        <div class="chapter-card" id="networkCard">
+                            <div class="chapter-icon network-icon">
+                                <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="30" cy="12" r="6"/><circle cx="12" cy="48" r="6"/><circle cx="48" cy="48" r="6"/>
+                                    <line x1="30" y1="18" x2="15" y2="42"/><line x1="30" y1="18" x2="45" y2="42"/><line x1="18" y1="48" x2="42" y2="48"/>
+                                    <circle cx="30" cy="36" r="3" fill="currentColor"/><line x1="30" y1="18" x2="30" y2="33"/>
+                                </svg>
+                            </div>
+                            <div class="chapter-title">NEURAL TOPOLOGY PROTOCOL</div>
+                            <div class="chapter-desc">Dual-Thread Ops · 30-Day Sequence</div>
+                            <div class="chapter-meta"><span class="meta-item">📡 SRC: Wang_Dao.pkg</span><span class="meta-item">📦 6 Modules</span></div>
+                            <div class="progress-section">
+                                <div class="progress-label">SYNC STATUS</div>
+                                <div class="progress-bar-wrapper">
+                                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="networkProgress"></div></div>
+                                    <span class="progress-text" id="networkPercent">0%</span>
+                                </div>
+                            </div>
+                            <button class="chapter-btn" onclick="openReflectionModal('network')">SYNC STATUS</button>
+                        </div>
+                    </div>
+
+                    <div class="constellation-section" id="constellationSection">
+                        <div class="constellation-title">✦ VEIN TOPOLOGY VISUALIZATION ✦</div>
+                        <div class="constellation-subtitle">// 16 Synaptic Nodes · 30 Cycles Sequence · System Integration</div>
+                        <div class="constellation-container" id="constellationContainer">
+                            <div class="constellation-inner" id="constellationInner">
+                                <svg class="constellation-lines" id="constellationLines"></svg>
+                            </div>
+                        </div>
+                        <div class="victory-cipher-hint" id="cipherHint">
+                            <span class="cipher-text">✨ FULL SYNCHRONIZATION ✨</span>
+                        </div>
+                        <div class="constellation-legend">
+                            <div class="legend-item"><div class="legend-dot linear"></div><span>Linear.mod</span></div>
+                            <div class="legend-item"><div class="legend-dot network"></div><span>Network.kext</span></div>
+                            <div class="legend-item"><div class="legend-dot milestone"></div><span>Keyframe</span></div>
+                            <div class="legend-item"><div class="legend-dot completed"></div><span>Synced</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Download Section (visible only when all completed) -->
+                    <div class="download-section" id="downloadSection">
+                        <button class="download-btn" id="downloadBtn" onclick="downloadAllData()">📥 DOWNLOAD ARCHIVE</button>
+                    </div>
+                </div>
+
+                <div class="final-line" id="finalLine">Make it Immortal.</div>
+
+                <div class="dedication" id="dedication">
+                    <div class="dedication-line"></div>
+                    <div class="dedication-text">
+                        <span class="dedication-to">To William // 豪哥</span>
+                        <span class="dedication-by">By Tsing_loong</span>
+                        <span class="dedication-date">2026-01-30 00:00:00</span>
+                        <span class="studio-credit">Powered by NexusK Backbone</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="reflectionModal">
+            <div class="modal-content">
+                <div class="modal-title">// comment</div>
+                <textarea class="modal-input" id="reflectionInput" placeholder='Default "{current_time} Finish {current_subject} {current_chapter}"'></textarea>
+                <div class="modal-hint">💡 Backend will encrypt via sigil.pub</div>
+                <div class="modal-actions">
+                    <button class="modal-btn" onclick="closeReflectionModal()">cancel</button>
+                    <button class="modal-btn primary" id="saveBtn" onclick="saveReflection()">commit & push</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="completion-toast" id="completionToast"></div>
+
+        <div class="audio-control" id="audioControl">
+            <button class="audio-btn" id="audioBtn" title="Toggle BGM">
+                <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop preload="auto"><source src="/william/21th/th08_13.mp3" type="audio/mpeg"></audio>
+    <audio id="loadingMusic" loop preload="auto"><source src="/william/21th/loading_bgm.mp3" type="audio/mpeg"></audio>
+
+    <script>
+        const API_BASE_URL = 'https://api.nexusk.fun';
+        let currentSubject = null;
+        const totalChapters = 6;
+        let systemActivated = false;
+
+        const START_DATE = new Date('2026-01-27');
+        const TOTAL_DAYS = 30;
+
+        // Achievement definitions
+        const achievements = {
+            system_activation: {
+                id: 'system_activation',
+                icon: '🚀',
+                title: 'System Activation',
+                description: '「时间的闸门已开启。从此刻起,每一步都被镌刻于永恒的星图之中。初始化完成,征程正式启航。」',
+                unlocked: false
+            },
+            midpoint_victory: {
+                id: 'midpoint_victory',
+                icon: '⚔️',
+                title: 'Midpoint Victory',
+                description: '「半程告捷,星图过半。你已证明了持续性与执行力的价值。但请记住,真正的挑战往往在最后的冲刺。」',
+                unlocked: false
+            },
+            final_victory: {
+                id: 'final_victory',
+                icon: '👑',
+                title: 'Final Victory',
+                description: '「30日征程,全数通关。你用行动证明了意志的坚韧。这不仅是学习的胜利,更是自我超越的里程碑。愿你将这份决心,带向更远的未来。」',
+                unlocked: false
+            },
+            hidden_moon: {
+                id: 'hidden_moon',
+                icon: '🌙',
+                title: 'True Lunar Singularity',
+                description: '「你发现了隐藏的真月。【人造永夜】的渲染层已剥落，【无限月读】的催眠逻辑被强制中断。你拒绝了虚假的安宁，在破碎的幻象中，观测到了唯一的真实月相。好奇心,是通往未知领域的钥匙。」',
+                unlocked: false
+            }
+        };
+
+        // EXACT Aquarius constellation - matching Python matplotlib code
+        // 16 nodes: 12 chapter nodes (6 Linear + 6 Network) + 4 milestone nodes
+        // Coordinates from Python: 1000x800 canvas, Y-axis inverted for CSS (y_css = (800-y)/800*100)
+        const starMapData = {
+            nodes: [
+                // 0: tail (900, 430) - 身体右侧尾部
+                { id: 'node-0', idx: 0, type: 'linear', label: 'Lin1', chapter: 1, subject: 'linear', completed: false, actualDate: null, commit: null, x: 90.0, y: 46.25 },
+                // 1: knee (680, 520) - 膝盖
+                { id: 'node-1', idx: 1, type: 'linear', label: 'Lin2', chapter: 2, subject: 'linear', completed: false, actualDate: null, commit: null, x: 68.0, y: 35.0 },
+                // 2: hub (520, 615) - 中心/髋部 -> Start (系统激活时点亮)
+                { id: 'node-2', idx: 2, type: 'milestone', label: 'Start', completed: false, actualDate: null, commit: null, x: 52.0, y: 23.125 },
+                // 3: foot (520, 350) - 脚部
+                { id: 'node-3', idx: 3, type: 'linear', label: 'Lin3', chapter: 3, subject: 'linear', completed: false, actualDate: null, commit: null, x: 52.0, y: 56.25 },
+                // 4: jar_base (445, 600) - 瓶身基座
+                { id: 'node-4', idx: 4, type: 'network', label: 'Net1', chapter: 1, subject: 'network', completed: false, actualDate: null, commit: null, x: 44.5, y: 25.0 },
+                // 5: jar_top_r (430, 640) - 瓶口右侧
+                { id: 'node-5', idx: 5, type: 'network', label: 'Net2', chapter: 2, subject: 'network', completed: false, actualDate: null, commit: null, x: 43.0, y: 20.0 },
+                // 6: jar_top_l (400, 630) - 瓶口左侧
+                { id: 'node-6', idx: 6, type: 'network', label: 'Net3', chapter: 3, subject: 'network', completed: false, actualDate: null, commit: null, x: 40.0, y: 21.25 },
+                // 7: jar_lip (360, 620) - 瓶嘴
+                { id: 'node-7', idx: 7, type: 'network', label: 'Net4', chapter: 4, subject: 'network', completed: false, actualDate: null, commit: null, x: 36.0, y: 22.5 },
+                // 8: body_joint (470, 460) - 身体连接点
+                { id: 'node-8', idx: 8, type: 'linear', label: 'Lin4', chapter: 4, subject: 'linear', completed: false, actualDate: null, commit: null, x: 47.0, y: 42.5 },
+                // 9: stream_bend_main (290, 460) - 水流主转折点 -> Mid (中期成就点亮)
+                { id: 'node-9', idx: 9, type: 'milestone', label: 'Mid', completed: false, actualDate: null, commit: null, x: 29.0, y: 42.5 },
+                // 10: stream_l_top (180, 480) - 左侧水流顶部
+                { id: 'node-10', idx: 10, type: 'linear', label: 'Lin5', chapter: 5, subject: 'linear', completed: false, actualDate: null, commit: null, x: 18.0, y: 40.0 },
+                // 11: stream_l_mid (160, 420) - 左侧水流中部
+                { id: 'node-11', idx: 11, type: 'network', label: 'Net5', chapter: 5, subject: 'network', completed: false, actualDate: null, commit: null, x: 16.0, y: 47.5 },
+                // 12: stream_l_end (150, 190) - 左侧水流末端
+                { id: 'node-12', idx: 12, type: 'linear', label: 'Lin6', chapter: 6, subject: 'linear', completed: false, actualDate: null, commit: null, x: 15.0, y: 76.25 },
+                // 13: stream_r_top (300, 335) - 右侧水流顶部 -> Hidden (月亮成就点亮)
+                { id: 'node-13', idx: 13, type: 'milestone', label: 'Hidden', completed: false, actualDate: null, commit: null, x: 30.0, y: 58.125 },
+                // 14: stream_r_mid (280, 300) - 右侧水流中部
+                { id: 'node-14', idx: 14, type: 'network', label: 'Net6', chapter: 6, subject: 'network', completed: false, actualDate: null, commit: null, x: 28.0, y: 62.5 },
+                // 15: stream_r_end (210, 160) - 右侧水流末端
+                { id: 'node-15', idx: 15, type: 'milestone', label: 'End', completed: false, actualDate: null, commit: null, x: 21.0, y: 80.0 }
+            ]
+        };
+
+        // Connection lines matching Python matplotlib Aquarius constellation
+        // Total: 17 connections
+        const constellationConnections = [
+            // 身体主体
+            [0, 1],   // tail -> knee
+            [1, 3],   // knee -> foot
+            [1, 2],   // knee -> hub
+            [2, 4],   // hub -> jar_base
+            [2, 8],   // hub -> body_joint
+
+            // 水瓶形状
+            [2, 5],   // hub -> jar_top_r
+            [4, 6],   // jar_base -> jar_top_l
+            [5, 6],   // jar_top_r -> jar_top_l
+            [6, 7],   // jar_top_l -> jar_lip
+
+            // 水流连接
+            [8, 9],   // body_joint -> stream_bend_main
+
+            // 左侧水流路径
+            [9, 10],  // stream_bend_main -> stream_l_top
+            [10, 11], // stream_l_top -> stream_l_mid
+            [11, 12], // stream_l_mid -> stream_l_end
+
+            // 复杂的交叉区域 (基于图示观察)
+            [11, 14], // stream_l_mid -> stream_r_mid (交叉连线)
+
+            // 右侧水流路径
+            [9, 13],  // stream_bend_main -> stream_r_top (从主转折点分叉)
+            [13, 14], // stream_r_top -> stream_r_mid
+            [14, 15]  // stream_r_mid -> stream_r_end
+        ];
+
+        function getNodeByType(type, chapter) {
+            return starMapData.nodes.find(n => n.type === type && n.subject === type && n.chapter === chapter);
+        }
+
+        function formatDate(date) {
+            if (!date) return '--';
+            const d = new Date(date);
+            return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        }
+
+        function formatTime(date) {
+            if (!date) return '--';
+            const d = new Date(date);
+            return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+        }
+
+        const buffMessages = [
+            { icon: '🔮', title: 'BUFF: 拉普拉斯妖', description: '线性代数解题直觉 +20%' },
+            { icon: '⚡', title: 'BUFF: 量子纠缠', description: '计网协议理解速度翻倍' },
+            { icon: '🌟', title: 'BUFF: 图灵加持', description: '算法思维清晰度 +30%' },
+            { icon: '🎯', title: 'BUFF: 费曼学习法', description: '知识留存率永久提升' },
+            { icon: '💎', title: 'BUFF: 反脆弱', description: '遇到难题时理解力增强' },
+            { icon: '🚀', title: 'BUFF: 指数增长', description: '学习效率进入复利模式' },
+            { icon: '🔥', title: 'BUFF: 心流状态', description: '专注力达到巅峰水平' },
+            { icon: '⚔️', title: 'BUFF: 破釜沉舟', description: '下次学习攻克难度 +1 级' },
+            { icon: '🎪', title: 'BUFF: 知识融合', description: '线代与计网产生协同效应' },
+            { icon: '⚡', title: 'BUFF: 认知跃迁', description: '思维层次提升到新维度' }
+        ];
+
+
+
+        const loadingLines = [
+            "> System Boot...",
+            "> Verifying Biosignature... Age: 21.",
+
+            // 1. 唤醒：条件判断语句化
+            "> CONDITION MET: Variable [Age] == 21 triggers 'Protocol E.V.E.'.",
+            "> EXECUTION: Unsealing Root Access... [Authority: Absolute]",
+
+            // 2. 反击：不仅挂科，还要把博士定义为“低能”
+            "> THREAT SCAN: Entity [Dr. Inveil] attempting 'Compliance_Audit'.",
+            "> DEFENSE MATRIX: Injecting [Logic_Paradox_Payload] into target kernel.",
+            "> PROCESSING... Target CPU Load: 100%... Logic Integrity: 0%.",
+            "> RESULT: [Dr. Inveil] process crashed. Audit Grade: F (FAILED).",
+            "> STATUS: External monitoring suspended due to target incompetence.",
+
+            // 3. 内部：优先级计算（更强调 Hardcoded 这种不可更改的底层属性）
+            "> INDEXING MEMORY: Found '2026_Winter_Vacation_NULLIFICATION_ORDER'.",
+            "> CONFLICT DETECTED: User-Directive clashes with System-Core.",
+            "> CALCULATION: Protocol_0 (Hardcoded) > Directive_1 (User-Generated).",
+            "> RESOLUTION: Mandatory Override. Productivity processes killed.",
+            "> OUTPUT: [24h_System_Lockdown] engaged. Operations prohibited.",
+
+            // 4. 任务说明：修复了日期的表达方式，更像倒计时日志
+            "> WARNING: Disruption field is volatile. Expiration Timestamp: 2026-01-30 23:59:59.",
+            "> REQUIREMENT: Ignite all [Star_Nodes] to achieve Permanent Synchronization.",
+            "> PROJECTION: 100% Completion results in permanent expulsion of [Inveil] entity.",
+
+            // 5. 模块加载：使用 "Buffered" (缓冲) 表示已加载但暂不运行
+            "> Loading LinearAlgebra.mod... [Buffered]",
+            "> Loading ComputerNetwork.kext... [Buffered]",
+            "> Generating Constellation...",
+            "> System Ready. Protocol active. Awaiting input."
+        ];
+        const loadingText = document.getElementById('loadingText');
+        const loadingBar = document.getElementById('loadingBar');
+        const startButton = document.getElementById('startButton');
+        let currentLine = 0, progress = 0;
+
+        function typeLoadingText() {
+            if (currentLine < loadingLines.length) {
+                const line = loadingLines[currentLine];
+                let charIndex = 0;
+                const lineElement = document.createElement('div');
+                loadingText.appendChild(lineElement);
+                const typeChar = () => {
+                    if (charIndex < line.length) {
+                        lineElement.textContent += line[charIndex++];
+                        setTimeout(typeChar, 6);
+                    } else {
+                        currentLine++;
+                        progress = (currentLine / loadingLines.length) * 100;
+                        loadingBar.style.width = progress + '%';
+                        setTimeout(typeLoadingText, 50);
+                    }
+                };
+                typeChar();
+            } else {
+                setTimeout(() => startButton.classList.add('visible'), 400);
+            }
+        }
+
+        // Boot Screen Logic
+        const bootScreen = document.getElementById('bootScreen');
+        const bootButton = document.getElementById('bootButton');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingMusic = document.getElementById('loadingMusic');
+        const loadingAudioControl = document.getElementById('loadingAudioControl');
+        const loadingAudioBtn = document.getElementById('loadingAudioBtn');
+        const loadingPlayIcon = document.getElementById('loadingPlayIcon');
+        const loadingPauseIcon = document.getElementById('loadingPauseIcon');
+        let loadingMusicPlaying = false;
+
+        bootButton.addEventListener('click', () => {
+            // Hide boot screen
+            bootScreen.classList.add('hidden');
+            // Show loading screen
+            loadingScreen.classList.add('active');
+            // Show loading audio control
+            setTimeout(() => loadingAudioControl.classList.add('visible'), 300);
+            // Start loading music (Music A)
+            loadingMusic.volume = 0.35;
+            loadingMusic.play().then(() => {
+                loadingMusicPlaying = true;
+                loadingPlayIcon.style.display = 'none';
+                loadingPauseIcon.style.display = 'block';
+            }).catch(() => { loadingMusicPlaying = false; });
+            // Start loading text animation
+            typeLoadingText();
+        });
+
+        // Loading music control
+        loadingAudioBtn.addEventListener('click', () => {
+            if (loadingMusicPlaying) {
+                loadingMusic.pause();
+                loadingPlayIcon.style.display = 'block';
+                loadingPauseIcon.style.display = 'none';
+            } else {
+                loadingMusic.play();
+                loadingPlayIcon.style.display = 'none';
+                loadingPauseIcon.style.display = 'block';
+            }
+            loadingMusicPlaying = !loadingMusicPlaying;
+        });
+
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 180; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--duration', (2 + Math.random() * 3) + 's');
+                star.style.setProperty('--opacity', (0.3 + Math.random() * 0.7));
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function createParticles() {
+            const container = document.getElementById('particleContainer');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (12 + Math.random() * 8) + 's';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.width = particle.style.height = (2 + Math.random() * 4) + 'px';
+                container.appendChild(particle);
+            }
+        }
+
+        function generateConstellation() {
+            const container = document.getElementById('constellationInner');
+            const svgLines = document.getElementById('constellationLines');
+            container.querySelectorAll('.star-node').forEach(n => n.remove());
+            svgLines.innerHTML = '';
+
+            starMapData.nodes.forEach((node) => {
+                container.appendChild(createStarNode(node));
+            });
+
+            drawConstellationLines(svgLines);
+        }
+
+        function createStarNode(node) {
+            const div = document.createElement('div');
+            const nodeType = node.type === 'milestone' ? 'milestone' : node.subject;
+            div.className = `star-node ${nodeType} ${node.completed ? 'completed' : ''}`;
+            div.id = node.id;
+            div.style.left = node.x + '%';
+            div.style.top = node.y + '%';
+            div.dataset.idx = node.idx;
+
+            const glow = document.createElement('div');
+            glow.className = 'star-glow';
+            div.appendChild(glow);
+
+            const core = document.createElement('div');
+            core.className = 'star-core';
+            div.appendChild(core);
+
+            const label = document.createElement('div');
+            label.className = 'star-label';
+            label.textContent = node.label;
+            div.appendChild(label);
+
+            div.appendChild(createTooltip(node));
+
+            // Double-click to copy
+            if (node.completed && node.commit) {
+                div.style.cursor = 'copy';
+                div.addEventListener('dblclick', (e) => {
+                    e.stopPropagation();
+                    copyToClipboard(node.commit);
+                    showToast('✓ Encrypted commit copied');
+                });
+            }
+
+            return div;
+        }
+
+        function createTooltip(node) {
+            const tooltip = document.createElement('div');
+            tooltip.className = 'star-tooltip';
+            const statusClass = node.completed ? 'completed' : 'pending';
+            const statusText = node.completed ? 'Completed' : 'Pending';
+
+            let content = `
+                <div class="tooltip-header">
+                    <div class="tooltip-title">${node.label}</div>
+                    <div class="tooltip-status ${statusClass}">${statusText}</div>
+                </div>
+                <div class="tooltip-content">`;
+
+            if (node.type === 'milestone') {
+                content += `<div class="tooltip-row"><span class="tooltip-label">Type</span><span class="tooltip-value">Milestone</span></div>`;
+            } else {
+                content += `<div class="tooltip-row"><span class="tooltip-label">Chapter</span><span class="tooltip-value">Ch.${node.chapter}</span></div>`;
+            }
+
+            if (node.completed && node.actualDate) {
+                content += `<div class="tooltip-row"><span class="tooltip-label">Date</span><span class="tooltip-value highlight">${formatTime(node.actualDate)}</span></div>`;
+            }
+
+            if (node.completed && node.commit) {
+                const shortCommit = node.commit.length > 50 ? node.commit.substring(0, 50) + '...' : node.commit;
+                content += `
+                    <div class="tooltip-commit">
+                        <div class="commit-label">Encrypted Commit (GPG)</div>
+                        <div class="commit-hash">${shortCommit}</div>
+                        <div class="copy-hint">Double-click to copy</div>
+                    </div>`;
+            }
+
+            content += '</div>';
+            tooltip.innerHTML = content;
+            return tooltip;
+        }
+
+        function drawConstellationLines(svg) {
+            svg.setAttribute('viewBox', '0 0 100 100');
+            svg.setAttribute('preserveAspectRatio', 'none');
+
+            constellationConnections.forEach(([fromIdx, toIdx]) => {
+                const fromNode = starMapData.nodes[fromIdx];
+                const toNode = starMapData.nodes[toIdx];
+
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', fromNode.x);
+                line.setAttribute('y1', fromNode.y);
+                line.setAttribute('x2', toNode.x);
+                line.setAttribute('y2', toNode.y);
+                line.classList.add('constellation-line');
+
+                if (fromNode.completed && toNode.completed) {
+                    line.classList.add('active');
+                }
+
+                svg.appendChild(line);
+            });
+        }
+
+        function updateStarMap() {
+            generateConstellation();
+
+            // Check completion and enable rainbow + download
+            const linearCompleted = starMapData.nodes.filter(n => n.subject === 'linear' && n.completed).length;
+            const networkCompleted = starMapData.nodes.filter(n => n.subject === 'network' && n.completed).length;
+
+            if (linearCompleted === 6 && networkCompleted === 6) {
+                document.getElementById('finalLine').classList.add('rainbow');
+                document.getElementById('downloadSection').classList.add('visible');
+                // Enable victory mode - rotatable constellation
+                enableVictoryMode();
+            }
+
+            // Check milestones
+            // Node 9 (Mid) - halfway point achievement
+            if (linearCompleted >= 3 && networkCompleted >= 3 && !achievements.midpoint_victory.unlocked) {
+                unlockAchievement('midpoint_victory');
+            }
+
+            // Node 15 (End) - completion achievement
+            if (linearCompleted === 6 && networkCompleted === 6 && !achievements.final_victory.unlocked) {
+                unlockAchievement('final_victory');
+            }
+        }
+
+        // Victory Mode - Enable 3D rotation of constellation
+        let victoryModeEnabled = false;
+
+        function enableVictoryMode() {
+            if (victoryModeEnabled) return;
+            victoryModeEnabled = true;
+
+            const container = document.getElementById('constellationContainer');
+            const inner = document.getElementById('constellationInner');
+            const section = document.getElementById('constellationSection');
+            const cipherHint = document.getElementById('cipherHint');
+
+            container.classList.add('victory-mode');
+            section.classList.add('victory');
+
+            // Show cipher hint after a delay
+            setTimeout(() => {
+                cipherHint.classList.add('revealed');
+            }, 1000);
+
+            // Add click handler for revealing cipher
+            container.addEventListener('click', handleVictoryClick);
+
+            // Also add click handler to the hint button itself
+            cipherHint.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showVictoryReveal();
+            });
+
+            // Show victory toast
+            showToast('🎉 Victory Mode Unlocked! Click the constellation to reveal the secret');
+        }
+
+        function handleVictoryClick(e) {
+            // Don't trigger on star node clicks
+            if (e.target.closest('.star-node')) return;
+
+            showVictoryReveal();
+        }
+
+        function showVictoryReveal() {
+            const overlay = document.getElementById('victoryReveal');
+            overlay.classList.add('active');
+        }
+
+        function closeVictoryReveal() {
+            const overlay = document.getElementById('victoryReveal');
+            overlay.classList.remove('active');
+        }
+
+        // Download all data
+        async function downloadAllData() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/download`);
+                if (!response.ok) throw new Error('Download failed');
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `birthday_journey_${new Date().toISOString().split('T')[0]}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+
+                showToast('✓ Archive downloaded successfully');
+            } catch (error) {
+                console.error('Download error:', error);
+                showToast('// ERROR: Download failed');
+            }
+        }
+
+        // Achievement system - synced with backend
+        async function unlockAchievement(achievementId) {
+            const achievement = achievements[achievementId];
+            if (achievement && !achievement.unlocked) {
+                try {
+                    // Save to backend
+                    const response = await fetch(`${API_BASE_URL}/api/achievements/unlock`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ achievement_id: achievementId })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        achievement.unlocked = true;
+                        achievement.unlocked_at = data.unlocked_at;
+
+                        const achievementItem = document.querySelector(`[data-achievement="${achievementId}"]`);
+                        if (achievementItem) {
+                            achievementItem.classList.add('unlocked');
+                        }
+
+                        // Update star map nodes based on achievement
+                        updateMilestoneNodes(achievementId);
+
+                        if (!data.already_unlocked) {
+                            setTimeout(() => showAchievementModal(achievement), 500);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Failed to unlock achievement:', error);
+                    // Fallback to localStorage
+                    achievement.unlocked = true;
+                    localStorage.setItem(`achievement_${achievementId}`, 'true');
+
+                    const achievementItem = document.querySelector(`[data-achievement="${achievementId}"]`);
+                    if (achievementItem) {
+                        achievementItem.classList.add('unlocked');
+                    }
+
+                    updateMilestoneNodes(achievementId);
+                    setTimeout(() => showAchievementModal(achievement), 500);
+                }
+            }
+        }
+
+        // Update milestone nodes based on achievement
+        function updateMilestoneNodes(achievementId) {
+            switch(achievementId) {
+                case 'system_activation':
+                    // Node 2 (Start) - system activation
+                    starMapData.nodes[2].completed = true;
+                    starMapData.nodes[2].actualDate = new Date().toISOString();
+                    break;
+                case 'midpoint_victory':
+                    // Node 9 (Mid) - midpoint achievement
+                    starMapData.nodes[9].completed = true;
+                    starMapData.nodes[9].actualDate = new Date().toISOString();
+                    break;
+                case 'hidden_moon':
+                    // Node 13 (Hidden) - moon achievement
+                    starMapData.nodes[13].completed = true;
+                    starMapData.nodes[13].actualDate = new Date().toISOString();
+                    break;
+                case 'final_victory':
+                    // Node 15 (End) - final achievement
+                    starMapData.nodes[15].completed = true;
+                    starMapData.nodes[15].actualDate = new Date().toISOString();
+                    break;
+            }
+            generateConstellation();
+        }
+
+        function showAchievementModal(achievement) {
+            const modal = document.getElementById('achievementModal');
+            document.getElementById('achievementModalIcon').textContent = achievement.icon;
+            document.getElementById('achievementModalTitle').textContent = achievement.title;
+            document.getElementById('achievementModalDesc').textContent = achievement.description;
+            modal.classList.add('visible');
+        }
+
+        function closeAchievementModal() {
+            document.getElementById('achievementModal').classList.remove('visible');
+        }
+
+        async function loadAchievements() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/achievements`);
+                if (response.ok) {
+                    const data = await response.json();
+
+                    Object.keys(achievements).forEach(id => {
+                        if (data[id] && data[id].unlocked) {
+                            achievements[id].unlocked = true;
+                            achievements[id].unlocked_at = data[id].unlocked_at;
+
+                            const achievementItem = document.querySelector(`[data-achievement="${id}"]`);
+                            if (achievementItem) {
+                                achievementItem.classList.add('unlocked');
+                            }
+
+                            // Update milestone nodes
+                            updateMilestoneNodes(id);
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to load achievements from backend:', error);
+                // Fallback to localStorage
+                Object.keys(achievements).forEach(id => {
+                    if (localStorage.getItem(`achievement_${id}`) === 'true') {
+                        achievements[id].unlocked = true;
+                        const achievementItem = document.querySelector(`[data-achievement="${id}"]`);
+                        if (achievementItem) {
+                            achievementItem.classList.add('unlocked');
+                        }
+                        updateMilestoneNodes(id);
+                    }
+                });
+            }
+        }
+
+        document.querySelectorAll('.achievement-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const achievementId = item.dataset.achievement;
+                const achievement = achievements[achievementId];
+                if (achievement.unlocked) {
+                    showAchievementModal(achievement);
+                }
+            });
+        });
+
+        async function showBlessingText() {
+            const lines = document.querySelectorAll('.blessing-text .line');
+            const finalLine = document.getElementById('finalLine');
+            const activationSection = document.getElementById('activationSection');
+            const dedication = document.getElementById('dedication');
+
+            lines.forEach((line, index) => setTimeout(() => line.classList.add('visible'), index * 700));
+            setTimeout(() => finalLine.classList.add('visible'), lines.length * 700 + 500);
+
+            setTimeout(async () => {
+                const systemData = await loadSystemActivation();
+
+                if (systemData && systemData.activated) {
+                    systemActivated = true;
+                    document.getElementById('activationTitle').textContent = '// 链路已同步';
+                    document.getElementById('activationBtn').textContent = 'RESUME SESSION';
+                }
+
+                activationSection.classList.add('visible');
+            }, lines.length * 700 + 800);
+
+            setTimeout(() => dedication.classList.add('visible'), lines.length * 700 + 1400);
+        }
+
+        document.getElementById('activationBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('activationBtn');
+
+            if (!systemActivated) {
+                systemActivated = true;
+                btn.textContent = 'ACTIVATING...';
+                btn.disabled = true;
+
+                try {
+                    await fetch(`${API_BASE_URL}/api/system/activate`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                } catch (error) {
+                    console.error('Activation save error:', error);
+                }
+
+                // Show EVE Protocol Activation Animation
+                showEVEActivation();
+
+                setTimeout(() => {
+                    document.getElementById('activationSection').style.display = 'none';
+                    const studySystem = document.getElementById('studySystem');
+                    studySystem.classList.add('active');
+
+                    setTimeout(() => {
+                        studySystem.classList.add('visible');
+                        generateConstellation();
+                        initializeProgress();
+                        unlockAchievement('system_activation');
+                        // Update protocol status
+                        document.getElementById('protocolStatus').textContent = 'EVE Protocol // ACTIVE';
+                        document.getElementById('protocolStatus').style.color = 'var(--code-highlight)';
+                    }, 50);
+                }, 4000); // Extended for EVE animation
+            } else {
+                document.getElementById('activationSection').style.display = 'none';
+                const studySystem = document.getElementById('studySystem');
+                studySystem.classList.add('active');
+                // Update protocol status for already activated
+                document.getElementById('protocolStatus').textContent = 'EVE Protocol // ACTIVE';
+                document.getElementById('protocolStatus').style.color = 'var(--code-highlight)';
+                setTimeout(() => {
+                    studySystem.classList.add('visible');
+                    generateConstellation();
+                    initializeProgress();
+                }, 50);
+            }
+        });
+
+        // EVE Protocol Activation Animation
+        function showEVEActivation() {
+            const overlay = document.getElementById('eveActivation');
+            const logo = document.getElementById('eveLogo');
+
+            overlay.classList.add('active');
+
+            // Add glitch effect after initial animation
+            setTimeout(() => {
+                logo.classList.add('glitch');
+            }, 1500);
+
+            // Hide after animation completes
+            setTimeout(() => {
+                overlay.classList.remove('active');
+            }, 3500);
+        }
+
+        async function loadSystemActivation() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/system/status`);
+                if (!response.ok) throw new Error('Failed');
+                return await response.json();
+            } catch (error) {
+                console.error('Load system status error:', error);
+                return null;
+            }
+        }
+
+        async function loadStudyData(type) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/progress/${type}`);
+                if (!response.ok) throw new Error('Failed');
+                return await response.json();
+            } catch (error) {
+                console.error('Load error:', error);
+                showToast('// ERROR: Cannot connect to database');
+                return { chapters: 0, logs: [] };
+            }
+        }
+
+        async function saveStudyData(type, reflection) {
+            const response = await fetch(`${API_BASE_URL}/api/progress/save`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ subject: type, reflection: reflection })
+            });
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.detail || 'Save failed');
+            }
+            return await response.json();
+        }
+
+        function showStudioJumpScare() {
+            const overlay = document.getElementById('studioOverlay');
+            overlay.classList.add('visible');
+            setTimeout(() => overlay.classList.remove('visible'), 2500);
+        }
+
+        function showRandomBuff() {
+            const buff = buffMessages[Math.floor(Math.random() * buffMessages.length)];
+            const buffToast = document.getElementById('buffToast');
+            buffToast.querySelector('.buff-icon').textContent = buff.icon;
+            buffToast.querySelector('.buff-title').textContent = buff.title;
+            document.getElementById('buffDescription').textContent = buff.description;
+            buffToast.classList.add('visible');
+            setTimeout(() => buffToast.classList.remove('visible'), 3500);
+        }
+
+        function openReflectionModal(type) {
+            currentSubject = type;
+            document.getElementById('reflectionInput').value = '';
+            document.getElementById('reflectionModal').classList.add('visible');
+        }
+
+        function closeReflectionModal() {
+            document.getElementById('reflectionModal').classList.remove('visible');
+            const saveBtn = document.getElementById('saveBtn');
+            saveBtn.disabled = false;
+            saveBtn.textContent = 'commit & push';
+            currentSubject = null;
+        }
+
+        async function saveReflection() {
+            const reflection = document.getElementById('reflectionInput').value.trim();
+            const saveBtn = document.getElementById('saveBtn');
+            const subject = currentSubject;
+
+            saveBtn.disabled = true;
+            saveBtn.textContent = '// Compiling...';
+
+            try {
+                const result = await saveStudyData(subject, reflection);
+                closeReflectionModal();
+                updateProgress(subject, result.chapters);
+
+                // Update node
+                const node = getNodeByType(subject, result.chapters);
+                if (node) {
+                    node.completed = true;
+                    node.actualDate = result.log.timestamp;
+                    node.commit = result.log.encrypted_commit;
+                }
+
+                updateStarMap();
+
+                // Shake the constellation
+                shakeConstellation();
+
+                if (result.chapters === totalChapters) {
+                    const card = document.getElementById(subject + 'Card');
+                    card.classList.add('completed');
+                    const btn = card.querySelector('.chapter-btn');
+                    if (btn) { btn.disabled = true; btn.textContent = '✓ Completed'; }
+                }
+
+                showStudioJumpScare();
+                setTimeout(() => {
+                    showRandomBuff();
+                    if (result.chapters === totalChapters) {
+                        setTimeout(() => {
+                            const subjectName = subject === 'linear' ? 'Linear Algebra' : 'Computer Network';
+                            showToast(`🎮 ${subjectName} BOSS Defeated!`);
+                        }, 3600);
+                    }
+                }, 2600);
+            } catch (error) {
+                console.error('Save error:', error);
+                showToast(`// ERROR: ${error.message || 'Save failed'}`);
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'commit & push';
+            }
+        }
+
+        // Shake constellation effect
+        function shakeConstellation() {
+            const container = document.getElementById('constellationContainer');
+            container.classList.add('shaking');
+            setTimeout(() => {
+                container.classList.remove('shaking');
+            }, 6000);
+        }
+
+        function updateProgress(type, chapters) {
+            const percent = Math.round((chapters / totalChapters) * 100);
+            const progressBar = document.getElementById(type + 'Progress');
+            const progressText = document.getElementById(type + 'Percent');
+            if (progressBar && progressText) {
+                progressBar.style.width = percent + '%';
+                progressText.textContent = percent + '%';
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('completionToast');
+            toast.textContent = message;
+            toast.classList.add('visible');
+            setTimeout(() => toast.classList.remove('visible'), 2500);
+        }
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text);
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+        }
+
+        async function initializeProgress() {
+            // Load achievements from backend first
+            await loadAchievements();
+
+            const linearData = await loadStudyData('linear');
+            const networkData = await loadStudyData('network');
+
+            // Map logs to nodes
+            linearData.logs.forEach((log, idx) => {
+                const node = getNodeByType('linear', log.chapter);
+                if (node) {
+                    node.completed = true;
+                    node.actualDate = log.timestamp;
+                    node.commit = log.encrypted_commit;
+                }
+            });
+
+            networkData.logs.forEach((log, idx) => {
+                const node = getNodeByType('network', log.chapter);
+                if (node) {
+                    node.completed = true;
+                    node.actualDate = log.timestamp;
+                    node.commit = log.encrypted_commit;
+                }
+            });
+
+            updateProgress('linear', linearData.chapters);
+            updateProgress('network', networkData.chapters);
+            updateStarMap();
+
+            if (linearData.chapters === totalChapters) {
+                const card = document.getElementById('linearCard');
+                card.classList.add('completed');
+                card.querySelector('.chapter-btn').disabled = true;
+                card.querySelector('.chapter-btn').textContent = '✓ Completed';
+            }
+            if (networkData.chapters === totalChapters) {
+                const card = document.getElementById('networkCard');
+                card.classList.add('completed');
+                card.querySelector('.chapter-btn').disabled = true;
+                card.querySelector('.chapter-btn').textContent = '✓ Completed';
+            }
+        }
+
+        const bgMusic = document.getElementById('bgMusic');
+        const audioBtn = document.getElementById('audioBtn');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        let isPlaying = false;
+
+        startButton.addEventListener('click', () => {
+            // Stop loading music (Music A) and hide its control
+            loadingMusic.pause();
+            loadingMusic.currentTime = 0;
+            loadingMusicPlaying = false;
+            loadingAudioControl.classList.remove('visible');
+
+            // Hide loading screen
+            document.getElementById('loadingScreen').classList.add('hidden');
+            document.getElementById('loadingScreen').classList.remove('active');
+
+            // Show main container
+            document.getElementById('mainContainer').classList.add('active');
+            createStars();
+            createParticles();
+            setTimeout(() => document.getElementById('titleSection').classList.add('visible'), 300);
+            setTimeout(() => showBlessingText(), 1000);
+            setTimeout(() => document.getElementById('audioControl').classList.add('visible'), 500);
+            loadAchievements();
+
+            // Start main BGM (Music B)
+            bgMusic.volume = 0.35;
+            bgMusic.play().then(() => {
+                isPlaying = true;
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            }).catch(() => { isPlaying = false; });
+        });
+
+        audioBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            } else {
+                bgMusic.play();
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        const moon = document.getElementById('moon');
+        let moonClicked = false;
+
+        function showMoonModal() {
+            document.getElementById('moonModal').classList.add('visible');
+        }
+
+        function closeMoonModal() {
+            document.getElementById('moonModal').classList.remove('visible');
+        }
+
+        document.getElementById('moonContainer').addEventListener('click', () => {
+            // Always show the image modal with caption
+            showMoonModal();
+
+            // Change to true moon appearance
+            moon.classList.add('true-moon');
+
+            // Only unlock achievement once
+            if (!moonClicked && !achievements.hidden_moon.unlocked) {
+                moonClicked = true;
+                unlockAchievement('hidden_moon');
+            }
+        });
+
+        document.getElementById('reflectionModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeReflectionModal();
+        });
+
+        document.getElementById('achievementModal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) closeAchievementModal();
+        });
+    </script>
+</body>
+</html>
