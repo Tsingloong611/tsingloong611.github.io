@@ -1,252 +1,1461 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>豪哥21周岁生日快乐</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&family=Fira+Code:wght@400;500&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&family=Fira+Code:wght@400;500&family=Orbitron:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --night-deep: #05080f; --night-blue: #0a1628; --night-mid: #101d35;
-            --moon-glow: #e8eef5; --accent-cyan: #4fd1c5; --accent-blue: #63b3ed;
-            --accent-silver: #a0aec0; --text-primary: #e2e8f0; --text-secondary: #718096;
-            --code-highlight: #68d391; --gold-accent: #ecc94b; --buff-glow: #f6ad55;
-            --linear-color: #a78bfa; --network-color: #f472b6; --milestone-color: #fbbf24;
+            --night-deep: #05080f;
+            --night-blue: #0a1628;
+            --night-mid: #101d35;
+            --moon-glow: #e8eef5;
+            --accent-cyan: #4fd1c5;
+            --accent-blue: #63b3ed;
+            --accent-silver: #a0aec0;
+            --text-primary: #e2e8f0;
+            --text-secondary: #718096;
+            --code-highlight: #68d391;
+            --gold-accent: #ecc94b;
+            --buff-glow: #f6ad55;
+            --linear-color: #a78bfa;
+            --network-color: #f472b6;
+            --milestone-color: #fbbf24;
             --achievement-gold: #f59e0b;
             --completion-rainbow: linear-gradient(90deg, #f59e0b, #ec4899, #8b5cf6, #3b82f6, #10b981);
         }
-        html, body { height: 100%; overflow: hidden; }
-        body { font-family: 'Noto Serif SC', serif; background: var(--night-deep); color: var(--text-primary); min-height: 100vh; }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: var(--night-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
 
         /* Boot Screen - First layer */
-        .boot-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--night-deep); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1100; transition: opacity 0.8s ease, visibility 0.8s ease; }
-        .boot-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .boot-prompt { font-family: 'Fira Code', monospace; font-size: 13px; color: var(--text-secondary); letter-spacing: 2px; margin-bottom: 40px; opacity: 0; animation: boot-fade-in 1s ease forwards 0.5s; }
-        @keyframes boot-fade-in { to { opacity: 0.6; } }
-        .boot-button { padding: 18px 60px; font-family: 'Orbitron', monospace; font-size: 14px; background: transparent; border: 2px solid var(--accent-cyan); color: var(--accent-cyan); cursor: pointer; transition: all 0.4s ease; letter-spacing: 6px; text-transform: uppercase; position: relative; overflow: hidden; opacity: 0; animation: boot-btn-in 1s ease forwards 1s; }
-        @keyframes boot-btn-in { to { opacity: 1; } }
-        .boot-button::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(79, 209, 197, 0.3), transparent); transition: left 0.5s ease; }
-        .boot-button:hover::before { left: 100%; }
-        .boot-button:hover { background: rgba(79, 209, 197, 0.15); box-shadow: 0 0 40px rgba(79, 209, 197, 0.4); transform: scale(1.02); }
-        .boot-decoration { position: absolute; font-family: 'Fira Code', monospace; font-size: 10px; color: var(--text-secondary); opacity: 0.3; letter-spacing: 2px; }
-        .boot-decoration.top-left { top: 40px; left: 40px; }
-        .boot-decoration.bottom-right { bottom: 40px; right: 40px; }
-        .boot-cursor { display: inline-block; width: 8px; height: 14px; background: var(--accent-cyan); margin-left: 4px; animation: cursor-blink 1s step-end infinite; vertical-align: middle; }
-        @keyframes cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .boot-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--night-deep);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1100;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .boot-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .boot-prompt {
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: boot-fade-in 1s ease forwards 0.5s;
+        }
+
+        @keyframes boot-fade-in {
+            to {
+                opacity: 0.6;
+            }
+        }
+
+        .boot-button {
+            padding: 18px 60px;
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            background: transparent;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: boot-btn-in 1s ease forwards 1s;
+        }
+
+        @keyframes boot-btn-in {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .boot-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(79, 209, 197, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .boot-button:hover::before {
+            left: 100%;
+        }
+
+        .boot-button:hover {
+            background: rgba(79, 209, 197, 0.15);
+            box-shadow: 0 0 40px rgba(79, 209, 197, 0.4);
+            transform: scale(1.02);
+        }
+
+        .boot-decoration {
+            position: absolute;
+            font-family: 'Fira Code', monospace;
+            font-size: 10px;
+            color: var(--text-secondary);
+            opacity: 0.3;
+            letter-spacing: 2px;
+        }
+
+        .boot-decoration.top-left {
+            top: 40px;
+            left: 40px;
+        }
+
+        .boot-decoration.bottom-right {
+            bottom: 40px;
+            right: 40px;
+        }
+
+        .boot-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 14px;
+            background: var(--accent-cyan);
+            margin-left: 4px;
+            animation: cursor-blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes cursor-blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
 
         /* Loading Screen */
-        .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--night-deep); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 1000; transition: opacity 0.8s ease, visibility 0.8s ease; opacity: 0; visibility: hidden; }
-        .loading-screen.active { opacity: 1; visibility: visible; }
-        .loading-screen.hidden { opacity: 0; visibility: hidden; }
-        .loading-text { font-family: 'Fira Code', monospace; color: var(--code-highlight); font-size: 13px; margin-bottom: 20px; text-align: left; line-height: 1.8; }
-        .loading-bar-container { width: 320px; height: 2px; background: rgba(255,255,255,0.1); overflow: hidden; margin-top: 20px; }
-        .loading-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)); transition: width 0.3s ease; }
-        .start-button { margin-top: 50px; padding: 14px 56px; font-family: 'Orbitron', monospace; font-size: 13px; background: transparent; border: 1px solid var(--accent-cyan); color: var(--accent-cyan); cursor: pointer; transition: all 0.3s ease; letter-spacing: 4px; opacity: 0; transform: translateY(20px); text-transform: uppercase; }
-        .start-button.visible { opacity: 1; transform: translateY(0); }
-        .start-button:hover { background: var(--accent-cyan); color: var(--night-deep); box-shadow: 0 0 30px rgba(79, 209, 197, 0.3); }
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--night-deep);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 15vh;
+            z-index: 1000;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            opacity: 0;
+            visibility: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .loading-screen.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-text {
+            font-family: 'Fira Code', monospace;
+            color: var(--code-highlight);
+            font-size: 13px;
+            margin-bottom: 20px;
+            text-align: left;
+            line-height: 1.8;
+            max-width: 90vw;
+            word-wrap: break-word;
+            padding: 0 20px;
+        }
+
+        .loading-bar-container {
+            width: 320px;
+            max-width: 90vw;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+            transition: width 0.3s ease;
+        }
+
+        .start-button {
+            margin-top: 50px;
+            margin-bottom: 80px;
+            padding: 14px 56px;
+            font-family: 'Orbitron', monospace;
+            font-size: 13px;
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 4px;
+            opacity: 0;
+            transform: translateY(20px);
+            text-transform: uppercase;
+        }
+
+        .start-button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .start-button:hover {
+            background: var(--accent-cyan);
+            color: var(--night-deep);
+            box-shadow: 0 0 30px rgba(79, 209, 197, 0.3);
+        }
+
         /* Loading Audio Control Button */
-        .loading-audio-control { position: fixed; bottom: 30px; right: 30px; z-index: 1050; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
-        .loading-audio-control.visible { opacity: 1; visibility: visible; }
-        .loading-audio-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(79, 209, 197, 0.1); border: 1px solid rgba(79, 209, 197, 0.4); color: var(--accent-cyan); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
-        .loading-audio-btn:hover { background: rgba(79, 209, 197, 0.2); box-shadow: 0 0 20px rgba(79, 209, 197, 0.3); }
-        .loading-audio-btn svg { width: 18px; height: 18px; }
+        .loading-audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1050;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .loading-audio-control.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-audio-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(79, 209, 197, 0.1);
+            border: 1px solid rgba(79, 209, 197, 0.4);
+            color: var(--accent-cyan);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .loading-audio-btn:hover {
+            background: rgba(79, 209, 197, 0.2);
+            box-shadow: 0 0 20px rgba(79, 209, 197, 0.3);
+        }
+
+        .loading-audio-btn svg {
+            width: 18px;
+            height: 18px;
+        }
 
         /* Main Container */
-        .main-container { position: relative; width: 100%; height: 100vh; overflow: hidden; display: none; }
-        .main-container.active { display: block; }
-        .starfield { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 50% 0%, var(--night-mid) 0%, var(--night-blue) 40%, var(--night-deep) 100%); }
-        .stars { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle var(--duration) ease-in-out infinite; opacity: var(--opacity); }
-        @keyframes twinkle { 0%, 100% { opacity: var(--opacity); } 50% { opacity: 0.2; } }
-        .grid-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(79, 209, 197, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 209, 197, 0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+        .main-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: none;
+        }
+
+        .main-container.active {
+            display: block;
+        }
+
+        .starfield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 0%, var(--night-mid) 0%, var(--night-blue) 40%, var(--night-deep) 100%);
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            opacity: var(--opacity);
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: var(--opacity);
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(79, 209, 197, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 209, 197, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
 
         /* Moon */
-        .moon-container { position: absolute; top: 8%; right: 10%; cursor: pointer; z-index: 10; }
-        .moon { width: 160px; height: 160px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #f7fafc 0%, #e2e8f0 30%, #cbd5e0 60%, #a0aec0 100%); box-shadow: 0 0 60px rgba(226, 232, 240, 0.4), 0 0 120px rgba(226, 232, 240, 0.2), inset -15px -8px 30px rgba(0,0,0,0.1); transition: all 0.5s ease; position: relative; }
-        .moon::before { content: ''; position: absolute; top: 22%; left: 18%; width: 20px; height: 20px; background: rgba(160, 174, 192, 0.4); border-radius: 50%; filter: blur(2px); }
-        .moon::after { content: ''; position: absolute; top: 55%; left: 50%; width: 35px; height: 28px; background: rgba(160, 174, 192, 0.3); border-radius: 50%; filter: blur(3px); }
-        .moon:hover { box-shadow: 0 0 80px rgba(226, 232, 240, 0.5), 0 0 150px rgba(226, 232, 240, 0.25); }
-        .moon.true-moon { background: radial-gradient(circle at 35% 35%, #fc8181 0%, #f56565 40%, #c53030 100%); box-shadow: 0 0 80px rgba(245, 101, 101, 0.5), 0 0 150px rgba(245, 101, 101, 0.25); }
+        .moon-container {
+            position: absolute;
+            top: 8%;
+            right: 10%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .moon {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #f7fafc 0%, #e2e8f0 30%, #cbd5e0 60%, #a0aec0 100%);
+            box-shadow: 0 0 60px rgba(226, 232, 240, 0.4), 0 0 120px rgba(226, 232, 240, 0.2), inset -15px -8px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .moon::before {
+            content: '';
+            position: absolute;
+            top: 22%;
+            left: 18%;
+            width: 20px;
+            height: 20px;
+            background: rgba(160, 174, 192, 0.4);
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+
+        .moon::after {
+            content: '';
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            width: 35px;
+            height: 28px;
+            background: rgba(160, 174, 192, 0.3);
+            border-radius: 50%;
+            filter: blur(3px);
+        }
+
+        .moon:hover {
+            box-shadow: 0 0 80px rgba(226, 232, 240, 0.5), 0 0 150px rgba(226, 232, 240, 0.25);
+        }
+
+        .moon.true-moon {
+            background: radial-gradient(circle at 35% 35%, #fc8181 0%, #f56565 40%, #c53030 100%);
+            box-shadow: 0 0 80px rgba(245, 101, 101, 0.5), 0 0 150px rgba(245, 101, 101, 0.25);
+        }
 
         /* Particles */
-        .particle-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
-        .particle { position: absolute; width: 4px; height: 4px; background: var(--accent-cyan); border-radius: 50%; opacity: 0; animation: float-up linear infinite; filter: blur(1px); }
-        @keyframes float-up { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-20px) scale(1); opacity: 0; } }
+        .particle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float-up linear infinite;
+            filter: blur(1px);
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-20px) scale(1);
+                opacity: 0;
+            }
+        }
 
         /* Content */
-        .content { position: relative; z-index: 5; height: 100vh; overflow-y: auto; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; }
-        .content::-webkit-scrollbar { width: 3px; }
-        .content::-webkit-scrollbar-track { background: transparent; }
-        .content::-webkit-scrollbar-thumb { background: rgba(79, 209, 197, 0.3); border-radius: 2px; }
+        .content {
+            position: relative;
+            z-index: 5;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .content::-webkit-scrollbar-thumb {
+            background: rgba(79, 209, 197, 0.3);
+            border-radius: 2px;
+        }
 
         /* Title */
-        .title-section { text-align: center; margin-bottom: 60px; opacity: 0; transform: translateY(30px); transition: all 1s ease; }
-        .title-section.visible { opacity: 1; transform: translateY(0); }
-        .title-tag { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--accent-cyan); letter-spacing: 6px; margin-bottom: 20px; text-transform: uppercase; }
-        .title-main { font-family: 'ZCOOL XiaoWei', serif; font-size: clamp(28px, 7vw, 48px); font-weight: 400; color: var(--moon-glow); letter-spacing: 16px; text-shadow: 0 0 40px rgba(226, 232, 240, 0.2); }
-        .title-sub { font-family: 'Orbitron', monospace; font-size: 11px; color: var(--text-secondary); margin-top: 24px; letter-spacing: 4px; text-transform: uppercase; }
+        .title-section {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .title-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .title-tag {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--accent-cyan);
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .title-main {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: clamp(28px, 7vw, 48px);
+            font-weight: 400;
+            color: var(--moon-glow);
+            letter-spacing: 16px;
+            text-shadow: 0 0 40px rgba(226, 232, 240, 0.2);
+        }
+
+        .title-sub {
+            font-family: 'Orbitron', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 24px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
 
         /* Blessing */
-        .blessing-container { max-width: 700px; width: 100%; padding: 0 20px; }
-        .blessing-text { font-size: clamp(15px, 2.2vw, 18px); line-height: 2.4; text-align: justify; color: var(--text-primary); letter-spacing: 0.5px; }
-        .blessing-text .line { display: block; opacity: 0; transform: translateY(20px); transition: all 0.8s ease; margin-bottom: 1.2em; }
-        .blessing-text .line.visible { opacity: 1; transform: translateY(0); }
-        .code-term { font-family: 'Fira Code', monospace; color: var(--code-highlight); font-size: 0.88em; padding: 2px 6px; background: rgba(104, 211, 145, 0.1); border-radius: 3px; }
-        .highlight { color: var(--gold-accent); }
-        .special-term { color: var(--accent-cyan); }
+        .blessing-container {
+            max-width: 700px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .blessing-text {
+            font-size: clamp(15px, 2.2vw, 18px);
+            line-height: 2.4;
+            text-align: justify;
+            color: var(--text-primary);
+            letter-spacing: 0.5px;
+        }
+
+        .blessing-text .line {
+            display: block;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+            margin-bottom: 1.2em;
+        }
+
+        .blessing-text .line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .code-term {
+            font-family: 'Fira Code', monospace;
+            color: var(--code-highlight);
+            font-size: 0.88em;
+            padding: 2px 6px;
+            background: rgba(104, 211, 145, 0.1);
+            border-radius: 3px;
+        }
+
+        .highlight {
+            color: var(--gold-accent);
+        }
+
+        .special-term {
+            color: var(--accent-cyan);
+        }
 
         /* Activation */
-        .activation-section { margin-top: 50px; text-align: center; opacity: 0; transform: translateY(20px); transition: all 1s ease; }
-        .activation-section.visible { opacity: 1; transform: translateY(0); }
-        .activation-title { font-family: 'Fira Code', monospace; font-size: 14px; color: var(--accent-cyan); margin-bottom: 24px; letter-spacing: 3px; }
-        .activation-btn { padding: 16px 48px; font-family: 'Orbitron', monospace; font-size: 14px; background: transparent; border: 2px solid var(--accent-cyan); color: var(--accent-cyan); cursor: pointer; transition: all 0.4s ease; letter-spacing: 3px; text-transform: uppercase; position: relative; overflow: hidden; }
-        .activation-btn::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: var(--accent-cyan); transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s; z-index: -1; }
-        .activation-btn:hover::before { width: 300px; height: 300px; }
-        .activation-btn:hover { color: var(--night-deep); box-shadow: 0 0 40px rgba(79, 209, 197, 0.4); }
+        .activation-section {
+            margin-top: 50px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .activation-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .activation-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            color: var(--accent-cyan);
+            margin-bottom: 24px;
+            letter-spacing: 3px;
+        }
+
+        .activation-btn {
+            padding: 16px 48px;
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            background: transparent;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activation-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .activation-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .activation-btn:hover {
+            color: var(--night-deep);
+            box-shadow: 0 0 40px rgba(79, 209, 197, 0.4);
+        }
 
         /* Study System */
-        .study-system { margin-top: 50px; width: 100%; max-width: 1100px; display: none; opacity: 0; transform: translateY(30px); transition: all 1s ease; }
-        .study-system.active { display: block; }
-        .study-system.visible { opacity: 1; transform: translateY(0); }
-        .study-chapters { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
-        .chapter-card { background: rgba(79, 209, 197, 0.05); border: 1px solid rgba(79, 209, 197, 0.2); padding: 28px 32px; text-align: center; transition: all 0.8s ease; min-width: 200px; max-width: 280px; flex: 1; }
-        .chapter-card:hover { border-color: rgba(79, 209, 197, 0.5); box-shadow: 0 0 30px rgba(79, 209, 197, 0.15); }
-        .chapter-icon { height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--accent-cyan); }
-        .matrix-icon { flex-direction: column; font-family: 'Fira Code', monospace; font-size: 14px; line-height: 1.4; letter-spacing: 2px; }
-        .network-icon svg { width: 50px; height: 50px; }
-        .chapter-title { font-family: 'ZCOOL XiaoWei', serif; font-size: 16px; color: var(--moon-glow); margin-bottom: 8px; letter-spacing: 2px; }
-        .chapter-desc { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); letter-spacing: 1px; }
-        .chapter-meta { display: flex; gap: 12px; justify-content: center; margin-top: 12px; font-size: 10px; color: var(--text-secondary); }
-        .progress-section { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(79, 209, 197, 0.1); }
-        .progress-label { font-size: 10px; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-        .progress-bar-wrapper { display: flex; align-items: center; gap: 10px; }
-        .progress-bar-bg { flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
-        .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent-cyan), var(--code-highlight)); border-radius: 2px; transition: width 0.5s ease; }
-        .progress-text { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--accent-cyan); min-width: 36px; text-align: right; }
-        .chapter-btn { margin-top: 14px; padding: 8px 16px; font-family: 'Fira Code', monospace; font-size: 10px; background: transparent; border: 1px solid rgba(79, 209, 197, 0.3); color: var(--accent-cyan); cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; }
-        .chapter-btn:hover:not(:disabled) { background: rgba(79, 209, 197, 0.15); border-color: var(--accent-cyan); }
-        .chapter-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-        .chapter-card.completed { border-color: var(--code-highlight); box-shadow: 0 0 30px rgba(104, 211, 145, 0.2); }
-        .chapter-card.completed .chapter-icon { color: var(--code-highlight); }
-        .chapter-card.completed .chapter-btn { border-color: var(--code-highlight); color: var(--code-highlight); }
+        .study-system {
+            margin-top: 50px;
+            width: 100%;
+            max-width: 1100px;
+            display: none;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .study-system.active {
+            display: block;
+        }
+
+        .study-system.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .study-chapters {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .chapter-card {
+            background: rgba(79, 209, 197, 0.05);
+            border: 1px solid rgba(79, 209, 197, 0.2);
+            padding: 28px 32px;
+            text-align: center;
+            transition: all 0.8s ease;
+            min-width: 200px;
+            max-width: 280px;
+            flex: 1;
+        }
+
+        .chapter-card:hover {
+            border-color: rgba(79, 209, 197, 0.5);
+            box-shadow: 0 0 30px rgba(79, 209, 197, 0.15);
+        }
+
+        .chapter-icon {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            color: var(--accent-cyan);
+        }
+
+        .matrix-icon {
+            flex-direction: column;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            letter-spacing: 2px;
+        }
+
+        .network-icon svg {
+            width: 50px;
+            height: 50px;
+        }
+
+        .chapter-title {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 16px;
+            color: var(--moon-glow);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .chapter-desc {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
+        .chapter-meta {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 12px;
+            font-size: 10px;
+            color: var(--text-secondary);
+        }
+
+        .progress-section {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(79, 209, 197, 0.1);
+        }
+
+        .progress-label {
+            font-size: 10px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-bar-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-bar-bg {
+            flex: 1;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--code-highlight));
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--accent-cyan);
+            min-width: 36px;
+            text-align: right;
+        }
+
+        .chapter-btn {
+            margin-top: 14px;
+            padding: 8px 16px;
+            font-family: 'Fira Code', monospace;
+            font-size: 10px;
+            background: transparent;
+            border: 1px solid rgba(79, 209, 197, 0.3);
+            color: var(--accent-cyan);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .chapter-btn:hover:not(:disabled) {
+            background: rgba(79, 209, 197, 0.15);
+            border-color: var(--accent-cyan);
+        }
+
+        .chapter-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .chapter-card.completed {
+            border-color: var(--code-highlight);
+            box-shadow: 0 0 30px rgba(104, 211, 145, 0.2);
+        }
+
+        .chapter-card.completed .chapter-icon {
+            color: var(--code-highlight);
+        }
+
+        .chapter-card.completed .chapter-btn {
+            border-color: var(--code-highlight);
+            color: var(--code-highlight);
+        }
 
         /* Constellation - FIX: Changed overflow to visible so the hint button can be seen */
-        .constellation-section { margin-top: 40px; padding: 40px; background: rgba(5, 8, 15, 0.8); border: 1px solid rgba(79, 209, 197, 0.15); position: relative; overflow: visible; /* <-- FIXED HERE */ }
-        .constellation-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 30%, rgba(167, 139, 250, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(244, 114, 182, 0.05) 0%, transparent 50%); pointer-events: none; }
-        .constellation-title { font-family: 'Orbitron', monospace; font-size: 14px; color: var(--accent-cyan); margin-bottom: 12px; letter-spacing: 3px; text-align: center; text-transform: uppercase; }
-        .constellation-subtitle { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); text-align: center; margin-bottom: 30px; letter-spacing: 1px; }
-        .constellation-container { position: relative; width: 100%; height: 550px; margin: 0 auto; }
-        .constellation-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-        .constellation-line { stroke: rgba(79, 209, 197, 0.2); stroke-width: 1.5; fill: none; transition: stroke 0.3s ease; }
-        .constellation-line.active { stroke: rgba(79, 209, 197, 0.6); filter: drop-shadow(0 0 3px rgba(79, 209, 197, 0.4)); }
+        .constellation-section {
+            margin-top: 40px;
+            padding: 40px;
+            background: rgba(5, 8, 15, 0.8);
+            border: 1px solid rgba(79, 209, 197, 0.15);
+            position: relative;
+            overflow: visible;
+            /* <-- FIXED HERE */
+        }
+
+        .constellation-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(167, 139, 250, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(244, 114, 182, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .constellation-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .constellation-subtitle {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .constellation-container {
+            position: relative;
+            width: 100%;
+            height: 550px;
+            margin: 0 auto;
+        }
+
+        .constellation-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .constellation-line {
+            stroke: rgba(79, 209, 197, 0.2);
+            stroke-width: 1.5;
+            fill: none;
+            transition: stroke 0.3s ease;
+        }
+
+        .constellation-line.active {
+            stroke: rgba(79, 209, 197, 0.6);
+            filter: drop-shadow(0 0 3px rgba(79, 209, 197, 0.4));
+        }
 
         /* Constellation Shake Animation */
         @keyframes constellation-shake {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            10% { transform: translate(-3px, -2px) rotate(-0.5deg); }
-            20% { transform: translate(3px, 2px) rotate(0.5deg); }
-            30% { transform: translate(-2px, 3px) rotate(-0.3deg); }
-            40% { transform: translate(2px, -3px) rotate(0.3deg); }
-            50% { transform: translate(-3px, 2px) rotate(-0.5deg); }
-            60% { transform: translate(3px, -2px) rotate(0.5deg); }
-            70% { transform: translate(-2px, -3px) rotate(-0.3deg); }
-            80% { transform: translate(2px, 3px) rotate(0.3deg); }
-            90% { transform: translate(-3px, -2px) rotate(-0.5deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-3px, -2px) rotate(-0.5deg);
+            }
+
+            20% {
+                transform: translate(3px, 2px) rotate(0.5deg);
+            }
+
+            30% {
+                transform: translate(-2px, 3px) rotate(-0.3deg);
+            }
+
+            40% {
+                transform: translate(2px, -3px) rotate(0.3deg);
+            }
+
+            50% {
+                transform: translate(-3px, 2px) rotate(-0.5deg);
+            }
+
+            60% {
+                transform: translate(3px, -2px) rotate(0.5deg);
+            }
+
+            70% {
+                transform: translate(-2px, -3px) rotate(-0.3deg);
+            }
+
+            80% {
+                transform: translate(2px, 3px) rotate(0.3deg);
+            }
+
+            90% {
+                transform: translate(-3px, -2px) rotate(-0.5deg);
+            }
         }
+
         .constellation-container.shaking .constellation-inner {
             animation: constellation-shake 0.5s ease-in-out infinite;
         }
+
         @keyframes shake-glow {
-            0% { opacity: 0; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.1); }
-            100% { opacity: 0; transform: scale(1.2); }
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
         }
+
         .constellation-container.shaking::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: radial-gradient(circle at center, rgba(104, 211, 145, 0.2) 0%, transparent 70%);
             animation: shake-glow 6.0s ease-out;
             pointer-events: none;
         }
 
         /* Star Nodes */
-        .star-node { position: absolute; width: 28px; height: 28px; transform: translate(-50%, -50%); cursor: pointer; z-index: 10; transition: all 0.3s ease; }
-        .star-core { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; border-radius: 50%; background: rgba(251, 191, 36, 0.7); box-shadow: 0 0 12px rgba(251, 191, 36, 0.5); transition: all 0.3s ease; }
-        .star-node.linear .star-core { background: rgba(167, 139, 250, 0.7); box-shadow: 0 0 12px rgba(167, 139, 250, 0.5); }
-        .star-node.network .star-core { background: rgba(244, 114, 182, 0.7); box-shadow: 0 0 12px rgba(244, 114, 182, 0.5); }
-        .star-node.milestone .star-core { background: rgba(251, 191, 36, 0.8); box-shadow: 0 0 15px rgba(251, 191, 36, 0.6); width: 14px; height: 14px; }
-        .star-node.completed .star-core { width: 16px; height: 16px; background: var(--code-highlight); box-shadow: 0 0 18px rgba(104, 211, 145, 0.7), 0 0 35px rgba(104, 211, 145, 0.4); animation: star-pulse 2s ease-in-out infinite; }
-        @keyframes star-pulse { 0%, 100% { box-shadow: 0 0 18px rgba(104, 211, 145, 0.7), 0 0 35px rgba(104, 211, 145, 0.4); } 50% { box-shadow: 0 0 25px rgba(104, 211, 145, 0.9), 0 0 50px rgba(104, 211, 145, 0.6); } }
-        .star-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 28px; height: 28px; border-radius: 50%; background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s ease; }
-        .star-node:hover .star-glow { opacity: 1; }
-        .star-node:hover .star-core { transform: translate(-50%, -50%) scale(1.3); }
-        .star-label { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 8px; font-family: 'Fira Code', monospace; font-size: 9px; color: var(--text-secondary); white-space: nowrap; opacity: 0.7; transition: opacity 0.3s ease; }
-        .star-node:hover .star-label { opacity: 1; color: var(--accent-cyan); }
-        .star-node.linear .star-label { color: var(--linear-color); }
-        .star-node.network .star-label { color: var(--network-color); }
-        .star-node.milestone .star-label { color: var(--milestone-color); }
+        .star-node {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .star-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.7);
+            box-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .star-node.linear .star-core {
+            background: rgba(167, 139, 250, 0.7);
+            box-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
+        }
+
+        .star-node.network .star-core {
+            background: rgba(244, 114, 182, 0.7);
+            box-shadow: 0 0 12px rgba(244, 114, 182, 0.5);
+        }
+
+        .star-node.milestone .star-core {
+            background: rgba(251, 191, 36, 0.8);
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+            width: 14px;
+            height: 14px;
+        }
+
+        .star-node.completed .star-core {
+            width: 16px;
+            height: 16px;
+            background: var(--code-highlight);
+            box-shadow: 0 0 18px rgba(104, 211, 145, 0.7), 0 0 35px rgba(104, 211, 145, 0.4);
+            animation: star-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes star-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 18px rgba(104, 211, 145, 0.7), 0 0 35px rgba(104, 211, 145, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(104, 211, 145, 0.9), 0 0 50px rgba(104, 211, 145, 0.6);
+            }
+        }
+
+        .star-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .star-node:hover .star-glow {
+            opacity: 1;
+        }
+
+        .star-node:hover .star-core {
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+
+        .star-label {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 8px;
+            font-family: 'Fira Code', monospace;
+            font-size: 9px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .star-node:hover .star-label {
+            opacity: 1;
+            color: var(--accent-cyan);
+        }
+
+        .star-node.linear .star-label {
+            color: var(--linear-color);
+        }
+
+        .star-node.network .star-label {
+            color: var(--network-color);
+        }
+
+        .star-node.milestone .star-label {
+            color: var(--milestone-color);
+        }
 
         /* Star Tooltip */
-        .star-tooltip { position: absolute; bottom: calc(100% + 15px); left: 50%; transform: translateX(-50%) translateY(10px); background: rgba(10, 22, 40, 0.98); border: 1px solid rgba(79, 209, 197, 0.3); padding: 16px 20px; min-width: 240px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 100; pointer-events: none; }
-        .star-node:hover .star-tooltip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .tooltip-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(79, 209, 197, 0.15); }
-        .tooltip-title { font-family: 'Orbitron', monospace; font-size: 12px; color: var(--accent-cyan); letter-spacing: 1px; }
-        .tooltip-status { font-family: 'Fira Code', monospace; font-size: 10px; padding: 3px 8px; border-radius: 3px; }
-        .tooltip-status.pending { background: rgba(160, 174, 192, 0.2); color: var(--text-secondary); }
-        .tooltip-status.completed { background: rgba(104, 211, 145, 0.2); color: var(--code-highlight); }
-        .tooltip-content { display: flex; flex-direction: column; gap: 8px; }
-        .tooltip-row { display: flex; justify-content: space-between; align-items: center; font-family: 'Fira Code', monospace; font-size: 11px; }
-        .tooltip-label { color: var(--text-secondary); }
-        .tooltip-value { color: var(--text-primary); }
-        .tooltip-value.highlight { color: var(--gold-accent); }
-        .tooltip-commit { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(79, 209, 197, 0.1); cursor: pointer; }
-        .tooltip-commit:hover { background: rgba(104, 211, 145, 0.05); }
-        .commit-label { font-family: 'Fira Code', monospace; font-size: 9px; color: var(--text-secondary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
-        .commit-hash { font-family: 'Fira Code', monospace; font-size: 10px; color: var(--code-highlight); background: rgba(104, 211, 145, 0.1); padding: 4px 8px; border-radius: 3px; word-break: break-all; line-height: 1.4; max-height: 60px; overflow-y: auto; }
-        .copy-hint { font-size: 8px; color: var(--text-secondary); opacity: 0.6; margin-top: 4px; text-align: center; }
+        .star-tooltip {
+            position: absolute;
+            bottom: calc(100% + 15px);
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(10, 22, 40, 0.98);
+            border: 1px solid rgba(79, 209, 197, 0.3);
+            padding: 16px 20px;
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .star-node:hover .star-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .tooltip-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(79, 209, 197, 0.15);
+        }
+
+        .tooltip-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 12px;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+        }
+
+        .tooltip-status {
+            font-family: 'Fira Code', monospace;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+
+        .tooltip-status.pending {
+            background: rgba(160, 174, 192, 0.2);
+            color: var(--text-secondary);
+        }
+
+        .tooltip-status.completed {
+            background: rgba(104, 211, 145, 0.2);
+            color: var(--code-highlight);
+        }
+
+        .tooltip-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .tooltip-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+        }
+
+        .tooltip-label {
+            color: var(--text-secondary);
+        }
+
+        .tooltip-value {
+            color: var(--text-primary);
+        }
+
+        .tooltip-value.highlight {
+            color: var(--gold-accent);
+        }
+
+        .tooltip-commit {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(79, 209, 197, 0.1);
+            cursor: pointer;
+        }
+
+        .tooltip-commit:hover {
+            background: rgba(104, 211, 145, 0.05);
+        }
+
+        .commit-label {
+            font-family: 'Fira Code', monospace;
+            font-size: 9px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .commit-hash {
+            font-family: 'Fira Code', monospace;
+            font-size: 10px;
+            color: var(--code-highlight);
+            background: rgba(104, 211, 145, 0.1);
+            padding: 4px 8px;
+            border-radius: 3px;
+            word-break: break-all;
+            line-height: 1.4;
+            max-height: 60px;
+            overflow-y: auto;
+        }
+
+        .copy-hint {
+            font-size: 8px;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            margin-top: 4px;
+            text-align: center;
+        }
+
+        .copy-hint.mobile-hint {
+            display: none;
+        }
+
+        .copy-hint.desktop-hint {
+            display: block;
+        }
 
         /* Legend */
-        .constellation-legend { display: flex; justify-content: center; gap: 40px; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(79, 209, 197, 0.1); }
-        .legend-item { display: flex; align-items: center; gap: 10px; font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); }
-        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
-        .legend-dot.linear { background: var(--linear-color); box-shadow: 0 0 8px rgba(167, 139, 250, 0.5); }
-        .legend-dot.network { background: var(--network-color); box-shadow: 0 0 8px rgba(244, 114, 182, 0.5); }
-        .legend-dot.milestone { background: var(--milestone-color); box-shadow: 0 0 8px rgba(251, 191, 36, 0.5); }
-        .legend-dot.completed { background: var(--code-highlight); box-shadow: 0 0 8px rgba(104, 211, 145, 0.5); }
+        .constellation-legend {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(79, 209, 197, 0.1);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.linear {
+            background: var(--linear-color);
+            box-shadow: 0 0 8px rgba(167, 139, 250, 0.5);
+        }
+
+        .legend-dot.network {
+            background: var(--network-color);
+            box-shadow: 0 0 8px rgba(244, 114, 182, 0.5);
+        }
+
+        .legend-dot.milestone {
+            background: var(--milestone-color);
+            box-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
+        }
+
+        .legend-dot.completed {
+            background: var(--code-highlight);
+            box-shadow: 0 0 8px rgba(104, 211, 145, 0.5);
+        }
+
+        /* Scroll Hint for Mobile */
+        .scroll-hint {
+            display: none;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            margin-bottom: 10px;
+            background: rgba(79, 209, 197, 0.1);
+            border: 1px solid rgba(79, 209, 197, 0.2);
+            border-radius: 4px;
+            animation: scroll-hint-pulse 2s ease-in-out infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        @keyframes scroll-hint-pulse {
+
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
 
         /* Download Section */
-        .download-section { margin-top: 40px; text-align: center; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
-        .download-section.visible { opacity: 1; visibility: visible; }
-        .download-btn { padding: 16px 48px; font-family: 'Orbitron', monospace; font-size: 14px; background: transparent; border: 2px solid var(--achievement-gold); color: var(--achievement-gold); cursor: pointer; transition: all 0.4s ease; letter-spacing: 3px; text-transform: uppercase; position: relative; overflow: hidden; }
-        .download-btn::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-radius: 50%; background: var(--achievement-gold); transform: translate(-50%, -50%); transition: width 0.6s, height 0.6s; z-index: -1; }
-        .download-btn:hover::before { width: 300px; height: 300px; }
-        .download-btn:hover { color: var(--night-deep); box-shadow: 0 0 40px rgba(245, 158, 11, 0.5); }
+        .download-section {
+            margin-top: 40px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .download-section.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .download-btn {
+            padding: 16px 48px;
+            font-family: 'Orbitron', monospace;
+            font-size: 14px;
+            background: transparent;
+            border: 2px solid var(--achievement-gold);
+            color: var(--achievement-gold);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--achievement-gold);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .download-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .download-btn:hover {
+            color: var(--night-deep);
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.5);
+        }
 
         /* EVE Protocol Activation Animation */
-        .eve-activation-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.98); z-index: 800; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.5s ease; }
-        .eve-activation-overlay.active { opacity: 1; visibility: visible; }
-        .eve-logo { font-family: 'Orbitron', monospace; font-size: 72px; color: var(--accent-cyan); letter-spacing: 20px; opacity: 0; transform: scale(0.5); transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); text-shadow: 0 0 60px rgba(79, 209, 197, 0.8); }
-        .eve-activation-overlay.active .eve-logo { opacity: 1; transform: scale(1); }
-        .eve-subtitle { font-family: 'Fira Code', monospace; font-size: 14px; color: var(--text-secondary); letter-spacing: 8px; margin-top: 30px; opacity: 0; transition: opacity 0.5s ease 0.5s; }
-        .eve-activation-overlay.active .eve-subtitle { opacity: 1; }
-        .eve-status { font-family: 'Fira Code', monospace; font-size: 12px; color: var(--code-highlight); margin-top: 40px; opacity: 0; transition: opacity 0.5s ease 1s; }
-        .eve-activation-overlay.active .eve-status { opacity: 1; }
-        .eve-progress-bar { width: 300px; height: 3px; background: rgba(255,255,255,0.1); margin-top: 20px; overflow: hidden; opacity: 0; transition: opacity 0.5s ease 1.2s; }
-        .eve-activation-overlay.active .eve-progress-bar { opacity: 1; }
-        .eve-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent-cyan), var(--code-highlight)); transition: width 1.5s ease; }
-        .eve-activation-overlay.active .eve-progress-fill { width: 100%; }
-        @keyframes eve-glitch { 0%, 100% { text-shadow: 0 0 60px rgba(79, 209, 197, 0.8); } 25% { text-shadow: -2px 0 rgba(244, 114, 182, 0.8), 2px 0 rgba(79, 209, 197, 0.8); } 50% { text-shadow: 2px 0 rgba(167, 139, 250, 0.8), -2px 0 rgba(104, 211, 145, 0.8); } 75% { text-shadow: -1px 0 rgba(251, 191, 36, 0.8), 1px 0 rgba(79, 209, 197, 0.8); } }
-        .eve-logo.glitch { animation: eve-glitch 0.3s ease-in-out 3; }
+        .eve-activation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 8, 15, 0.98);
+            z-index: 800;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease;
+        }
+
+        .eve-activation-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .eve-logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 72px;
+            color: var(--accent-cyan);
+            letter-spacing: 20px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-shadow: 0 0 60px rgba(79, 209, 197, 0.8);
+        }
+
+        .eve-activation-overlay.active .eve-logo {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .eve-subtitle {
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            color: var(--text-secondary);
+            letter-spacing: 8px;
+            margin-top: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease 0.5s;
+        }
+
+        .eve-activation-overlay.active .eve-subtitle {
+            opacity: 1;
+        }
+
+        .eve-status {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--code-highlight);
+            margin-top: 40px;
+            opacity: 0;
+            transition: opacity 0.5s ease 1s;
+        }
+
+        .eve-activation-overlay.active .eve-status {
+            opacity: 1;
+        }
+
+        .eve-progress-bar {
+            width: 300px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease 1.2s;
+        }
+
+        .eve-activation-overlay.active .eve-progress-bar {
+            opacity: 1;
+        }
+
+        .eve-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--code-highlight));
+            transition: width 1.5s ease;
+        }
+
+        .eve-activation-overlay.active .eve-progress-fill {
+            width: 100%;
+        }
+
+        @keyframes eve-glitch {
+
+            0%,
+            100% {
+                text-shadow: 0 0 60px rgba(79, 209, 197, 0.8);
+            }
+
+            25% {
+                text-shadow: -2px 0 rgba(244, 114, 182, 0.8), 2px 0 rgba(79, 209, 197, 0.8);
+            }
+
+            50% {
+                text-shadow: 2px 0 rgba(167, 139, 250, 0.8), -2px 0 rgba(104, 211, 145, 0.8);
+            }
+
+            75% {
+                text-shadow: -1px 0 rgba(251, 191, 36, 0.8), 1px 0 rgba(79, 209, 197, 0.8);
+            }
+        }
+
+        .eve-logo.glitch {
+            animation: eve-glitch 0.3s ease-in-out 3;
+        }
 
         /* Constellation Rotation (Victory Mode) */
-        .constellation-container.victory-mode { perspective: 1000px; cursor: grab; }
-        .constellation-container.victory-mode:active { cursor: grabbing; }
-        .constellation-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.1s ease-out; }
-        .constellation-container.victory-mode .constellation-inner { transform: rotateX(var(--rotateX, 0deg)) rotateY(var(--rotateY, 0deg)); }
+        .constellation-container.victory-mode {
+            perspective: 1000px;
+            cursor: grab;
+        }
+
+        .constellation-container.victory-mode:active {
+            cursor: grabbing;
+        }
+
+        .constellation-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+
+        .constellation-container.victory-mode .constellation-inner {
+            transform: rotateX(var(--rotateX, 0deg)) rotateY(var(--rotateY, 0deg));
+        }
 
         /* FIX: Adjusted position to ensure it fits and upped z-index */
         /* 找到这段并修改 */
@@ -278,114 +1487,682 @@
             z-index: 100;
         }
 
-        .constellation-section.victory .victory-cipher-hint.revealed { opacity: 1; visibility: visible; animation: hint-pulse 2s ease-in-out infinite, hint-glow 1.5s ease-in-out infinite alternate; }
-        .victory-cipher-hint:hover { background: rgba(79, 209, 197, 0.25); border-color: var(--accent-cyan); transform: translateX(-50%) scale(1.05); box-shadow: 0 0 40px rgba(79, 209, 197, 0.5); }
-        @keyframes hint-pulse { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.03); } }
-        @keyframes hint-glow { 0% { box-shadow: 0 0 15px rgba(79, 209, 197, 0.3), inset 0 0 10px rgba(79, 209, 197, 0.1); } 100% { box-shadow: 0 0 30px rgba(79, 209, 197, 0.6), inset 0 0 20px rgba(79, 209, 197, 0.2); } }
-        .cipher-text { color: var(--accent-cyan); font-weight: 600; letter-spacing: 4px; text-shadow: 0 0 15px rgba(79, 209, 197, 0.6); font-size: 15px; }
-        .cipher-decoded { color: var(--code-highlight); margin-top: 8px; display: block; font-size: 10px; opacity: 0.7; }
+        .constellation-section.victory .victory-cipher-hint.revealed {
+            opacity: 1;
+            visibility: visible;
+            animation: hint-pulse 2s ease-in-out infinite, hint-glow 1.5s ease-in-out infinite alternate;
+        }
+
+        .victory-cipher-hint:hover {
+            background: rgba(79, 209, 197, 0.25);
+            border-color: var(--accent-cyan);
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 0 40px rgba(79, 209, 197, 0.5);
+        }
+
+        @keyframes hint-pulse {
+
+            0%,
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+
+            50% {
+                transform: translateX(-50%) scale(1.03);
+            }
+        }
+
+        @keyframes hint-glow {
+            0% {
+                box-shadow: 0 0 15px rgba(79, 209, 197, 0.3), inset 0 0 10px rgba(79, 209, 197, 0.1);
+            }
+
+            100% {
+                box-shadow: 0 0 30px rgba(79, 209, 197, 0.6), inset 0 0 20px rgba(79, 209, 197, 0.2);
+            }
+        }
+
+        .cipher-text {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(79, 209, 197, 0.6);
+            font-size: 15px;
+        }
+
+        .cipher-decoded {
+            color: var(--code-highlight);
+            margin-top: 8px;
+            display: block;
+            font-size: 10px;
+            opacity: 0.7;
+        }
 
         /* Victory Reveal Animation */
-        .victory-reveal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.98); z-index: 700; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
-        .victory-reveal-overlay.active { opacity: 1; visibility: visible; }
-        .victory-title { font-family: 'Orbitron', monospace; font-size: 28px; color: var(--achievement-gold); letter-spacing: 8px; margin-bottom: 40px; opacity: 0; transform: translateY(-30px); transition: all 0.8s ease 0.3s; }
-        .victory-reveal-overlay.active .victory-title { opacity: 1; transform: translateY(0); }
-        .cipher-reveal-box { background: rgba(10, 22, 40, 0.9); border: 2px solid var(--accent-cyan); padding: 40px 60px; text-align: center; opacity: 0; transform: scale(0.8); transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s; }
-        .victory-reveal-overlay.active .cipher-reveal-box { opacity: 1; transform: scale(1); }
-        .cipher-label { font-family: 'Fira Code', monospace; font-size: 12px; color: var(--text-secondary); letter-spacing: 3px; margin-bottom: 20px; }
-        .cipher-main { font-family: 'Orbitron', monospace; font-size: 36px; color: var(--accent-cyan); letter-spacing: 12px; margin-bottom: 15px; text-shadow: 0 0 30px rgba(79, 209, 197, 0.5); }
-        .cipher-arrow { font-size: 24px; color: var(--achievement-gold); margin: 15px 0; }
-        .cipher-result { font-family: 'Orbitron', monospace; font-size: 36px; color: var(--code-highlight); letter-spacing: 12px; text-shadow: 0 0 30px rgba(104, 211, 145, 0.5); }
-        .cipher-explanation { font-family: 'Fira Code', monospace; font-size: 13px; color: var(--text-secondary); margin-top: 30px; line-height: 1.8; }
-        .cipher-explanation .highlight { color: var(--achievement-gold); }
-        .victory-close-hint { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); margin-top: 50px; opacity: 0; transition: opacity 0.5s ease 1.5s; }
-        .victory-reveal-overlay.active .victory-close-hint { opacity: 0.6; }
+        .victory-reveal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 8, 15, 0.98);
+            z-index: 700;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 60px 20px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .victory-reveal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .victory-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 28px;
+            color: var(--achievement-gold);
+            letter-spacing: 8px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(-30px);
+            transition: all 0.8s ease 0.3s;
+            flex-shrink: 0;
+        }
+
+        .victory-reveal-overlay.active .victory-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cipher-reveal-box {
+            background: rgba(10, 22, 40, 0.9);
+            border: 2px solid var(--accent-cyan);
+            padding: 40px 60px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s;
+            flex-shrink: 0;
+        }
+
+        .victory-reveal-overlay.active .cipher-reveal-box {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .cipher-label {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .cipher-main {
+            font-family: 'Orbitron', monospace;
+            font-size: 36px;
+            color: var(--accent-cyan);
+            letter-spacing: 12px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(79, 209, 197, 0.5);
+        }
+
+        .cipher-arrow {
+            font-size: 24px;
+            color: var(--achievement-gold);
+            margin: 15px 0;
+        }
+
+        .cipher-result {
+            font-family: 'Orbitron', monospace;
+            font-size: 36px;
+            color: var(--code-highlight);
+            letter-spacing: 12px;
+            text-shadow: 0 0 30px rgba(104, 211, 145, 0.5);
+        }
+
+        .cipher-explanation {
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 30px;
+            line-height: 1.8;
+        }
+
+        .cipher-explanation .highlight {
+            color: var(--achievement-gold);
+        }
+
+        .victory-close-hint {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 50px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transition: opacity 0.5s ease 1.5s;
+            flex-shrink: 0;
+        }
+
+        .victory-reveal-overlay.active .victory-close-hint {
+            opacity: 0.6;
+        }
 
         /* Achievement System */
-        .achievement-panel { position: fixed; top: 20px; left: 20px; z-index: 60; display: flex; flex-direction: column; gap: 12px; }
-        .achievement-item { width: 70px; height: 70px; background: rgba(10, 22, 40, 0.9); border: 2px solid rgba(79, 209, 197, 0.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; position: relative; }
-        .achievement-item:hover { transform: scale(1.1); border-color: var(--accent-cyan); box-shadow: 0 0 20px rgba(79, 209, 197, 0.3); }
-        .achievement-item.unlocked { border-color: var(--achievement-gold); animation: achievement-glow 2s ease-in-out infinite; }
-        @keyframes achievement-glow { 0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4); } 50% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.6); } }
-        .achievement-icon { font-size: 32px; opacity: 0.3; transition: opacity 0.3s ease; }
-        .achievement-item.unlocked .achievement-icon { opacity: 1; }
-        .achievement-badge { position: absolute; top: -8px; right: -8px; width: 20px; height: 20px; background: var(--achievement-gold); border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 12px; color: var(--night-deep); font-weight: bold; }
-        .achievement-item.unlocked .achievement-badge { display: flex; }
+        .achievement-panel {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 60;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .achievement-item {
+            width: 70px;
+            height: 70px;
+            background: rgba(10, 22, 40, 0.9);
+            border: 2px solid rgba(79, 209, 197, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .achievement-item:hover {
+            transform: scale(1.1);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(79, 209, 197, 0.3);
+        }
+
+        .achievement-item.unlocked {
+            border-color: var(--achievement-gold);
+            animation: achievement-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes achievement-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(245, 158, 11, 0.6);
+            }
+        }
+
+        .achievement-icon {
+            font-size: 32px;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .achievement-item.unlocked .achievement-icon {
+            opacity: 1;
+        }
+
+        .achievement-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background: var(--achievement-gold);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--night-deep);
+            font-weight: bold;
+        }
+
+        .achievement-item.unlocked .achievement-badge {
+            display: flex;
+        }
 
         /* Achievement Modal */
-        .achievement-modal { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(79, 209, 197, 0.15)); border: 3px solid var(--achievement-gold); padding: 40px 50px; text-align: center; opacity: 0; visibility: hidden; transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 500; box-shadow: 0 0 80px rgba(245, 158, 11, 0.5); min-width: 450px; max-width: 90vw; }
-        .achievement-modal.visible { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
-        .achievement-modal-icon { font-size: 72px; margin-bottom: 20px; animation: rotate-tada 1.5s ease-in-out; }
-        @keyframes rotate-tada { 0%, 100% { transform: scale(1) rotate(0deg); } 10%, 20% { transform: scale(0.9) rotate(-8deg); } 30%, 50%, 70%, 90% { transform: scale(1.1) rotate(8deg); } 40%, 60%, 80% { transform: scale(1.1) rotate(-8deg); } }
-        .achievement-modal-title { font-family: 'Orbitron', monospace; font-size: 24px; color: var(--achievement-gold); margin-bottom: 16px; letter-spacing: 3px; text-transform: uppercase; }
-        .achievement-modal-desc { font-family: 'Noto Serif SC', serif; font-size: 16px; color: var(--text-primary); line-height: 2; margin-bottom: 30px; }
-        .achievement-modal-close { padding: 12px 32px; font-family: 'Fira Code', monospace; font-size: 12px; background: var(--achievement-gold); color: var(--night-deep); border: none; cursor: pointer; letter-spacing: 2px; transition: all 0.3s ease; text-transform: uppercase; }
-        .achievement-modal-close:hover { background: var(--gold-accent); box-shadow: 0 0 30px rgba(245, 158, 11, 0.4); }
+        .achievement-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(79, 209, 197, 0.15));
+            border: 3px solid var(--achievement-gold);
+            padding: 40px 50px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 500;
+            box-shadow: 0 0 80px rgba(245, 158, 11, 0.5);
+            min-width: 450px;
+            max-width: 90vw;
+        }
+
+        .achievement-modal.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .achievement-modal-icon {
+            font-size: 72px;
+            margin-bottom: 20px;
+            animation: rotate-tada 1.5s ease-in-out;
+        }
+
+        @keyframes rotate-tada {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            10%,
+            20% {
+                transform: scale(0.9) rotate(-8deg);
+            }
+
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: scale(1.1) rotate(8deg);
+            }
+
+            40%,
+            60%,
+            80% {
+                transform: scale(1.1) rotate(-8deg);
+            }
+        }
+
+        .achievement-modal-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 24px;
+            color: var(--achievement-gold);
+            margin-bottom: 16px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .achievement-modal-desc {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 16px;
+            color: var(--text-primary);
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+
+        .achievement-modal-close {
+            padding: 12px 32px;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            background: var(--achievement-gold);
+            color: var(--night-deep);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .achievement-modal-close:hover {
+            background: var(--gold-accent);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.4);
+        }
 
         /* Moon Image Modal */
-        .moon-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.95); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 600; opacity: 0; visibility: hidden; transition: all 0.4s ease; cursor: pointer; }
-        .moon-modal.visible { opacity: 1; visibility: visible; }
-        .moon-modal-image { max-width: 80vw; max-height: 70vh; border: 2px solid var(--accent-cyan); box-shadow: 0 0 60px rgba(79, 209, 197, 0.3); transform: scale(0.9); transition: transform 0.4s ease; }
-        .moon-modal.visible .moon-modal-image { transform: scale(1); }
-        .moon-modal-caption { font-family: 'ZCOOL XiaoWei', serif; font-size: 18px; color: var(--moon-glow); margin-top: 24px; letter-spacing: 4px; text-shadow: 0 0 20px rgba(226, 232, 240, 0.3); }
-        .moon-modal-hint { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); margin-top: 16px; letter-spacing: 1px; }
+        .moon-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 8, 15, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 600;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .moon-modal.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .moon-modal-image {
+            max-width: 80vw;
+            max-height: 70vh;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 60px rgba(79, 209, 197, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        .moon-modal.visible .moon-modal-image {
+            transform: scale(1);
+        }
+
+        .moon-modal-caption {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 18px;
+            color: var(--moon-glow);
+            margin-top: 24px;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(226, 232, 240, 0.3);
+        }
+
+        .moon-modal-hint {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            letter-spacing: 1px;
+        }
 
         /* Buff Toast */
-        .buff-toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.5); background: linear-gradient(135deg, rgba(246, 173, 85, 0.15), rgba(79, 209, 197, 0.15)); border: 2px solid var(--buff-glow); padding: 30px 40px; text-align: center; opacity: 0; visibility: hidden; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 250; box-shadow: 0 0 60px rgba(246, 173, 85, 0.4); min-width: 400px; }
-        .buff-toast.visible { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
-        .buff-icon { font-size: 48px; margin-bottom: 16px; animation: rotate 2s linear infinite; }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .buff-title { font-family: 'Orbitron', monospace; font-size: 16px; color: var(--buff-glow); margin-bottom: 12px; letter-spacing: 2px; }
-        .buff-description { font-family: 'Noto Serif SC', serif; font-size: 14px; color: var(--text-primary); line-height: 1.8; }
+        .buff-toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            background: linear-gradient(135deg, rgba(246, 173, 85, 0.15), rgba(79, 209, 197, 0.15));
+            border: 2px solid var(--buff-glow);
+            padding: 30px 40px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 250;
+            box-shadow: 0 0 60px rgba(246, 173, 85, 0.4);
+            min-width: 400px;
+        }
+
+        .buff-toast.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .buff-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .buff-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 16px;
+            color: var(--buff-glow);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .buff-description {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
 
         /* Modal */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.95); display: flex; align-items: center; justify-content: center; z-index: 200; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-        .modal-overlay.visible { opacity: 1; visibility: visible; }
-        .modal-content { background: var(--night-blue); border: 1px solid var(--accent-cyan); padding: 32px; max-width: 500px; width: 90%; transform: scale(0.9); transition: transform 0.3s ease; }
-        .modal-overlay.visible .modal-content { transform: scale(1); }
-        .modal-title { font-family: 'Fira Code', monospace; font-size: 16px; color: var(--accent-cyan); margin-bottom: 20px; letter-spacing: 2px; }
-        .modal-input { width: 100%; background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(79, 209, 197, 0.3); color: var(--text-primary); padding: 12px; font-family: 'Fira Code', monospace; font-size: 13px; margin-bottom: 16px; resize: vertical; min-height: 100px; }
-        .modal-input:focus { outline: none; border-color: var(--accent-cyan); }
-        .modal-input::placeholder { color: var(--text-secondary); opacity: 0.5; }
-        .modal-hint { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; }
-        .modal-actions { display: flex; gap: 12px; justify-content: flex-end; }
-        .modal-btn { padding: 10px 24px; font-family: 'Fira Code', monospace; font-size: 11px; background: transparent; border: 1px solid rgba(79, 209, 197, 0.3); color: var(--accent-cyan); cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; }
-        .modal-btn:hover { background: rgba(79, 209, 197, 0.15); border-color: var(--accent-cyan); }
-        .modal-btn.primary { background: var(--accent-cyan); color: var(--night-deep); border-color: var(--accent-cyan); }
-        .modal-btn.primary:hover { background: var(--accent-blue); border-color: var(--accent-blue); }
-        .modal-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 8, 15, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--night-blue);
+            border: 1px solid var(--accent-cyan);
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 16px;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .modal-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(79, 209, 197, 0.3);
+            color: var(--text-primary);
+            padding: 12px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            margin-bottom: 16px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .modal-input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .modal-input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .modal-hint {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .modal-btn {
+            padding: 10px 24px;
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            background: transparent;
+            border: 1px solid rgba(79, 209, 197, 0.3);
+            color: var(--accent-cyan);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .modal-btn:hover {
+            background: rgba(79, 209, 197, 0.15);
+            border-color: var(--accent-cyan);
+        }
+
+        .modal-btn.primary {
+            background: var(--accent-cyan);
+            color: var(--night-deep);
+            border-color: var(--accent-cyan);
+        }
+
+        .modal-btn.primary:hover {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        .modal-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
 
         /* Toast */
-        .completion-toast { position: fixed; top: 30px; left: 50%; transform: translateX(-50%) translateY(-20px); background: rgba(104, 211, 145, 0.15); border: 1px solid var(--code-highlight); color: var(--code-highlight); padding: 14px 28px; font-family: 'Fira Code', monospace; font-size: 13px; z-index: 300; opacity: 0; transition: all 0.3s ease; white-space: nowrap; }
-        .completion-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .completion-toast {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: rgba(104, 211, 145, 0.15);
+            border: 1px solid var(--code-highlight);
+            color: var(--code-highlight);
+            padding: 14px 28px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            z-index: 300;
+            opacity: 0;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .completion-toast.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
 
         /* Final Line - Rainbow on completion */
-        .final-line { font-family: 'Orbitron', monospace; font-size: clamp(18px, 3.5vw, 26px); color: var(--moon-glow); text-align: center; margin-top: 60px; letter-spacing: 6px; opacity: 0; transform: scale(0.9); transition: all 1s ease; text-transform: uppercase; }
-        .final-line.visible { opacity: 1; transform: scale(1); text-shadow: 0 0 30px rgba(226, 232, 240, 0.4); }
-        .final-line.rainbow { background: var(--completion-rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: rainbow-shift 3s ease-in-out infinite; text-shadow: none; }
-        @keyframes rainbow-shift { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(60deg); } }
+        .final-line {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(18px, 3.5vw, 26px);
+            color: var(--moon-glow);
+            text-align: center;
+            margin-top: 60px;
+            letter-spacing: 6px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 1s ease;
+            text-transform: uppercase;
+        }
+
+        .final-line.visible {
+            opacity: 1;
+            transform: scale(1);
+            text-shadow: 0 0 30px rgba(226, 232, 240, 0.4);
+        }
+
+        .final-line.rainbow {
+            background: var(--completion-rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow-shift 3s ease-in-out infinite;
+            text-shadow: none;
+        }
+
+        @keyframes rainbow-shift {
+
+            0%,
+            100% {
+                filter: hue-rotate(0deg);
+            }
+
+            50% {
+                filter: hue-rotate(60deg);
+            }
+        }
 
         /* Dedication */
-        .dedication { margin-top: 80px; text-align: center; opacity: 0; transform: translateY(20px); transition: all 1s ease; padding-bottom: 60px; }
-        .dedication.visible { opacity: 1; transform: translateY(0); }
-        .dedication-line { width: 40px; height: 1px; background: var(--accent-silver); margin: 0 auto 30px; opacity: 0.5; }
-        .dedication-text { display: flex; flex-direction: column; gap: 10px; }
+        .dedication {
+            margin-top: 80px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+            padding-bottom: 60px;
+        }
+
+        .dedication.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dedication-line {
+            width: 40px;
+            height: 1px;
+            background: var(--accent-silver);
+            margin: 0 auto 30px;
+            opacity: 0.5;
+        }
+
+        .dedication-text {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
         /* 修改 .dedication-to */
         .dedication-to {
             font-family: 'Fira Code', monospace;
-            font-size: 16px; /* 稍微加大字号，增加可视面积 */
-            font-weight: 800; /*以此加粗，让颜色更显眼 */
+            font-size: 16px;
+            /* 稍微加大字号，增加可视面积 */
+            font-weight: 800;
+            /*以此加粗，让颜色更显眼 */
             letter-spacing: 3px;
 
             /* 核心修改：加入白色作为高光，形成 白->金->橙红->白 的剧烈反差 */
-            background: linear-gradient(
-                90deg,
-                #ffffff 0%,   /* 纯白 (高光) */
-                #f59e0b 25%,  /* 亮橙金 */
-                #ef4444 50%,  /* 烈焰红 */
-                #f59e0b 75%,  /* 亮橙金 */
-                #ffffff 100%  /* 纯白 (高光) */
-            );
+            background: linear-gradient(90deg,
+                    #ffffff 0%,
+                    /* 纯白 (高光) */
+                    #f59e0b 25%,
+                    /* 亮橙金 */
+                    #ef4444 50%,
+                    /* 烈焰红 */
+                    #f59e0b 75%,
+                    /* 亮橙金 */
+                    #ffffff 100%
+                    /* 纯白 (高光) */
+                );
 
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -398,52 +2175,512 @@
             background-size: 200% auto;
             animation: text-shimmer 4.5s linear infinite;
         }
+
         @keyframes text-shimmer {
-            to { background-position: 200% center; }
+            to {
+                background-position: 200% center;
+            }
         }
-        .dedication-by { font-family: 'Fira Code', monospace; font-size: 12px; color: var(--accent-cyan); letter-spacing: 1px; }
-        .dedication-date { font-family: 'Fira Code', monospace; font-size: 11px; color: var(--text-secondary); letter-spacing: 1px; }
-        .studio-credit { margin-top: 16px; font-family: 'Fira Code', monospace; font-size: 10px; color: var(--text-secondary); opacity: 0.7; }
+
+        .dedication-by {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+        }
+
+        .dedication-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
+
+        .studio-credit {
+            margin-top: 16px;
+            font-family: 'Fira Code', monospace;
+            font-size: 10px;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
 
         /* Audio & Studio */
-        .audio-control { position: fixed; bottom: 30px; right: 30px; z-index: 50; display: flex; align-items: center; gap: 12px; opacity: 0; transition: opacity 0.5s ease; }
-        .audio-control.visible { opacity: 1; }
-        .audio-btn { width: 40px; height: 40px; border-radius: 50%; background: rgba(79, 209, 197, 0.1); border: 1px solid rgba(79, 209, 197, 0.4); color: var(--accent-cyan); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
-        .audio-btn:hover { background: rgba(79, 209, 197, 0.2); box-shadow: 0 0 20px rgba(79, 209, 197, 0.3); }
-        .audio-btn svg { width: 18px; height: 18px; }
-        .studio-logo-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 15, 0.98); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 600; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
-        .studio-logo-overlay.visible { opacity: 1; visibility: visible; }
-        .studio-logo { width: 450px; max-width: 85vw; opacity: 0; transform: scale(0); transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); filter: drop-shadow(0 0 50px rgba(79, 209, 197, 0.7)); }
-        .studio-logo-overlay.visible .studio-logo { opacity: 1; transform: scale(1); }
-        .studio-logo img { width: 100%; height: auto; }
-        .studio-message { margin-top: 40px; font-family: 'Fira Code', monospace; font-size: 15px; color: var(--accent-cyan); text-align: center; opacity: 0; transform: translateY(20px); transition: all 0.5s ease 0.3s; letter-spacing: 2px; }
-        .studio-logo-overlay.visible .studio-message { opacity: 1; transform: translateY(0); }
-        .studio-subtext { margin-top: 12px; font-size: 12px; color: var(--text-secondary); letter-spacing: 1px; }
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .audio-control.visible {
+            opacity: 1;
+        }
+
+        .audio-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(79, 209, 197, 0.1);
+            border: 1px solid rgba(79, 209, 197, 0.4);
+            color: var(--accent-cyan);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .audio-btn:hover {
+            background: rgba(79, 209, 197, 0.2);
+            box-shadow: 0 0 20px rgba(79, 209, 197, 0.3);
+        }
+
+        .audio-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .studio-logo-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 8, 15, 0.98);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 600;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .studio-logo-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .studio-logo {
+            width: 450px;
+            max-width: 85vw;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 0 50px rgba(79, 209, 197, 0.7));
+        }
+
+        .studio-logo-overlay.visible .studio-logo {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .studio-logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .studio-message {
+            margin-top: 40px;
+            font-family: 'Fira Code', monospace;
+            font-size: 15px;
+            color: var(--accent-cyan);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.3s;
+            letter-spacing: 2px;
+        }
+
+        .studio-logo-overlay.visible .studio-message {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .studio-subtext {
+            margin-top: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+        }
 
         /* Corners & Scan */
-        .corner-decoration { position: fixed; pointer-events: none; opacity: 0.4; z-index: 5; }
-        .corner-decoration.top-left { top: 20px; left: 20px; width: 80px; height: 80px; border-top: 1px solid var(--accent-cyan); border-left: 1px solid var(--accent-cyan); }
-        .corner-decoration.top-right { top: 20px; right: 20px; width: 80px; height: 80px; border-top: 1px solid var(--accent-cyan); border-right: 1px solid var(--accent-cyan); }
-        .corner-decoration.bottom-left { bottom: 20px; left: 20px; width: 80px; height: 80px; border-bottom: 1px solid var(--accent-cyan); border-left: 1px solid var(--accent-cyan); }
-        .corner-decoration.bottom-right { bottom: 20px; right: 20px; width: 80px; height: 80px; border-bottom: 1px solid var(--accent-cyan); border-right: 1px solid var(--accent-cyan); }
-        .scan-line { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0px, rgba(0, 0, 0, 0.05) 1px, transparent 1px, transparent 2px); z-index: 1000; opacity: 0.3; }
+        .corner-decoration {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.4;
+            z-index: 5;
+        }
+
+        .corner-decoration.top-left {
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            border-top: 1px solid var(--accent-cyan);
+            border-left: 1px solid var(--accent-cyan);
+        }
+
+        .corner-decoration.top-right {
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-top: 1px solid var(--accent-cyan);
+            border-right: 1px solid var(--accent-cyan);
+        }
+
+        .corner-decoration.bottom-left {
+            bottom: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            border-bottom: 1px solid var(--accent-cyan);
+            border-left: 1px solid var(--accent-cyan);
+        }
+
+        .corner-decoration.bottom-right {
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border-bottom: 1px solid var(--accent-cyan);
+            border-right: 1px solid var(--accent-cyan);
+        }
+
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0px, rgba(0, 0, 0, 0.05) 1px, transparent 1px, transparent 2px);
+            z-index: 1000;
+            opacity: 0.3;
+        }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .moon-container { top: 4%; right: 5%; }
-            .moon { width: 90px; height: 90px; }
-            .content { padding: 50px 16px; }
-            .buff-toast, .achievement-modal { padding: 30px 24px; width: 90%; min-width: unset; }
-            .corner-decoration { width: 40px; height: 40px; }
-            .constellation-container { height: 600px; }
-            .star-tooltip { min-width: 200px; padding: 12px 16px; }
-            .constellation-legend { flex-wrap: wrap; gap: 20px; }
-            .achievement-panel { top: 10px; left: 10px; flex-direction: row; flex-wrap: wrap; max-width: calc(100% - 20px); }
-            .achievement-item { width: 50px; height: 50px; }
-            .achievement-icon { font-size: 24px; }
+            .moon-container {
+                top: 4%;
+                right: 5%;
+            }
+
+            .moon {
+                width: 90px;
+                height: 90px;
+            }
+
+            .content {
+                padding: 50px 16px;
+            }
+
+            .buff-toast,
+            .achievement-modal {
+                padding: 30px 24px;
+                width: 90%;
+                min-width: unset;
+            }
+
+            .corner-decoration {
+                width: 40px;
+                height: 40px;
+            }
+
+            /* 显示滚动提示 */
+            .scroll-hint {
+                display: block;
+            }
+
+            /* 星座图移动端优化 - 核心修复 */
+            .constellation-section {
+                padding: 20px 10px;
+                margin-left: -16px;
+                margin-right: -16px;
+                width: calc(100% + 32px);
+            }
+
+            .constellation-container {
+                height: auto;
+                min-height: 500px;
+                overflow-x: auto;
+                overflow-y: visible;
+                -webkit-overflow-scrolling: touch;
+                /* iOS 平滑滚动 */
+                scrollbar-width: thin;
+                scrollbar-color: rgba(79, 209, 197, 0.3) transparent;
+            }
+
+            .constellation-container::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            .constellation-container::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .constellation-container::-webkit-scrollbar-thumb {
+                background: rgba(79, 209, 197, 0.3);
+                border-radius: 2px;
+            }
+
+            .constellation-inner {
+                min-width: 600px;
+                /* 确保星座图有足够宽度显示 */
+                width: max-content;
+                height: 500px;
+                position: relative;
+            }
+
+            .star-tooltip {
+                min-width: 180px;
+                max-width: 220px;
+                padding: 12px 14px;
+                font-size: 10px;
+            }
+
+            .star-tooltip .tooltip-title {
+                font-size: 11px;
+            }
+
+            .star-tooltip .tooltip-row {
+                font-size: 10px;
+            }
+
+            .star-tooltip .commit-hash {
+                font-size: 9px;
+                max-height: 50px;
+            }
+
+            /* 移动端显示长按提示，隐藏双击提示 */
+            .copy-hint.mobile-hint {
+                display: block;
+            }
+
+            .copy-hint.desktop-hint {
+                display: none;
+            }
+
+            .constellation-legend {
+                flex-wrap: wrap;
+                gap: 12px 20px;
+                padding: 15px 10px;
+                justify-content: center;
+            }
+
+            .legend-item {
+                font-size: 10px;
+                gap: 6px;
+                flex: 0 0 auto;
+            }
+
+            .legend-dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .victory-cipher-hint {
+                bottom: 60px;
+                padding: 14px 24px;
+                font-size: 10px;
+                max-width: 85%;
+            }
+
+            .cipher-text {
+                font-size: 13px;
+                letter-spacing: 2px;
+            }
+
+            /* Victory Reveal 移动端优化 */
+            .victory-reveal-overlay {
+                padding: 40px 15px;
+            }
+
+            .victory-title {
+                font-size: 20px;
+                letter-spacing: 4px;
+                margin-bottom: 25px;
+                text-align: center;
+            }
+
+            .cipher-reveal-box {
+                padding: 25px 20px;
+                max-width: 95vw;
+                width: 100%;
+            }
+
+            .cipher-label {
+                font-size: 10px;
+                letter-spacing: 2px;
+                margin-bottom: 15px;
+            }
+
+            .cipher-main,
+            .cipher-result {
+                font-size: 24px;
+                letter-spacing: 6px;
+            }
+
+            .cipher-arrow {
+                font-size: 18px;
+                margin: 10px 0;
+            }
+
+            .cipher-explanation {
+                font-size: 12px;
+                margin-top: 20px;
+                line-height: 1.6;
+            }
+
+            .victory-close-hint {
+                margin-top: 30px;
+                font-size: 10px;
+            }
+
+            .achievement-panel {
+                top: 10px;
+                left: 10px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                max-width: calc(100% - 20px);
+            }
+
+            .achievement-item {
+                width: 50px;
+                height: 50px;
+            }
+
+            .achievement-icon {
+                font-size: 24px;
+            }
+
+            /* 学习卡片移动端优化 */
+            .study-chapters {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .chapter-card {
+                min-width: unset;
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            /* Download Button 移动端优化 */
+            .download-section {
+                margin-top: 30px;
+                padding: 0 10px;
+            }
+
+            .download-btn {
+                padding: 14px 30px;
+                font-size: 12px;
+                letter-spacing: 2px;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            /* 标题移动端优化 */
+            .title-main {
+                letter-spacing: 8px;
+            }
+
+            .title-tag {
+                font-size: 10px;
+                letter-spacing: 4px;
+            }
+
+            /* 祝福文字移动端优化 */
+            .blessing-text {
+                font-size: 14px;
+                line-height: 2.2;
+            }
+
+            /* Modal 移动端优化 */
+            .modal-content {
+                padding: 24px 20px;
+                width: 95%;
+            }
+
+            /* Loading Screen 移动端优化 */
+            .loading-screen {
+                padding-top: 10vh;
+                padding-bottom: 20px;
+            }
+
+            .loading-text {
+                font-size: 11px;
+                line-height: 1.6;
+                max-width: 95vw;
+                padding: 0 15px;
+            }
+
+            .loading-bar-container {
+                width: 280px;
+            }
+
+            .start-button {
+                padding: 12px 40px;
+                font-size: 12px;
+                margin-bottom: 60px;
+            }
+        }
+
+        /* 更小屏幕的额外优化 */
+        @media (max-width: 480px) {
+            .constellation-inner {
+                min-width: 550px;
+                height: 450px;
+            }
+
+            .star-node {
+                width: 32px;
+                height: 32px;
+            }
+
+            .star-core {
+                width: 10px;
+                height: 10px;
+            }
+
+            .star-node.completed .star-core {
+                width: 14px;
+                height: 14px;
+            }
+
+            .star-label {
+                font-size: 8px;
+                margin-top: 6px;
+            }
+
+            .constellation-subtitle {
+                font-size: 10px;
+                padding: 0 10px;
+            }
+
+            .achievement-panel {
+                gap: 8px;
+            }
+
+            .achievement-item {
+                width: 44px;
+                height: 44px;
+            }
+
+            .achievement-icon {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Boot Screen - Click to start terminal -->
     <div class="boot-screen" id="bootScreen">
@@ -455,22 +2692,32 @@
 
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-text" id="loadingText"></div>
-        <div class="loading-bar-container"><div class="loading-bar" id="loadingBar"></div></div>
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loadingBar"></div>
+        </div>
         <button class="start-button" id="startButton">Initialize</button>
     </div>
 
     <!-- Loading Audio Control -->
     <div class="loading-audio-control" id="loadingAudioControl">
         <button class="loading-audio-btn" id="loadingAudioBtn" title="Toggle Loading BGM">
-            <svg id="loadingPlayIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;"><path d="M8 5v14l11-7z"/></svg>
-            <svg id="loadingPauseIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            <svg id="loadingPlayIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                <path d="M8 5v14l11-7z" />
+            </svg>
+            <svg id="loadingPauseIcon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
         </button>
     </div>
 
     <div class="main-container" id="mainContainer">
-        <div class="starfield"><div class="stars" id="stars"></div></div>
+        <div class="starfield">
+            <div class="stars" id="stars"></div>
+        </div>
         <div class="grid-overlay"></div>
-        <div class="moon-container" id="moonContainer"><div class="moon" id="moon"></div></div>
+        <div class="moon-container" id="moonContainer">
+            <div class="moon" id="moon"></div>
+        </div>
         <div class="particle-container" id="particleContainer"></div>
         <div class="corner-decoration top-left"></div>
         <div class="corner-decoration top-right"></div>
@@ -503,7 +2750,9 @@
             <div class="eve-logo" id="eveLogo">EVE</div>
             <div class="eve-subtitle">Protocol E.V.E.</div>
             <div class="eve-status">// PROTOCOL INITIALIZING...</div>
-            <div class="eve-progress-bar"><div class="eve-progress-fill"></div></div>
+            <div class="eve-progress-bar">
+                <div class="eve-progress-fill"></div>
+            </div>
         </div>
 
         <!-- Victory Cipher Reveal Animation -->
@@ -524,7 +2773,8 @@
 
         <div class="studio-logo-overlay" id="studioOverlay">
             <div class="studio-logo"><img src="/william/21th/nyxcoil_logo.png" alt="NYXCOIL CONTINUUM LAB"></div>
-            <div class="studio-message">封印开始松动...<div class="studio-subtext">// The seal is weakening...</div></div>
+            <div class="studio-message">封印开始松动...<div class="studio-subtext">// The seal is weakening...</div>
+            </div>
         </div>
 
         <div class="buff-toast" id="buffToast">
@@ -559,11 +2809,14 @@
                     <span class="line">旧章收笔,远道起首,且去于须臾的间隙,<span class="code-term">编译</span>永恒的纹理。</span>
                     <span class="line">若底噪是世界的常态,便将其化为跃迁的燃料。</span>
                     <span class="line">愿你在概率的迷雾中,捕获<span class="highlight">反脆弱的凸性</span>,让那些随手拼凑的碎片,简单超越复杂,自成星斗。</span>
-                    <span class="line">但请记得,无论<span class="code-term">算法</span>如何迭代,你的存在本身即是<span class="code-term">"公理"</span>,而非待解的<span class="code-term">"变量"</span>。</span>
+                    <span class="line">但请记得,无论<span class="code-term">算法</span>如何迭代,你的存在本身即是<span
+                            class="code-term">"公理"</span>,而非待解的<span class="code-term">"变量"</span>。</span>
                     <span class="line">愿那些尚未扎根的愿景,正待今夜月华盈袖。</span>
                     <span class="line">不必向<span class="special-term">幻月</span>借光,亦无视沿途流弹的喧嚣。</span>
                     <span class="line">所谓的"彼岸",并非光锥之外的幻象,而是由你每一个极致的当下,坍缩而成的实相。</span>
-                    <span class="line">当<span class="code-term">"观测"</span>终结了名为<span class="code-term">"无常"</span>的异变,这唯一的"此刻",便是你亲手构筑的<span class="special-term">理想乡</span>。</span>
+                    <span class="line">当<span class="code-term">"观测"</span>终结了名为<span
+                            class="code-term">"无常"</span>的异变,这唯一的"此刻",便是你亲手构筑的<span
+                            class="special-term">理想乡</span>。</span>
                     <span class="line">新的一岁,因上精进,自有光辉。</span>
                 </div>
 
@@ -575,14 +2828,18 @@
                 <div class="study-system" id="studySystem">
                     <div class="study-chapters">
                         <div class="chapter-card" id="linearCard">
-                            <div class="chapter-icon matrix-icon"><span class="matrix-row">[λ 0]</span><span class="matrix-row">[0 λ]</span></div>
+                            <div class="chapter-icon matrix-icon"><span class="matrix-row">[λ 0]</span><span
+                                    class="matrix-row">[0 λ]</span></div>
                             <div class="chapter-title">MATRIX CALCULUS CORE</div>
                             <div class="chapter-desc">Dual-Thread Ops · 30-Day Sequence</div>
-                            <div class="chapter-meta"><span class="meta-item">💾 SRC: Li_Yongle.lib</span><span class="meta-item">📦 6 Modules</span></div>
+                            <div class="chapter-meta"><span class="meta-item">💾 SRC: Li_Yongle.lib</span><span
+                                    class="meta-item">📦 6 Modules</span></div>
                             <div class="progress-section">
                                 <div class="progress-label">SYNC STATUS</div>
                                 <div class="progress-bar-wrapper">
-                                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="linearProgress"></div></div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" id="linearProgress"></div>
+                                    </div>
                                     <span class="progress-text" id="linearPercent">0%</span>
                                 </div>
                             </div>
@@ -591,28 +2848,38 @@
                         <div class="chapter-card" id="networkCard">
                             <div class="chapter-icon network-icon">
                                 <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <circle cx="30" cy="12" r="6"/><circle cx="12" cy="48" r="6"/><circle cx="48" cy="48" r="6"/>
-                                    <line x1="30" y1="18" x2="15" y2="42"/><line x1="30" y1="18" x2="45" y2="42"/><line x1="18" y1="48" x2="42" y2="48"/>
-                                    <circle cx="30" cy="36" r="3" fill="currentColor"/><line x1="30" y1="18" x2="30" y2="33"/>
+                                    <circle cx="30" cy="12" r="6" />
+                                    <circle cx="12" cy="48" r="6" />
+                                    <circle cx="48" cy="48" r="6" />
+                                    <line x1="30" y1="18" x2="15" y2="42" />
+                                    <line x1="30" y1="18" x2="45" y2="42" />
+                                    <line x1="18" y1="48" x2="42" y2="48" />
+                                    <circle cx="30" cy="36" r="3" fill="currentColor" />
+                                    <line x1="30" y1="18" x2="30" y2="33" />
                                 </svg>
                             </div>
                             <div class="chapter-title">NEURAL TOPOLOGY PROTOCOL</div>
                             <div class="chapter-desc">Dual-Thread Ops · 30-Day Sequence</div>
-                            <div class="chapter-meta"><span class="meta-item">📡 SRC: Wang_Dao.pkg</span><span class="meta-item">📦 6 Modules</span></div>
+                            <div class="chapter-meta"><span class="meta-item">📡 SRC: Wang_Dao.pkg</span><span
+                                    class="meta-item">📦 6 Modules</span></div>
                             <div class="progress-section">
                                 <div class="progress-label">SYNC STATUS</div>
                                 <div class="progress-bar-wrapper">
-                                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="networkProgress"></div></div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" id="networkProgress"></div>
+                                    </div>
                                     <span class="progress-text" id="networkPercent">0%</span>
                                 </div>
                             </div>
-                            <button class="chapter-btn" onclick="openReflectionModal('network')">SYNC STATUS</button>
+                            <button class="chapter-btn" onclick="openReflectionModal('network')">+ UPLOAD DATA</button>
                         </div>
                     </div>
 
                     <div class="constellation-section" id="constellationSection">
                         <div class="constellation-title">✦ VEIN TOPOLOGY VISUALIZATION ✦</div>
-                        <div class="constellation-subtitle">// 16 Synaptic Nodes · 30 Cycles Sequence · System Integration</div>
+                        <div class="constellation-subtitle">// 16 Synaptic Nodes · 30 Cycles Sequence · System
+                            Integration</div>
+                        <div class="scroll-hint" id="scrollHint">← 滑动查看完整星图 →</div>
                         <div class="constellation-container" id="constellationContainer">
                             <div class="constellation-inner" id="constellationInner">
                                 <svg class="constellation-lines" id="constellationLines"></svg>
@@ -622,16 +2889,25 @@
                             <span class="cipher-text">✨ FULL SYNCHRONIZATION ✨</span>
                         </div>
                         <div class="constellation-legend">
-                            <div class="legend-item"><div class="legend-dot linear"></div><span>Linear.mod</span></div>
-                            <div class="legend-item"><div class="legend-dot network"></div><span>Network.kext</span></div>
-                            <div class="legend-item"><div class="legend-dot milestone"></div><span>Keyframe</span></div>
-                            <div class="legend-item"><div class="legend-dot completed"></div><span>Synced</span></div>
+                            <div class="legend-item">
+                                <div class="legend-dot linear"></div><span>Linear.mod</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot network"></div><span>Network.kext</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot milestone"></div><span>Keyframe</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-dot completed"></div><span>Synced</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Download Section (visible only when all completed) -->
                     <div class="download-section" id="downloadSection">
-                        <button class="download-btn" id="downloadBtn" onclick="downloadAllData()">📥 DOWNLOAD ARCHIVE</button>
+                        <button class="download-btn" id="downloadBtn" onclick="downloadAllData()">📥 DOWNLOAD
+                            ARCHIVE</button>
                     </div>
                 </div>
 
@@ -651,8 +2927,9 @@
 
         <div class="modal-overlay" id="reflectionModal">
             <div class="modal-content">
-                <div class="modal-title">// comment</div>
-                <textarea class="modal-input" id="reflectionInput" placeholder='Default "{current_time} Finish {current_subject} {current_chapter}"'></textarea>
+                <div class="modal-title">// commit message</div>
+                <textarea class="modal-input" id="reflectionInput"
+                    placeholder='Default "{current_time} Finish {current_subject} {current_chapter}"'></textarea>
                 <div class="modal-hint">💡 Backend will encrypt via sigil.pub</div>
                 <div class="modal-actions">
                     <button class="modal-btn" onclick="closeReflectionModal()">cancel</button>
@@ -665,14 +2942,22 @@
 
         <div class="audio-control" id="audioControl">
             <button class="audio-btn" id="audioBtn" title="Toggle BGM">
-                <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                </svg>
+                <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                </svg>
             </button>
         </div>
     </div>
 
-    <audio id="bgMusic" loop preload="auto"><source src="/william/21th/th08_13.mp3" type="audio/mpeg"></audio>
-    <audio id="loadingMusic" loop preload="auto"><source src="/william/21th/loading_bgm.mp3" type="audio/mpeg"></audio>
+    <audio id="bgMusic" loop preload="auto">
+        <source src="/william/21th/th08_13.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="loadingMusic" loop preload="auto">
+        <source src="/william/21th/loading_bgm.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         const API_BASE_URL = 'https://api.nexusk.fun';
@@ -795,13 +3080,13 @@
         function formatDate(date) {
             if (!date) return '--';
             const d = new Date(date);
-            return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+            return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
         }
 
         function formatTime(date) {
             if (!date) return '--';
             const d = new Date(date);
-            return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+            return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
         }
 
         const buffMessages = [
@@ -899,7 +3184,7 @@
             // Show loading audio control
             setTimeout(() => loadingAudioControl.classList.add('visible'), 300);
             // Start loading music (Music A)
-            loadingMusic.volume = 0.35;
+            loadingMusic.volume = 0.8;
             loadingMusic.play().then(() => {
                 loadingMusicPlaying = true;
                 loadingPlayIcon.style.display = 'none';
@@ -987,13 +3272,48 @@
 
             div.appendChild(createTooltip(node));
 
-            // Double-click to copy
+            // Double-click to copy (desktop) + Long press to copy (mobile)
             if (node.completed && node.commit) {
                 div.style.cursor = 'copy';
+
+                // Desktop: double-click
                 div.addEventListener('dblclick', (e) => {
                     e.stopPropagation();
                     copyToClipboard(node.commit);
                     showToast('✓ Encrypted commit copied');
+                });
+
+                // Mobile: long press (500ms)
+                let longPressTimer = null;
+                let isLongPress = false;
+
+                div.addEventListener('touchstart', (e) => {
+                    isLongPress = false;
+                    longPressTimer = setTimeout(() => {
+                        isLongPress = true;
+                        e.preventDefault();
+                        copyToClipboard(node.commit);
+                        showToast('✓ Encrypted commit copied');
+                        // 添加视觉反馈
+                        div.style.transform = 'translate(-50%, -50%) scale(1.2)';
+                        setTimeout(() => {
+                            div.style.transform = 'translate(-50%, -50%)';
+                        }, 200);
+                    }, 500);
+                }, { passive: false });
+
+                div.addEventListener('touchend', () => {
+                    if (longPressTimer) {
+                        clearTimeout(longPressTimer);
+                        longPressTimer = null;
+                    }
+                });
+
+                div.addEventListener('touchmove', () => {
+                    if (longPressTimer) {
+                        clearTimeout(longPressTimer);
+                        longPressTimer = null;
+                    }
                 });
             }
 
@@ -1029,7 +3349,8 @@
                     <div class="tooltip-commit">
                         <div class="commit-label">Encrypted Commit (GPG)</div>
                         <div class="commit-hash">${shortCommit}</div>
-                        <div class="copy-hint">Double-click to copy</div>
+                        <div class="copy-hint desktop-hint">Double-click to copy</div>
+                        <div class="copy-hint mobile-hint">Long press to copy</div>
                     </div>`;
             }
 
@@ -1208,7 +3529,7 @@
 
         // Update milestone nodes based on achievement
         function updateMilestoneNodes(achievementId) {
-            switch(achievementId) {
+            switch (achievementId) {
                 case 'system_activation':
                     // Node 2 (Start) - system activation
                     starMapData.nodes[2].completed = true;
@@ -1613,7 +3934,7 @@
             loadAchievements();
 
             // Start main BGM (Music B)
-            bgMusic.volume = 0.35;
+            bgMusic.volume = 0.55;
             bgMusic.play().then(() => {
                 isPlaying = true;
                 playIcon.style.display = 'none';
@@ -1666,6 +3987,20 @@
         document.getElementById('achievementModal').addEventListener('click', (e) => {
             if (e.target === e.currentTarget) closeAchievementModal();
         });
+
+        // 移动端滚动提示处理
+        const constellationContainer = document.getElementById('constellationContainer');
+        const scrollHint = document.getElementById('scrollHint');
+        if (constellationContainer && scrollHint) {
+            constellationContainer.addEventListener('scroll', function () {
+                // 用户开始滚动后隐藏提示
+                scrollHint.style.opacity = '0';
+                setTimeout(() => {
+                    scrollHint.style.display = 'none';
+                }, 300);
+            }, { once: true }); // 只执行一次
+        }
     </script>
 </body>
+
 </html>
